@@ -5,8 +5,23 @@
     <!-- Statusbar -->
     <f7-statusbar></f7-statusbar>
 
+    <f7-panel class="view-left" left reveal>
+      <!-- <f7-view name='left' navbar-through :dynamic-navbar='true'  url="/index-left-menu"></f7-view> -->
+
+    <f7-view>
+      <f7-page>
+        <f7-block>Left panel content</f7-block>
+      </f7-page>
+    </f7-view>
+    </f7-panel>
+
+    <f7-views>
+      <!-- 中间视图 -->
+      <f7-view class="view-main" url="/index-container"></f7-view>
+    </f7-views>
+
     <!-- Main View -->
-    <f7-view id="main-view" url="/" main class="safe-areas"></f7-view>
+    <!-- <f7-view id="main-view" url="/" main class="safe-areas"></f7-view> -->
 
   </f7-app>
 </template>

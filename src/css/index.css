@@ -1,9 +1,11 @@
 .view-left {
-    float: left;
+    left: 0;
+    display: block;
     width: 320px;
     border-right: 1px solid #b2b2b2;
 }
 
-.view-container {
+.view-main {
+    float: right;
     width: calc(100% - 320px);
 }
