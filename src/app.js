@@ -26,8 +26,8 @@ Framework7.use(Framework7Vue)
 
 // Init App
 new Vue({
-    el: '#app',
-    template: '<app/>',
+    el: '#app', //绑定的根元素对象
+    template: '<app/>', //模板内容
 
     // Register App Component
     components: {

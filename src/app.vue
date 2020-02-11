@@ -7,7 +7,7 @@
     <!-- 左边菜单容器 -->
     <f7-panel class="view-left" left reveal>
       <f7-navbar>
-        <f7-nav-title>贷后管理系统</f7-nav-title>
+        <f7-nav-title>贷后管理</f7-nav-title>
       </f7-navbar>
       <f7-pages>
         <f7-page>我在这里</f7-page>
@@ -25,7 +25,7 @@
 
     <f7-views>
       <!-- 中间视图 -->
-      <f7-view class="view-main" url="/index-container"></f7-view>
+      <f7-view class="view-main" url="/index/"></f7-view>
     </f7-views>
   </f7-app>
 </template>
