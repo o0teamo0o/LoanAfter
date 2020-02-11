@@ -1,0 +1,38 @@
+@appbar-height: 50px; //导航条高度
+@menu-width: 180px;
+
+.appbar-layout {
+  height: @appbar-height;
+  align-items: center;
+  display: flex;
+
+  .left-view {
+    width: @menu-width;
+    text-align: center;
+
+    .img-logo {
+      width: 150px;
+      margin-left: 10px;
+      height: auto;
+    }
+  }
+
+  .menu-switch {
+    width: 30px;
+    height: auto;
+    padding: 10px;
+  }
+}
+
+.view-left {
+  left: 0;
+  display: block;
+  top: @appbar-height;
+  width: @menu-width;
+  border-right: 1px solid #b2b2b2;
+}
+
+.view-main {
+  float: right;
+  width: calc(100% - @menu-width);
+}

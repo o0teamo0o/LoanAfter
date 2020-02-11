@@ -12,21 +12,25 @@ import 'framework7/css/framework7.bundle.css';
 
 // Import Icons and App Custom Styles
 import IconsStyles from './css/icons.css';
-import AppStyles from './css/app.css';
+import AppStyles from './css/app.less';
 
 // Import App Component
 import App from './app.vue';
+
+// Import less
+import less from 'less';
+Vue.use(less)
 
 // Init F7 Vue Plugin
 Framework7.use(Framework7Vue)
 
 // Init App
 new Vue({
-  el: '#app',
-  template: '<app/>',
+    el: '#app',
+    template: '<app/>',
 
-  // Register App Component
-  components: {
-    app: App
-  }
+    // Register App Component
+    components: {
+        app: App
+    }
 });

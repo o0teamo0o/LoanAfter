@@ -10,14 +10,6 @@ import PanelLeftPage from './pages/panel-left.vue';
 import PanelRightPage from './pages/panel-right.vue';
 
 export default [{
-        path: '/',
-        component: Index,
-    },
-    {
-        path: '/index-left-menu',
-        component: IndexLeftMenu,
-    },
-    {
         path: '/index-container',
         component: IndexContainer,
     },
