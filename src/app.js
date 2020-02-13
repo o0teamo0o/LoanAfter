@@ -12,6 +12,7 @@ import 'framework7/css/framework7.bundle.css';
 
 // Import Icons and App Custom Styles
 import IconsStyles from './css/icons.css';
+import BaseStyles from './css/base.less';
 import AppStyles from './css/app.less';
 
 // Import App Component
