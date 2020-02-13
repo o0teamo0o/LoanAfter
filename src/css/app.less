@@ -6,7 +6,7 @@
   align-items: center;
   display: flex;
 
-  .left-view {
+  .logo-view {
     width: @menu-width;
     text-align: center;
 
@@ -24,15 +24,23 @@
   }
 }
 
-.view-left {
+.menu-layout {
   left: 0;
   display: block;
   top: @appbar-height;
   width: @menu-width;
+  height: calc(100% - @appbar-height);
   border-right: 1px solid #b2b2b2;
+  transition: width 0.2s linear;
+}
+
+.container-out-layout {
+  z-index: 999; //为了防止views遮住左边菜单视图无法点击
+  height: calc(100% - @appbar-height);
 }
 
 .view-main {
   float: right;
   width: calc(100% - @menu-width);
+  transition: width 0.2s linear;
 }
