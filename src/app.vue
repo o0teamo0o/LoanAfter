@@ -94,7 +94,7 @@ export default {
       containerWidth: window.innerWidth - 180
     };
   },
-  mounted: function() {
+  mounted() {
     this.$f7ready(f7 => {
       //判断当前系统是否是ipad使用
       if (!this.$device.ipad) {

@@ -17,8 +17,8 @@
           <f7-card>
             <f7-row class="card-padding">
               <f7-col width="100" class="time-mark">今天是:</f7-col>
-              <f7-col width="100" class="week">星期四</f7-col>
-              <f7-col width="100" class="date">2020年01月02日</f7-col>
+              <f7-col width="100" class="week">{{currentDate.currentWeek}}</f7-col>
+              <f7-col width="100" class="date">{{currentDate.currentDate}}</f7-col>
             </f7-row>
           </f7-card>
         </f7-col>
@@ -29,7 +29,20 @@
 
 
 <script>
-export default {};
+import { DateTime } from "../../utils/DataTime";
+export default {
+  data() {
+    return {
+      currentDate: {}
+    };
+  },
+  created() {
+    let date = new DateTime();
+    this.currentDate.currentDate = date.getDate();
+    this.currentDate.currentTime = date.getTime();
+    this.currentDate.currentWeek = date.getWeek();
+  }
+};
 </script>
 
 <style lang='less' scoped>
