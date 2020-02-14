@@ -1,5 +1,5 @@
 <template>
-  <f7-page name="index-1">
+  <f7-page name="main">
     <f7-navbar>
       <f7-nav-title>标题</f7-nav-title>
     </f7-navbar>

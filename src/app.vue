@@ -6,11 +6,18 @@
 
     <!-- 左边菜单容器 -->
     <f7-panel class="menu-layout" :style="{width: menuWidth +'px'}" left reveal>
-      <f7-view url="/left-menu/"></f7-view>
+      <f7-view id="left-panel-view" url="/panel-left/"></f7-view>
     </f7-panel>
 
-    <!-- Right Panel -->
-    <f7-panel right cover theme-dark>
+    <!-- 右边抽屉菜单容器 -->
+    <f7-panel
+      id="right-panel-view"
+      class="panel-layout"
+      right
+      cover
+      navbar-through
+      :dynamic-navbar="true"
+    >
       <f7-view url="/panel-right/"></f7-view>
     </f7-panel>
 
@@ -20,13 +27,14 @@
         <div class="logo-view">
           <img class="img-logo" src="./assets/logo.gif" />
         </div>
-        <!-- 控制左边菜单按钮 -->
+        <!-- 控制左边菜单的按钮 -->
         <img
           class="menu-switch"
           v-on:click="onMenuToggleListener"
           v-bind:src="menuToggle ? require('./assets/icon_menu_shrink.png') : require('./assets/icon_menu_open.png')"
         />
         <div class="empty" />
+
         <f7-link
           class="btn-right-menu"
           icon-if-ios="f7:menu"
@@ -40,11 +48,18 @@
       <!-- 中间视图 -->
       <f7-view
         id="main-view"
-        main
         class="view-main"
         v-bind:style="{width: containerWidth + 'px'}"
-        url="/index/"
-      ></f7-view>
+        navbar-through
+        toolbar-through
+        :dynamic-navbar="true"
+        main
+      >
+        <!-- Pages -->
+        <f7-pages>
+          <home-page></home-page>
+        </f7-pages>
+      </f7-view>
     </f7-views>
   </f7-app>
 </template>
@@ -52,6 +67,7 @@
 <script>
 // 引入路由文件
 import routes from "./routes.js";
+import HomePage from "./pages/home/index.vue"; //引入首页
 
 export default {
   data() {
@@ -76,6 +92,15 @@ export default {
       containerWidth: window.innerWidth - 180
     };
   },
+  mounted: function() {
+    this.$f7ready(f7 => {
+      //判断当前系统是否是ipad使用
+      if (!this.$device.ipad) {
+        f7.dialog.alert("请使用ipad运行此程序");
+      }
+    });
+  },
+  components: { HomePage },
   methods: {
     /**
      * 导航条菜单收缩按钮事件
