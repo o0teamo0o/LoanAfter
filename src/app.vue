@@ -25,7 +25,9 @@
     <f7-appbar>
       <div class="appbar-layout">
         <div class="logo-view">
-          <img class="img-logo" src="./assets/logo.gif" />
+          <f7-link href="/" view="#main-view" @click="clearPageCache">
+            <img class="img-logo" src="./assets/logo.gif" />
+          </f7-link>
         </div>
         <!-- 控制左边菜单的按钮 -->
         <img
@@ -102,6 +104,17 @@ export default {
   },
   components: { HomePage },
   methods: {
+    /**
+     * 返回首页
+     */
+    clearPageCache: function() {
+      let self = this;
+
+      setTimeout(function() {
+        self.$$(".page-on-left").remove();
+      }, 1000);
+    },
+
     /**
      * 导航条菜单收缩按钮事件
      */

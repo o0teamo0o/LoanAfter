@@ -5,20 +5,13 @@
     </f7-navbar>
 
     <f7-list>
-      <f7-list-item
-        media="<i class='icon icon-f7'></i>"
-        link="/task-check/"
-        title="贷后任务检查"
-        view="#main-view"
-        @click="clearCache"
-      ></f7-list-item>
-      <f7-list-item
-        media="<i class='icon icon-f7'></i>"
-        title="设置"
-        view="#main-view"
-        link="/setting/"
-        @click="clearCache"
-      ></f7-list-item>
+      <f7-list-item link="/task-check/" title="贷后任务检查" view="#main-view" @click="clearPageCache">
+        <f7-icon slot="media" icon="demo-list-icon"></f7-icon>
+      </f7-list-item>
+      <f7-list-item title="设置" view="#main-view" link="/setting/" @click="clearPageCache">
+        <f7-icon slot="media" icon="house"></f7-icon>
+        <!-- <img src="../../assets/icon_menu_open.png" /> -->
+      </f7-list-item>
     </f7-list>
   </f7-page>
 </template>
@@ -30,7 +23,7 @@ export default {
     return {};
   },
   methods: {
-    clearCache: function() {
+    clearPageCache: function() {
       let self = this;
 
       setTimeout(function() {
