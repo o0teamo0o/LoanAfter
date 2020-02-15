@@ -74,14 +74,8 @@ import HomePage from "./pages/home/index.vue"; //引入首页
 export default {
   data() {
     return {
-      screenWidth:
-        window.innerWidth ||
-        document.documentElement.clientWidth ||
-        document.body.clientWidth, // 屏幕宽
-      screeHeight:
-        window.innerHeight ||
-        document.documentElement.clientHeight ||
-        document.body.clientHeight, // 屏幕高
+      screenWidth: 1024, // 屏幕宽
+      screeHeight: 768, // 屏幕高
       // Framework7全局样式设置
       f7params: {
         id: "hrxj.bank.loanafter", // App bundle ID
@@ -91,11 +85,17 @@ export default {
       },
       menuToggle: true, //左边菜单当前展开状态 true:展开 false:收缩
       menuWidth: 180, //左边菜单默认宽度
-      containerWidth: window.innerWidth - 180
+      containerWidth: 0 //容器宽度
     };
   },
   mounted() {
     this.$f7ready(f7 => {
+      this.screenWidth = this.$$(window).width();
+      this.screeHeight = this.$$(window).height();
+      this.containerWidth = this.screenWidth - this.menuWidth;
+      this.$store.commit("setScreenWidth", this.screenWidth);
+      this.$store.commit("setScreenWidth", this.screenWidth);
+
       //判断当前系统是否是ipad使用
       if (!this.$device.ipad) {
         f7.dialog.alert("请使用ipad运行此程序");
@@ -124,6 +124,7 @@ export default {
         this.menuWidth = 180;
       } else {
         this.menuWidth = 80;
+        this.menuWidth = 0;
       }
       this.containerWidth = this.screenWidth - this.menuWidth;
     }
