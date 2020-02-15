@@ -54,3 +54,31 @@
   width: calc(100% - @menu-width);
   transition: width 0.2s linear;
 }
+
+input[type="text"],
+select {
+  border-radius: 4px !important;
+  border: 1px solid #DCDFE6 !important;
+  outline: 0 !important;
+  padding: 0 15px !important;
+  color: #606266 !important;
+  margin-right: 15px;
+  height: 35px;
+  line-height: 35px;
+  padding: 0 15px;
+}
+
+input.input-focused,
+input.input-with-value.input-focus,
+select.input-focused,
+select.input-with-value.input-focus {
+  border-color: #409eff !important;
+}
+
+span.input-clear-button {
+  padding: 0 15px;
+}
+
+.block-title {
+  margin-top: 20px !important;
+}

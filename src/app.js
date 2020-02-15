@@ -10,6 +10,10 @@ import Framework7Vue from 'framework7-vue/framework7-vue.esm.bundle.js';
 // Import F7 Styles
 import 'framework7/css/framework7.bundle.css';
 
+// import ElementUI from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css';
+// Vue.use(ElementUI)
+
 // Import Icons and App Custom Styles
 import IconsStyles from './css/icons.css';
 import BaseStyles from './css/base.less';

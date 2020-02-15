@@ -8,7 +8,7 @@
               <img class="icon-head" src="../../assets/icon_head.png" />
               <f7-row>
                 <f7-col width="100" class="nickname">早安! 张三</f7-col>
-                <f7-col width="100" class="role">大堂经理</f7-col>
+                <f7-col width="100" class="role">客户经理</f7-col>
               </f7-row>
             </div>
           </f7-card>

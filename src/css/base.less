@@ -1,5 +1,6 @@
 @main-color: #3E71F7;
 
+
 .flex {
   display: -webkit-box;
   display: -webkit-flex;
@@ -27,4 +28,85 @@
 
 .empty {
   flex: 1;
+}
+
+
+
+.line,
+.dashed-line {
+  width: 100%;
+  position: relative;
+}
+
+.line-v {
+  width: 0.1rpx;
+  height: 50rpx;
+  border-left: 0.1rpx dashed #e4e4e4;
+}
+
+.line-half,
+.dashed-line-half {
+  position: relative;
+}
+
+.line::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #e4e4e4;
+  color: #e4e4e4;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.dashed-line::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px dashed #e4e4e4;
+  color: #e4e4e4;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.line-half::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #e4e4e4;
+  color: #e4e4e4;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  margin: 0 30rpx;
+  transform: scaleY(0.5);
+}
+
+.dashed-line-half::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px dashed #e4e4e4;
+  color: #e4e4e4;
+  -webkit-transform-origin: 0 0;
+  margin: 0 30rpx;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
 }
