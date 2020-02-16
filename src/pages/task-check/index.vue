@@ -68,8 +68,28 @@
         </f7-list>
       </f7-card>
 
-      <f7-card class="bottom-layout1" ref="bottomView" v-if="taskList">
-        <el-table :data="taskList" border style="width: 100%" :max-height="tableMaxHeight">
+      <f7-card ref="bottomView" v-if="taskList">
+        <div class="flex">
+          <div class="result-hint">查询结果</div>
+          <div class="empty"></div>
+          <el-pagination
+            class="pagination"
+            background
+            layout="prev, pager, next"
+            :page-count="total"
+            :page-size="pagesize"
+            :current-page="currentPage"
+            hide-on-single-page
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+          ></el-pagination>
+        </div>
+        <el-table
+          :data="taskList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+          border
+          style="transition: max-height 0.2s linear"
+          :max-height="tableMaxHeight"
+        >
           <el-table-column fixed prop="date" label="客户名称" width="110"></el-table-column>
           <el-table-column prop="name" label="客户编号" width="110"></el-table-column>
           <el-table-column prop="province" label="证件类型" width="105"></el-table-column>
@@ -103,7 +123,71 @@ export default {
       tableMaxHeight: 0, //默认表格高度
       bigTableMaxHeight: 0, //表格最大值
       smallTableMaxHeight: 0, //表格最大值
+      multipleSelection: [],
+      total: 2, //总页数
+      pagesize: 10, //每页数据
+      currentPage: 1, //当前页
       taskList: [
+        {
+          date: "P000089728",
+          name: "P000089728",
+          province: "第二代身份证",
+          city: "430888888888888888",
+          address: "",
+          zip: "日常维护检查",
+          jclx: "个人居住类检查",
+          M: "M12",
+          riqi: "2020-08-08",
+          state: "待检查"
+        },
+        {
+          date: "P000089728",
+          name: "P000089728",
+          province: "第二代身份证",
+          city: "430888888888888888",
+          address: "",
+          zip: "日常维护检查",
+          jclx: "个人居住类检查",
+          M: "M12",
+          riqi: "2020-08-08",
+          state: "待检查"
+        },
+        {
+          date: "P000089728",
+          name: "P000089728",
+          province: "第二代身份证",
+          city: "430888888888888888",
+          address: "",
+          zip: "日常维护检查",
+          jclx: "个人居住类检查",
+          M: "M12",
+          riqi: "2020-08-08",
+          state: "待检查"
+        },
+        {
+          date: "P000089728",
+          name: "P000089728",
+          province: "第二代身份证",
+          city: "430888888888888888",
+          address: "",
+          zip: "日常维护检查",
+          jclx: "个人居住类检查",
+          M: "M12",
+          riqi: "2020-08-08",
+          state: "待检查"
+        },
+        {
+          date: "P000089728",
+          name: "P000089728",
+          province: "第二代身份证",
+          city: "430888888888888888",
+          address: "",
+          zip: "日常维护检查",
+          jclx: "个人居住类检查",
+          M: "M12",
+          riqi: "2020-08-08",
+          state: "待检查"
+        },
         {
           date: "P000089728",
           name: "P000089728",
@@ -182,9 +266,9 @@ export default {
   mounted() {
     var that = this;
     this.$nextTick(() => {
-      this.screeHeight = that.$store.state.screeHeight - 85;
+      that.screeHeight = that.$store.state.screeHeight - 85;
       var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-      that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop;
+      that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
       that.smallTableMaxHeight = that.tableMaxHeight;
     });
 
@@ -195,7 +279,7 @@ export default {
           that.tableMaxHeight = that.smallTableMaxHeight;
         } else {
           var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-          that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop;
+          that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
           that.smallTableMaxHeight = that.tableMaxHeight;
         }
       });
@@ -206,17 +290,26 @@ export default {
           that.tableMaxHeight = that.bigTableMaxHeight;
         } else {
           var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-          that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop;
+          that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
           that.bigTableMaxHeight = that.tableMaxHeight;
         }
       });
     });
   },
-  methods: {}
+  methods: {
+    // 每页多少条
+    handleSizeChange(val) {
+      this.pageSize = val;
+    },
+    // 当前页
+    handleCurrentChange(val) {
+      this.currentPage = val;
+    }
+  }
 };
 </script>
 
-<style lang='less' scoped>
+<style lang='less'>
 @import "../../css/base.less";
 .title {
   padding: 15px;
@@ -256,5 +349,17 @@ export default {
 
 .bottom-layout {
   flex: 1;
+}
+
+.result-hint {
+  line-height: 44px;
+  height: 44px;
+  padding: 0 15px;
+  font-size: 16px;
+}
+
+//修复样式冲突问题
+.el-pagination button {
+  width: 40px !important;
 }
 </style>
