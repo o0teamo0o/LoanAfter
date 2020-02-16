@@ -21,7 +21,13 @@
               <f7-row class="item-layout">
                 <f7-col width="50" class="title">
                   <span class="hint">客户类别</span>
-                  <f7-input class="value" type="select" placeholder="请输入内容" defaultValue="--请选择--">
+                  <f7-input
+                    class="value"
+                    type="select"
+                    placeholder="请输入内容"
+                    defaultValue="--请选择--"
+                    v-model="customerType"
+                  >
                     <option>--请选择--</option>
                     <option>对公客户</option>
                     <option>个人客户</option>
@@ -29,13 +35,20 @@
                 </f7-col>
                 <f7-col width="50" class="title">
                   <span class="hint">客户名称</span>
-                  <f7-input class="value" type="text" placeholder="请输入内容" clear-button></f7-input>
+                  <f7-input
+                    class="value"
+                    type="text"
+                    placeholder="请输入内容"
+                    clear-button
+                    name="customerName"
+                    v-model="customerName"
+                  ></f7-input>
                 </f7-col>
               </f7-row>
               <f7-row class="item-layout">
                 <f7-col width="50" class="title">
                   <span class="hint">检查类型</span>
-                  <f7-input class="value" type="select" placeholder="请输入内容" defaultValue="--请选择--">
+                  <f7-input class="value" type="select" placeholder="请输入内容">
                     <option>--请选择--</option>
                     <option>资金用途检查</option>
                     <option>日常维护检查</option>
@@ -59,7 +72,7 @@
                 </f7-col>
                 <f7-col width="10"></f7-col>
                 <f7-col width="20" tag="span">
-                  <f7-button large raised fill color="red">查询</f7-button>
+                  <f7-button large raised fill color="red" @click="onQueryTask">查询</f7-button>
                 </f7-col>
                 <f7-col width="25"></f7-col>
               </f7-row>
@@ -102,7 +115,7 @@
           <el-table-column prop="state" label="任务状态" width="80"></el-table-column>
           <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="scope">
-              <el-button @click="handleClick(scope.row)" type="text" size="small">接收</el-button>
+              <el-button @click="onItemClick(scope.row)" type="text" size="small">接收</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -119,6 +132,10 @@
 export default {
   data() {
     return {
+      customerType: 0, //客户类别
+      customerName: "", //客户名称
+      checkType: 0, //检查类型
+      任务状态: 0, //任务状态
       screeHeight: 768, //屏幕高度
       tableMaxHeight: 0, //默认表格高度
       bigTableMaxHeight: 0, //表格最大值
@@ -274,14 +291,17 @@ export default {
 
     this.$f7ready(f7 => {
       //Accordion打开事件监听
-      that.$$("#accordionItem").on("accordion:opened", function() {
-        if (that.smallTableMaxHeight != 0) {
-          that.tableMaxHeight = that.smallTableMaxHeight;
-        } else {
-          var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-          that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
-          that.smallTableMaxHeight = that.tableMaxHeight;
-        }
+      // that.$$("#accordionItem").on("accordion:opened", function() {
+      //   if (that.smallTableMaxHeight != 0) {
+      //     that.tableMaxHeight = that.smallTableMaxHeight;
+      //   } else {
+      //     var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
+      //     that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
+      //     that.smallTableMaxHeight = that.tableMaxHeight;
+      //   }
+      // });
+      that.$$("#accordionItem").on("accordion:beforeopen", function() {
+        that.tableMaxHeight = that.smallTableMaxHeight;
       });
 
       //Accordion关闭事件监听
@@ -297,11 +317,25 @@ export default {
     });
   },
   methods: {
-    // 每页多少条
+    onQueryTask: function() {
+      console.error(this.customerName);
+    },
+
+    /**
+     * 条目点击事件
+     */
+    onItemClick: function(item) {},
+
+    /**
+     * pageSize 改变时会触发
+     */
     handleSizeChange(val) {
       this.pageSize = val;
     },
-    // 当前页
+
+    /**
+     * currentPage 改变时会触发
+     */
     handleCurrentChange(val) {
       this.currentPage = val;
     }
