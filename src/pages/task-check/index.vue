@@ -26,7 +26,8 @@
                     type="select"
                     placeholder="请输入内容"
                     defaultValue="--请选择--"
-                    v-model="customerType"
+                    :value="customerType"
+                    @input="customerType = $event.target.value"
                   >
                     <option>--请选择--</option>
                     <option>对公客户</option>
@@ -40,15 +41,21 @@
                     type="text"
                     placeholder="请输入内容"
                     clear-button
-                    name="customerName"
-                    v-model="customerName"
+                    :value="customerName"
+                    @input="customerName = $event.target.value"
                   ></f7-input>
                 </f7-col>
               </f7-row>
               <f7-row class="item-layout">
                 <f7-col width="50" class="title">
                   <span class="hint">检查类型</span>
-                  <f7-input class="value" type="select" placeholder="请输入内容">
+                  <f7-input
+                    class="value"
+                    type="select"
+                    placeholder="请输入内容"
+                    :value="checkType"
+                    @input="checkType = $event.target.value"
+                  >
                     <option>--请选择--</option>
                     <option>资金用途检查</option>
                     <option>日常维护检查</option>
@@ -57,7 +64,13 @@
                 </f7-col>
                 <f7-col width="50" class="title">
                   <span class="hint">任务状态</span>
-                  <f7-input class="value" type="select" placeholder="--请选择--">
+                  <f7-input
+                    class="value"
+                    type="select"
+                    placeholder="--请选择--"
+                    :value="taskType"
+                    @input="taskType = $event.target.value"
+                  >
                     <option>--请选择--</option>
                     <option>待检查</option>
                     <option>检查中</option>
@@ -68,7 +81,7 @@
               <f7-row class="btn-layout">
                 <f7-col width="25"></f7-col>
                 <f7-col width="20" tag="span">
-                  <f7-button large raised fill color="gray">重置</f7-button>
+                  <f7-button large raised fill color="gray" @click="onResetTask">重置</f7-button>
                 </f7-col>
                 <f7-col width="10"></f7-col>
                 <f7-col width="20" tag="span">
@@ -132,10 +145,10 @@
 export default {
   data() {
     return {
-      customerType: 0, //客户类别
+      customerType: "--请选择--", //客户类别
       customerName: "", //客户名称
-      checkType: 0, //检查类型
-      任务状态: 0, //任务状态
+      checkType: "--请选择--", //检查类型
+      taskType: "--请选择--", //任务状态
       screeHeight: 768, //屏幕高度
       tableMaxHeight: 0, //默认表格高度
       bigTableMaxHeight: 0, //表格最大值
@@ -317,14 +330,34 @@ export default {
     });
   },
   methods: {
+    /**
+     * 查询按钮回调
+     */
     onQueryTask: function() {
-      console.error(this.customerName);
+      var queryInfo = {};
+      queryInfo.customerType = this.customerType;
+      queryInfo.customerName = this.customerName;
+      queryInfo.checkType = this.checkType;
+      queryInfo.taskType = this.taskType;
+      console.error(queryInfo);
+    },
+
+    /**
+     * 重置按钮回调
+     */
+    onResetTask: function() {
+      this.customerType = "--请选择--";
+      this.customerName = "";
+      this.checkType = "--请选择--";
+      this.taskType = "--请选择--";
     },
 
     /**
      * 条目点击事件
      */
-    onItemClick: function(item) {},
+    onItemClick: function(item) {
+      console.error(item);
+    },
 
     /**
      * pageSize 改变时会触发
