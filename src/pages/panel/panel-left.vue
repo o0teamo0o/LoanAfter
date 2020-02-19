@@ -22,7 +22,7 @@ export default {
     return {};
   },
   methods: {
-    clearPageCache: function() {
+    clearPageCache() {
       let self = this;
 
       setTimeout(function() {

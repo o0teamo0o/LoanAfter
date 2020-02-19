@@ -32,14 +32,6 @@
                 </f7-col>
                 <f7-col width="50" class="title">
                   <span class="hint">客户名称</span>
-                  <!-- <f7-input
-                    class="value"
-                    type="text"
-                    placeholder="请输入内容"
-                    clear-button
-                    :value="customerName"
-                    @input="customerName = $event.target.value"
-                  ></f7-input>-->
                   <el-input
                     v-model="customerName"
                     :value="customerName"
@@ -385,7 +377,7 @@ export default {
     /**
      * 查询按钮回调
      */
-    onQueryTask: function() {
+    onQueryTask() {
       var queryInfo = {};
       queryInfo.customerType = this.customerType;
       queryInfo.customerName = this.customerName;
@@ -397,7 +389,7 @@ export default {
     /**
      * 重置按钮回调
      */
-    onResetTask: function() {
+    onResetTask() {
       this.customerType = "";
       this.customerName = "";
       this.checkType = "";
@@ -407,7 +399,7 @@ export default {
     /**
      * 条目点击事件
      */
-    onItemClick: function(item) {
+    onItemClick(item) {
       console.error(item);
       this.itemUrl = "/task-navigation/?customType=" + item.type;
       this.$f7router.navigate({

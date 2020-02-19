@@ -107,7 +107,7 @@ export default {
     /**
      * 返回首页
      */
-    clearPageCache: function() {
+    clearPageCache() {
       let self = this;
 
       setTimeout(function() {
@@ -118,7 +118,7 @@ export default {
     /**
      * 导航条菜单收缩按钮事件
      */
-    onMenuToggleListener: function() {
+    onMenuToggleListener() {
       this.menuToggle = !this.menuToggle;
       if (this.menuToggle) {
         this.menuWidth = 200;
