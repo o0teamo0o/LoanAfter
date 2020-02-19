@@ -123,9 +123,15 @@
           <el-table-column prop="state" label="任务状态" width="80"></el-table-column>
           <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="scope">
-              <f7-link
+              <!-- <f7-link
                 class="btn-link"
                 href="/about/"
+                view="#left-panel-view"
+                @click="onItemClick(scope.row)"
+              >接收</f7-link>-->
+              <f7-link
+                class="btn-link"
+                :href="itemUrl"
                 view="#left-panel-view"
                 @click="onItemClick(scope.row)"
               >接收</f7-link>
@@ -193,6 +199,7 @@ export default {
       currentPage: 1, //当前页
       taskList: [
         {
+          type: 0,
           date: "P000089728",
           name: "P000089728",
           province: "第二代身份证",
@@ -205,6 +212,7 @@ export default {
           state: "待检查"
         },
         {
+          type: 1,
           date: "P000089728",
           name: "P000089728",
           province: "第二代身份证",
@@ -217,6 +225,7 @@ export default {
           state: "待检查"
         },
         {
+          type: 2,
           date: "P000089728",
           name: "P000089728",
           province: "第二代身份证",
@@ -229,6 +238,7 @@ export default {
           state: "待检查"
         },
         {
+          type: 3,
           date: "P000089728",
           name: "P000089728",
           province: "第二代身份证",
@@ -241,6 +251,7 @@ export default {
           state: "待检查"
         },
         {
+          type: 4,
           date: "P000089728",
           name: "P000089728",
           province: "第二代身份证",
@@ -253,6 +264,7 @@ export default {
           state: "待检查"
         },
         {
+          type: 5,
           date: "P000089728",
           name: "P000089728",
           province: "第二代身份证",
@@ -265,6 +277,7 @@ export default {
           state: "待检查"
         },
         {
+          type: 6,
           date: "P000089728",
           name: "P000089728",
           province: "第二代身份证",
@@ -277,6 +290,7 @@ export default {
           state: "待检查"
         },
         {
+          type: 7,
           date: "P000089728",
           name: "P000089728",
           province: "第二代身份证",
@@ -289,6 +303,7 @@ export default {
           state: "待检查"
         },
         {
+          type: 8,
           date: "P000089728",
           name: "P000089728",
           province: "第二代身份证",
@@ -301,6 +316,7 @@ export default {
           state: "待检查"
         },
         {
+          type: 9,
           date: "P000089728",
           name: "P000089728",
           province: "第二代身份证",
@@ -313,6 +329,7 @@ export default {
           state: "待检查"
         },
         {
+          type: 10,
           date: "P000089728",
           name: "P000089728",
           province: "第二代身份证",
@@ -324,7 +341,8 @@ export default {
           riqi: "2020-08-08",
           state: "待检查"
         }
-      ] //查询结果集
+      ], //查询结果集
+      itemUrl: "/task-navigation/?customType=0"
     };
   },
   mounted() {
@@ -391,7 +409,11 @@ export default {
      */
     onItemClick: function(item) {
       console.error(item);
-      this.$f7router.navigate("/form/");
+      this.itemUrl = "/task-navigation/?customType=" + item.type;
+      this.$f7router.navigate({
+        name: "form",
+        query: { customType: item.type }
+      });
     },
 
     /**

@@ -6,11 +6,10 @@
 
     <f7-list>
       <f7-list-item link="/task-check/" title="贷后任务检查" view="#main-view" @click="clearPageCache">
-        <f7-icon slot="media" icon="demo-list-icon"></f7-icon>
+        <img slot="media" class="icon-menu" src="../../assets/icon_menu_task.png" />
       </f7-list-item>
       <f7-list-item title="设置" view="#main-view" link="/setting/" @click="clearPageCache">
-        <f7-icon slot="media" icon="house"></f7-icon>
-        <!-- <img src="../../assets/icon_menu_open.png" /> -->
+        <img slot="media" class="icon-menu" src="../../assets/icon_menu_setting.png" />
       </f7-list-item>
     </f7-list>
   </f7-page>
@@ -33,3 +32,9 @@ export default {
   }
 };
 </script>
+
+<style lang='less'>
+.icon-menu {
+  width: 25px;
+}
+</style>
