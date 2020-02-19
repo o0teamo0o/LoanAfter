@@ -411,7 +411,7 @@ export default {
       console.error(item);
       this.itemUrl = "/task-navigation/?customType=" + item.type;
       this.$f7router.navigate({
-        name: "form",
+        name: "information",
         query: { customType: item.type }
       });
     },

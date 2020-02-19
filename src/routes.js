@@ -2,7 +2,8 @@ import HomePage from './pages/home/index.vue'; //首页
 import PanelLeftPage from './pages/panel/panel-left.vue'; //左边菜单视图
 import PanelRightPage from './pages/panel/panel-right.vue'; //右边菜单页面
 import TaskCheckPage from './pages/task-check/index.vue'; //任务检查页面
-import TaskNavigationPage from './pages/task-check/task-daily/navigation-menu.vue'; //日常任务导航
+import TaskNavigationPage from './pages/task-check/task-daily/navigation-menu.vue'; //日常任务导航页面
+import TaskInformationPage from './pages/task-check/task-daily/information.vue'; //日常任务基本信息通用页面
 import SettingPage from './pages/setting/index.vue'; //设置页面
 
 
@@ -34,6 +35,11 @@ export default [{
     {
         path: '/task-navigation/',
         component: TaskNavigationPage,
+    },
+    {
+        path: '/task-information/',
+        name: 'information',
+        component: TaskInformationPage,
     },
     {
         path: '/setting/',
