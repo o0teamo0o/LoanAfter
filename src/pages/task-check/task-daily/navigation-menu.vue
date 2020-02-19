@@ -87,13 +87,18 @@ export default {
   },
   mounted() {
     var that = this;
-    this.$$(document).on("page:init", function(e, page) {
-      console.log("导航栏收到的参数:", page.route.query.customType);
+
+    this.$f7ready(f7 => {
+      this.$$(document).on("page:init", function(e, page) {
+        console.log("导航栏收到的参数:", page.route.query.customType);
+      });
     });
   },
   methods: {
     onNavigationClick(index) {
       this.currentNavigationIndex = index;
+      var mainView = this.$f7.views.main;
+      mainView.router.navigate("/about/");
     }
   }
 };

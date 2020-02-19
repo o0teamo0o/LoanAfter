@@ -402,10 +402,10 @@ export default {
     onItemClick(item) {
       console.error(item);
       this.itemUrl = "/task-navigation/?customType=" + item.type;
-      this.$f7router.navigate({
-        name: "information",
-        query: { customType: item.type }
-      });
+      // this.$f7router.navigate({
+      //   name: "information",
+      //   query: { customType: item.type }
+      // });
     },
 
     /**
