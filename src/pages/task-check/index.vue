@@ -21,60 +21,55 @@
               <f7-row class="item-layout">
                 <f7-col width="50" class="title">
                   <span class="hint">客户类别</span>
-                  <f7-input
-                    class="value"
-                    type="select"
-                    placeholder="请输入内容"
-                    defaultValue="--请选择--"
-                    :value="customerType"
-                    @input="customerType = $event.target.value"
-                  >
-                    <option>--请选择--</option>
-                    <option>对公客户</option>
-                    <option>个人客户</option>
-                  </f7-input>
+                  <el-select v-model="customerType" placeholder="--请选择--">
+                    <el-option
+                      v-for="item in customerTypes"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
                 </f7-col>
                 <f7-col width="50" class="title">
                   <span class="hint">客户名称</span>
-                  <f7-input
+                  <!-- <f7-input
                     class="value"
                     type="text"
                     placeholder="请输入内容"
                     clear-button
                     :value="customerName"
                     @input="customerName = $event.target.value"
-                  ></f7-input>
+                  ></f7-input>-->
+                  <el-input
+                    v-model="customerName"
+                    :value="customerName"
+                    clearable
+                    placeholder="请输入客户名称"
+                  ></el-input>
                 </f7-col>
               </f7-row>
               <f7-row class="item-layout">
                 <f7-col width="50" class="title">
                   <span class="hint">检查类型</span>
-                  <f7-input
-                    class="value"
-                    type="select"
-                    placeholder="请输入内容"
-                    :value="checkType"
-                    @input="checkType = $event.target.value"
-                  >
-                    <option>--请选择--</option>
-                    <option>资金用途检查</option>
-                    <option>日常维护检查</option>
-                    <option>业务到期检查</option>
-                  </f7-input>
+                  <el-select v-model="checkType" placeholder="--请选择--">
+                    <el-option
+                      v-for="item in checkTypes"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
                 </f7-col>
                 <f7-col width="50" class="title">
                   <span class="hint">任务状态</span>
-                  <f7-input
-                    class="value"
-                    type="select"
-                    placeholder="--请选择--"
-                    :value="taskType"
-                    @input="taskType = $event.target.value"
-                  >
-                    <option>--请选择--</option>
-                    <option>待检查</option>
-                    <option>检查中</option>
-                  </f7-input>
+                  <el-select v-model="taskType" placeholder="--请选择--">
+                    <el-option
+                      v-for="item in taskTypes"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
                 </f7-col>
               </f7-row>
 
@@ -128,7 +123,12 @@
           <el-table-column prop="state" label="任务状态" width="80"></el-table-column>
           <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="scope">
-              <el-button @click="onItemClick(scope.row)" type="text" size="small">接收</el-button>
+              <f7-link
+                class="btn-link"
+                href="/about/"
+                view="#left-panel-view"
+                @click="onItemClick(scope.row)"
+              >接收</f7-link>
             </template>
           </el-table-column>
         </el-table>
@@ -145,10 +145,44 @@
 export default {
   data() {
     return {
-      customerType: "--请选择--", //客户类别
+      customerTypes: [
+        {
+          value: "0",
+          label: "对公客户"
+        },
+        {
+          value: "1",
+          label: "个人客户"
+        }
+      ],
+      customerType: "", //客户类别结果
       customerName: "", //客户名称
-      checkType: "--请选择--", //检查类型
-      taskType: "--请选择--", //任务状态
+      checkTypes: [
+        {
+          value: "0",
+          label: "资金用途检查"
+        },
+        {
+          value: "1",
+          label: "日常维护检查"
+        },
+        {
+          value: "2",
+          label: "业务到期检查"
+        }
+      ], //检查类型
+      checkType: "", //检查类型
+      taskTypes: [
+        {
+          value: "0",
+          label: "待检查"
+        },
+        {
+          value: "1",
+          label: "检查中"
+        }
+      ], //任务状态
+      taskType: "", //任务状态
       screeHeight: 768, //屏幕高度
       tableMaxHeight: 0, //默认表格高度
       bigTableMaxHeight: 0, //表格最大值
@@ -346,10 +380,10 @@ export default {
      * 重置按钮回调
      */
     onResetTask: function() {
-      this.customerType = "--请选择--";
+      this.customerType = "";
       this.customerName = "";
-      this.checkType = "--请选择--";
-      this.taskType = "--请选择--";
+      this.checkType = "";
+      this.taskType = "";
     },
 
     /**
@@ -357,6 +391,7 @@ export default {
      */
     onItemClick: function(item) {
       console.error(item);
+      this.$f7router.navigate("/form/");
     },
 
     /**
@@ -392,7 +427,7 @@ export default {
     align-items: center;
 
     .hint {
-      width: 100px;
+      width: 100px !important;
       font-size: 16px;
       color: #666;
     }
@@ -428,5 +463,17 @@ export default {
 //修复样式冲突问题
 .el-pagination button {
   width: 40px !important;
+}
+
+.el-input {
+  width: 234px !important;
+}
+
+.el-table .cell {
+  text-align: center;
+}
+
+.btn-link {
+  font-size: 12px;
 }
 </style>
