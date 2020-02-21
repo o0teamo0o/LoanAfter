@@ -14,6 +14,7 @@
     </f7-navbar>
 
     <f7-block
+      class="remind-mark"
       strong
     >&#8195;&#8195;检查人在此声明与保证：此检查表是按照本行的规定要求，根据客户提供的资料和手机的相关信息，经检查人审慎调查、核实、分析整理完成。检查人对检查表内容完整性、资料的真实性、判断的合理性负责。</f7-block>
 
@@ -212,6 +213,10 @@ export default {
 
 <style lang='less'>
 @import "../../../css/base.less";
+.remind-mark {
+  color: #fda929;
+}
+
 .check-layout {
   padding: 15px 0;
 }
