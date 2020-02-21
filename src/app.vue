@@ -100,6 +100,12 @@ export default {
       if (!this.$device.ipad) {
         f7.dialog.alert("请使用ipad运行此程序");
       }
+
+      // var mainView = this.$f7.views.main;
+      // mainView.params.stackPages = true;
+      // mainView.params.allowDuplicateUrls = true;
+      // mainView.params.reloadPages = true;
+      // console.error("mainView:", mainView);
     });
   },
   components: { HomePage },

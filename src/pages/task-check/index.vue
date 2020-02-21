@@ -125,6 +125,8 @@
                 class="btn-link"
                 :href="itemUrl"
                 view="#left-panel-view"
+                data-force="true"
+                data-push-state="true"
                 @click="onItemClick(scope.row)"
               >接收</f7-link>
             </template>
@@ -334,7 +336,7 @@ export default {
           state: "待检查"
         }
       ], //查询结果集
-      itemUrl: "/task-navigation/?customType=0"
+      itemUrl: "/task-navigation/"
     };
   },
   mounted() {
@@ -400,12 +402,11 @@ export default {
      * 条目点击事件
      */
     onItemClick(item) {
-      console.error(item);
       this.itemUrl = "/task-navigation/?customType=" + item.type;
-      // this.$f7router.navigate({
-      //   name: "information",
-      //   query: { customType: item.type }
-      // });
+      this.$f7router.navigate({
+        name: "DailyInformationPage",
+        query: { customType: item.type }
+      });
     },
 
     /**
