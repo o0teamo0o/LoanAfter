@@ -119,12 +119,6 @@
           <el-table-column prop="state" label="任务状态" width="80"></el-table-column>
           <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="scope">
-              <!-- <f7-link
-                class="btn-link"
-                href="/about/"
-                view="#left-panel-view"
-                @click="onItemClick(scope.row)"
-              >接收</f7-link>-->
               <f7-link
                 class="btn-link"
                 :href="itemUrl"

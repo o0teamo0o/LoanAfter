@@ -71,7 +71,7 @@
         <f7-col width="50" class="title">
           <i class="ignore">*</i>
           <span class="hint">联合检查人</span>
-          <el-input v-model="customerName" :value="customerName" clearable placeholder="请输入客户名称"></el-input>
+          <el-input v-model="examiner" :value="examiner" clearable placeholder="请输入联合检查人"></el-input>
         </f7-col>
       </f7-row>
     </f7-card>
@@ -118,6 +118,7 @@
 export default {
   data() {
     return {
+      examiner: "", //检查人
       pickerOptions: {
         disabledDate(time) {
           return time.getTime() > Date.now();
@@ -230,7 +231,7 @@ export default {
   }
 }
 .block {
-  margin: 20px 0 !important;
+  margin: 20px 0 15px !important;
 }
 //解决input图片和文字之间距离冲突
 .el-input--prefix .el-input__inner {

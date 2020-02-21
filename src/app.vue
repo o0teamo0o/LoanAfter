@@ -90,7 +90,6 @@ export default {
   },
   mounted() {
     this.$f7ready(f7 => {
-      console.error(this.$f7.views);
       this.screenWidth = this.$$(window).width();
       this.screeHeight = this.$$(window).height();
       this.containerWidth = this.screenWidth - this.menuWidth;
