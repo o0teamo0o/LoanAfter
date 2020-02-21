@@ -1,6 +1,17 @@
 <template>
   <f7-page>
-    <f7-navbar title="授权汇总" back-link="返回"></f7-navbar>
+    <f7-navbar>
+      <f7-nav-left>
+        <a @click="onBack">
+          <i class="icon icon-back"></i>
+          <span>返回</span>
+        </a>
+      </f7-nav-left>
+      <f7-nav-title>授权汇总</f7-nav-title>
+      <f7-nav-right>
+        <f7-button outline @click="onSave">保存</f7-button>
+      </f7-nav-right>
+    </f7-navbar>
     <f7-block-title>授权汇总</f7-block-title>
   </f7-page>
 </template>
@@ -18,6 +29,20 @@ export default {
         }
       });
     });
+  },
+  methods: {
+    /**
+     * 页面返回事件
+     */
+    onBack() {
+      this.$f7.views.main.router.back();
+      this.$f7.views.left.router.back();
+    },
+
+    /**
+     * 数据保存事件
+     */
+    onSave() {}
   }
 };
 </script>

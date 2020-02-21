@@ -6,7 +6,7 @@
 
     <!-- 左边菜单容器 -->
     <f7-panel class="menu-layout" id="left-view" :style="{width: menuWidth +'px'}" left reveal>
-      <f7-view id="left-panel-view" url="/panel-left/"></f7-view>
+      <f7-view id="left-panel-view" url="/panel-left/" name="left"></f7-view>
     </f7-panel>
 
     <!-- 右边抽屉菜单容器 -->
@@ -18,7 +18,7 @@
       navbar-through
       :dynamic-navbar="true"
     >
-      <f7-view url="/panel-right/"></f7-view>
+      <f7-view url="/panel-right/" name="right"></f7-view>
     </f7-panel>
 
     <!-- 最上面的导航条 -->
@@ -90,6 +90,7 @@ export default {
   },
   mounted() {
     this.$f7ready(f7 => {
+      console.error(this.$f7.views);
       this.screenWidth = this.$$(window).width();
       this.screeHeight = this.$$(window).height();
       this.containerWidth = this.screenWidth - this.menuWidth;

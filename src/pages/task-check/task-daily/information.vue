@@ -9,7 +9,7 @@
       </f7-nav-left>
       <f7-nav-title>基本信息</f7-nav-title>
       <f7-nav-right>
-        <f7-button outline>保存</f7-button>
+        <f7-button outline @click="onSave">保存</f7-button>
       </f7-nav-right>
     </f7-navbar>
 
@@ -29,20 +29,21 @@ export default {
           console.log("基本信息页面获取到的参数:", that.customType);
         }
       });
-
-      that.$$(".back").on("click:back", function() {
-        console.error("backClick");
-      });
-
-      that.$$("#aaa").on("click", function() {
-        console.error("navbar");
-      });
     });
   },
   methods: {
+    /**
+     * 页面返回事件
+     */
     onBack() {
       this.$f7.views.main.router.back();
-    }
+      this.$f7.views.left.router.back();
+    },
+
+    /**
+     * 数据保存事件
+     */
+    onSave() {}
   }
 };
 </script>

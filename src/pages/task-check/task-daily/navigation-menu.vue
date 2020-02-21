@@ -30,7 +30,7 @@ export default {
       currentContainerPath: "", //当前容器路径
       lists: [
         {
-          type: 0,
+          type: 0, //公司类客户
           items: [
             {
               title: "基本信息",
@@ -81,6 +81,470 @@ export default {
               link: "/daily-portrait/"
             }
           ]
+        },
+        {
+          type: 1, //事业法人客户
+          items: [
+            {
+              title: "基本信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_info_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_info_normal.png"),
+              link: "/daily-information/"
+            },
+            {
+              title: "授信汇总",
+              imgSelectedUrl: require("../../../assets/icon_daily_authorize_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_authorize_normal.png"),
+              link: "/daily-authorization/"
+            },
+            {
+              title: "客户经营",
+              imgSelectedUrl: require("../../../assets/icon_daily_manage_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_manage_normal.png"),
+              link: "/daily-management/"
+            },
+            {
+              title: "项目管理",
+              imgSelectedUrl: require("../../../assets/icon_daily_project_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_project_normal.png"),
+              link: "/daily-project/"
+            },
+            {
+              title: "担保信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_guarantee_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_guarantee_normal.png"),
+              link: "/daily-guarantee/"
+            },
+            {
+              title: "风险分类",
+              imgSelectedUrl: require("../../../assets/icon_daily_risk_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_risk_normal.png"),
+              link: "/daily-risk/"
+            },
+            {
+              title: "检查结论",
+              imgSelectedUrl: require("../../../assets/icon_daily_inspect_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_inspect_normal.png"),
+              link: "/daily-inspect/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
+            }
+          ]
+        },
+        {
+          type: 2, //平台客户
+          items: [
+            {
+              title: "基本信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_info_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_info_normal.png"),
+              link: "/daily-information/"
+            },
+            {
+              title: "授信汇总",
+              imgSelectedUrl: require("../../../assets/icon_daily_authorize_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_authorize_normal.png"),
+              link: "/daily-authorization/"
+            },
+            {
+              title: "客户经营",
+              imgSelectedUrl: require("../../../assets/icon_daily_manage_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_manage_normal.png"),
+              link: "/daily-management/"
+            },
+            {
+              title: "项目管理",
+              imgSelectedUrl: require("../../../assets/icon_daily_project_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_project_normal.png"),
+              link: "/daily-project/"
+            },
+            {
+              title: "担保信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_guarantee_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_guarantee_normal.png"),
+              link: "/daily-guarantee/"
+            },
+            {
+              title: "风险分类",
+              imgSelectedUrl: require("../../../assets/icon_daily_risk_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_risk_normal.png"),
+              link: "/daily-risk/"
+            },
+            {
+              title: "检查结论",
+              imgSelectedUrl: require("../../../assets/icon_daily_inspect_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_inspect_normal.png"),
+              link: "/daily-inspect/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
+            }
+          ]
+        },
+        {
+          type: 3, //房地产客户
+          items: [
+            {
+              title: "基本信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_info_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_info_normal.png"),
+              link: "/daily-information/"
+            },
+            {
+              title: "授信汇总",
+              imgSelectedUrl: require("../../../assets/icon_daily_authorize_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_authorize_normal.png"),
+              link: "/daily-authorization/"
+            },
+            {
+              title: "客户经营",
+              imgSelectedUrl: require("../../../assets/icon_daily_manage_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_manage_normal.png"),
+              link: "/daily-management/"
+            },
+            {
+              title: "项目管理",
+              imgSelectedUrl: require("../../../assets/icon_daily_project_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_project_normal.png"),
+              link: "/daily-project/"
+            },
+            {
+              title: "担保信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_guarantee_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_guarantee_normal.png"),
+              link: "/daily-guarantee/"
+            },
+            {
+              title: "风险分类",
+              imgSelectedUrl: require("../../../assets/icon_daily_risk_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_risk_normal.png"),
+              link: "/daily-risk/"
+            },
+            {
+              title: "检查结论",
+              imgSelectedUrl: require("../../../assets/icon_daily_inspect_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_inspect_normal.png"),
+              link: "/daily-inspect/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
+            }
+          ]
+        },
+        {
+          type: 4, //集团客户
+          items: [
+            {
+              title: "基本信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_info_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_info_normal.png"),
+              link: "/daily-information/"
+            },
+            {
+              title: "客户经营",
+              imgSelectedUrl: require("../../../assets/icon_daily_manage_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_manage_normal.png"),
+              link: "/daily-management/"
+            },
+            {
+              title: "检查结论",
+              imgSelectedUrl: require("../../../assets/icon_daily_inspect_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_inspect_normal.png"),
+              link: "/daily-inspect/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
+            }
+          ]
+        },
+        {
+          type: 5, //小微企业客户
+          items: [
+            {
+              title: "基本信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_info_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_info_normal.png"),
+              link: "/daily-information/"
+            },
+            {
+              title: "授信汇总",
+              imgSelectedUrl: require("../../../assets/icon_daily_authorize_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_authorize_normal.png"),
+              link: "/daily-authorization/"
+            },
+            {
+              title: "客户经营",
+              imgSelectedUrl: require("../../../assets/icon_daily_manage_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_manage_normal.png"),
+              link: "/daily-management/"
+            },
+            {
+              title: "担保信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_guarantee_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_guarantee_normal.png"),
+              link: "/daily-guarantee/"
+            },
+            {
+              title: "风险分类",
+              imgSelectedUrl: require("../../../assets/icon_daily_risk_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_risk_normal.png"),
+              link: "/daily-risk/"
+            },
+            {
+              title: "检查结论",
+              imgSelectedUrl: require("../../../assets/icon_daily_inspect_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_inspect_normal.png"),
+              link: "/daily-inspect/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
+            }
+          ]
+        },
+        {
+          type: 6, //个人投资类客户
+          items: [
+            {
+              title: "基本信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_info_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_info_normal.png"),
+              link: "/daily-information/"
+            },
+            {
+              title: "授信汇总",
+              imgSelectedUrl: require("../../../assets/icon_daily_authorize_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_authorize_normal.png"),
+              link: "/daily-authorization/"
+            },
+            {
+              title: "客户经营",
+              imgSelectedUrl: require("../../../assets/icon_daily_manage_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_manage_normal.png"),
+              link: "/daily-management/"
+            },
+            {
+              title: "担保信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_guarantee_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_guarantee_normal.png"),
+              link: "/daily-guarantee/"
+            },
+            {
+              title: "风险分类",
+              imgSelectedUrl: require("../../../assets/icon_daily_risk_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_risk_normal.png"),
+              link: "/daily-risk/"
+            },
+            {
+              title: "检查结论",
+              imgSelectedUrl: require("../../../assets/icon_daily_inspect_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_inspect_normal.png"),
+              link: "/daily-inspect/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
+            }
+          ]
+        },
+        {
+          type: 7, //物业贷
+          items: [
+            {
+              title: "基本信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_info_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_info_normal.png"),
+              link: "/daily-information/"
+            },
+            {
+              title: "授信汇总",
+              imgSelectedUrl: require("../../../assets/icon_daily_authorize_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_authorize_normal.png"),
+              link: "/daily-authorization/"
+            },
+            {
+              title: "客户经营",
+              imgSelectedUrl: require("../../../assets/icon_daily_manage_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_manage_normal.png"),
+              link: "/daily-management/"
+            },
+            {
+              title: "担保信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_guarantee_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_guarantee_normal.png"),
+              link: "/daily-guarantee/"
+            },
+            {
+              title: "风险分类",
+              imgSelectedUrl: require("../../../assets/icon_daily_risk_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_risk_normal.png"),
+              link: "/daily-risk/"
+            },
+            {
+              title: "检查结论",
+              imgSelectedUrl: require("../../../assets/icon_daily_inspect_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_inspect_normal.png"),
+              link: "/daily-inspect/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
+            }
+          ]
+        },
+        {
+          type: 8, //税联贷
+          items: [
+            {
+              title: "基本信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_info_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_info_normal.png"),
+              link: "/daily-information/"
+            },
+            {
+              title: "授信汇总",
+              imgSelectedUrl: require("../../../assets/icon_daily_authorize_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_authorize_normal.png"),
+              link: "/daily-authorization/"
+            },
+            {
+              title: "客户经营",
+              imgSelectedUrl: require("../../../assets/icon_daily_manage_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_manage_normal.png"),
+              link: "/daily-management/"
+            },
+            {
+              title: "担保信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_guarantee_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_guarantee_normal.png"),
+              link: "/daily-guarantee/"
+            },
+            {
+              title: "风险分类",
+              imgSelectedUrl: require("../../../assets/icon_daily_risk_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_risk_normal.png"),
+              link: "/daily-risk/"
+            },
+            {
+              title: "检查结论",
+              imgSelectedUrl: require("../../../assets/icon_daily_inspect_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_inspect_normal.png"),
+              link: "/daily-inspect/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
+            }
+          ]
+        },
+        {
+          type: 9, //惠农系列
+          items: [
+            {
+              title: "基本信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_info_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_info_normal.png"),
+              link: "/daily-information/"
+            },
+            {
+              title: "授信汇总",
+              imgSelectedUrl: require("../../../assets/icon_daily_authorize_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_authorize_normal.png"),
+              link: "/daily-authorization/"
+            },
+            {
+              title: "客户经营",
+              imgSelectedUrl: require("../../../assets/icon_daily_manage_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_manage_normal.png"),
+              link: "/daily-management/"
+            },
+            {
+              title: "担保信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_guarantee_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_guarantee_normal.png"),
+              link: "/daily-guarantee/"
+            },
+            {
+              title: "风险分类",
+              imgSelectedUrl: require("../../../assets/icon_daily_risk_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_risk_normal.png"),
+              link: "/daily-risk/"
+            },
+            {
+              title: "检查结论",
+              imgSelectedUrl: require("../../../assets/icon_daily_inspect_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_inspect_normal.png"),
+              link: "/daily-inspect/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
+            }
+          ]
+        },
+        {
+          type: 10, //个人消费客户
+          items: [
+            {
+              title: "基本信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_info_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_info_normal.png"),
+              link: "/daily-information/"
+            },
+            {
+              title: "授信汇总",
+              imgSelectedUrl: require("../../../assets/icon_daily_authorize_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_authorize_normal.png"),
+              link: "/daily-authorization/"
+            },
+            {
+              title: "担保信息",
+              imgSelectedUrl: require("../../../assets/icon_daily_guarantee_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_guarantee_normal.png"),
+              link: "/daily-guarantee/"
+            },
+            {
+              title: "风险分类",
+              imgSelectedUrl: require("../../../assets/icon_daily_risk_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_risk_normal.png"),
+              link: "/daily-risk/"
+            },
+            {
+              title: "检查结论",
+              imgSelectedUrl: require("../../../assets/icon_daily_inspect_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_inspect_normal.png"),
+              link: "/daily-inspect/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
+            }
+          ]
         }
       ]
     };
@@ -103,7 +567,6 @@ export default {
   methods: {
     onNavigationClick(index) {
       var that = this;
-      // console.error(that.$f7.views.main.router.history);
       that.currentNavigationIndex = index;
       var jumpRouterUrl = that.lists[that.customType].items[index].link;
       if (that.currentContainerPath != jumpRouterUrl) {

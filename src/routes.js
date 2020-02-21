@@ -54,6 +54,7 @@ export default [{
         path: '/task-check/',
         name: "TaskCheckPage",
         component: TaskCheckPage,
+        keepAlive: true, //保留之前数据状态
         options: {
             history: true,
             pushState: true
@@ -72,11 +73,13 @@ export default [{
         path: '/daily-information/',
         name: 'DailyInformationPage',
         component: DailyInformationPage,
+        keepAlive: true, //保留之前数据状态
     },
     {
         path: '/daily-authorization/',
         name: 'DailyAuthorizationPage',
         component: DailyAuthorizationPage,
+        keepAlive: true, //保留之前数据状态
     },
     {
         path: '/daily-management/',

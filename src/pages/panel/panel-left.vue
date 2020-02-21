@@ -1,5 +1,5 @@
 <template>
-  <f7-page name="index-left">
+  <f7-page>
     <f7-navbar>
       <f7-nav-title>贷后管理</f7-nav-title>
     </f7-navbar>
