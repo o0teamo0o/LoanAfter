@@ -14,7 +14,7 @@
     </f7-navbar>
 
     <f7-block
-      medium-inset
+      strong
     >&#8195;&#8195;检查人在此声明与保证：此检查表是按照本行的规定要求，根据客户提供的资料和手机的相关信息，经检查人审慎调查、核实、分析整理完成。检查人对检查表内容完整性、资料的真实性、判断的合理性负责。</f7-block>
 
     <f7-card class="check-layout list">
@@ -59,9 +59,9 @@
         <f7-col width="50" class="title">
           <i class="keynote">*</i>
           <span class="hint">面谈对象职务</span>
-          <el-select v-model="checkType" placeholder="--请选择--">
+          <el-select v-model="interview" placeholder="--请选择--">
             <el-option
-              v-for="item in checkTypes"
+              v-for="item in interviews"
               :key="item.value"
               :label="item.label"
               :value="item.value"
@@ -158,7 +158,26 @@ export default {
           label: "非现场检查"
         }
       ], //任务状态
-      checkType: "" //任务状态
+      checkType: "", //任务状态
+      interviews: [
+        {
+          value: "0",
+          label: "法人"
+        },
+        {
+          value: "1",
+          label: "主要股东"
+        },
+        {
+          value: "2",
+          label: "其他"
+        },
+        {
+          value: "3",
+          label: "财务总监"
+        }
+      ], //任务状态
+      interview: "" //任务状态
     };
   },
   mounted() {

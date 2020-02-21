@@ -447,7 +447,7 @@ export default {
 
     .hint {
       width: 105px !important;
-      font-size: 16px;
+      font-size: 14px;
       color: #666;
     }
 
