@@ -20,6 +20,7 @@
             <f7-accordion-content>
               <f7-row class="item-layout">
                 <f7-col width="50" class="title">
+                  <i class="keynote">*</i>
                   <span class="hint">客户类别</span>
                   <el-select v-model="customerType" placeholder="--请选择--">
                     <el-option
@@ -31,6 +32,7 @@
                   </el-select>
                 </f7-col>
                 <f7-col width="50" class="title">
+                  <i class="keynote">*</i>
                   <span class="hint">客户名称</span>
                   <el-input
                     v-model="customerName"
@@ -42,6 +44,7 @@
               </f7-row>
               <f7-row class="item-layout">
                 <f7-col width="50" class="title">
+                  <i class="keynote">*</i>
                   <span class="hint">检查类型</span>
                   <el-select v-model="checkType" placeholder="--请选择--">
                     <el-option
@@ -53,6 +56,7 @@
                   </el-select>
                 </f7-col>
                 <f7-col width="50" class="title">
+                  <i class="keynote">*</i>
                   <span class="hint">任务状态</span>
                   <el-select v-model="taskType" placeholder="--请选择--">
                     <el-option
@@ -442,7 +446,7 @@ export default {
     align-items: center;
 
     .hint {
-      width: 100px !important;
+      width: 105px !important;
       font-size: 16px;
       color: #666;
     }
