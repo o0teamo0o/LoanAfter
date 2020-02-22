@@ -41,7 +41,7 @@
       <el-table :data="taskList" border>
         <el-table-column fixed prop="date" label="授信编号" width="150"></el-table-column>
         <el-table-column prop="zip" label="序号" width="70"></el-table-column>
-        <el-table-column prop="province" label="内容" width="583"></el-table-column>
+        <el-table-column prop="province" label="内容" min-width="583"></el-table-column>
       </el-table>
     </f7-card>
 
@@ -51,7 +51,7 @@
         <el-table-column fixed prop="date" label="授信编号" width="150"></el-table-column>
         <el-table-column prop="zip" label="序号" width="70"></el-table-column>
         <el-table-column prop="province" label="内容" width="300"></el-table-column>
-        <el-table-column label="落实情况" width="300">
+        <el-table-column label="落实情况" width="280">
           <template slot-scope="scope">
             <i class="keynote">*</i>
             <el-select

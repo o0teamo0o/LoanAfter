@@ -235,9 +235,6 @@ export default {
     }
   }
 }
-.block {
-  margin: 20px 0 15px !important;
-}
 //解决input图片和文字之间距离冲突
 .el-input--prefix .el-input__inner {
   padding-left: 30px !important;
