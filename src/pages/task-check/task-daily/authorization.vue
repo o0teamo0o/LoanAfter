@@ -9,6 +9,7 @@
       </f7-nav-left>
       <f7-nav-title>授权汇总</f7-nav-title>
       <f7-nav-right>
+        <f7-button outline @click="onLoadCreditReporting">征信报告</f7-button>
         <f7-button outline @click="onSave">保存</f7-button>
       </f7-nav-right>
     </f7-navbar>
@@ -67,7 +68,7 @@
             </el-select>
           </template>
         </el-table-column>
-        <el-table-column prop="province" label="说明" width="300"></el-table-column>
+        <el-table-column v-if="practicableContent" prop="practicableContent" label="说明" width="300"></el-table-column>
       </el-table>
     </f7-card>
 
@@ -82,7 +83,26 @@
         <el-table-column prop="M" label="到期日期" width="100"></el-table-column>
         <el-table-column prop="riqi" label="逾期(垫款)本金" width="130"></el-table-column>
         <el-table-column prop="state" label="逾期利息" width="130"></el-table-column>
+        <el-table-column fixed="right" label="操作" width="80">
+          <template slot-scope="scope">
+            <f7-link class="btn-link" @click.native.prevent="deleteRow(scope.$index, taskList)">删除</f7-link>
+          </template>
+        </el-table-column>
       </el-table>
+    </f7-card>
+
+    <f7-block>对外担保情况</f7-block>
+    <f7-card>
+      <div class="foreign-layout">
+        <f7-row class="item-layout">
+          <f7-col width="20" class="key">对外担保金额(元):</f7-col>
+          <f7-col width="80">60,000,000.00</f7-col>
+        </f7-row>
+        <f7-row class="item-layout">
+          <f7-col width="20" class="key">对外担保情况说明:</f7-col>
+          <f7-col width="80">该公司主要管理层发生重大不利变化,在我行和他行的贷款出现逾期,并被其他金融机构起诉,无履行担保能力.</f7-col>
+        </f7-row>
+      </div>
     </f7-card>
   </f7-page>
 </template>
@@ -104,7 +124,8 @@ export default {
           M: "2017-01-16",
           riqi: "200,000.00",
           state: "19,888.00",
-          practicable: "--请选择--"
+          practicable: "", //落实情况选项
+          practicableContent: "" //落实情况说明
         }
       ],
       checkTypes: [
@@ -121,7 +142,8 @@ export default {
           label: "未落实"
         }
       ], //检查类型
-      checkType: "" //检查类型
+      checkType: "", //检查类型
+      practicableContent: ""
     };
   },
   mounted() {
@@ -135,13 +157,46 @@ export default {
         }
       });
     });
+
+    /**
+     * 用于获取原生textarea事件的处理
+     */
+    window["onPracticableContent"] = e => {
+      that.practicableContent = e.value;
+    };
   },
   methods: {
     onPracticableChange(index) {
-      if (index == 1) {
-        this.$f7.dialog.alert("请说明原因");
+      var that = this;
+      if (index != 0) {
+        this.$f7.dialog
+          .create({
+            title: "请说明情况",
+            content:
+              '<textarea placeholder="请说明具体原因" rows="5" cols="50" class="dialog-textarea" value="practicableContent" oninput="onPracticableContent(this)"></textarea>',
+            buttons: [
+              {
+                text: "确定"
+              }
+            ],
+            cssClass: "dialog-input",
+            on: {
+              closed: function() {
+                that.taskList[0].practicableContent = that.practicableContent;
+              }
+            }
+          })
+          .open();
       }
     },
+
+    /**
+     * 删除表格记录
+     */
+    deleteRow(index, rows) {
+      rows.splice(index, 1);
+    },
+
     /**
      * 页面返回事件
      */
@@ -149,6 +204,11 @@ export default {
       this.$f7.views.main.router.back();
       this.$f7.views.left.router.back();
     },
+
+    /**
+     * 获取征信报告
+     */
+    onLoadCreditReporting() {},
 
     /**
      * 数据保存事件
@@ -163,5 +223,29 @@ export default {
   line-height: 45px;
   text-align: center;
   color: #333 !important;
+}
+.dialog-input {
+  width: 400px;
+}
+
+.dialog-textarea {
+  border: 1px solid #e4e4e4;
+  border-radius: 3px;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+.foreign-layout {
+  padding: 10px 15px;
+  color: #666;
+
+  .item-layout {
+    padding: 10px 0;
+
+    .key {
+      text-align: right;
+      font-weight: bold;
+    }
+  }
 }
 </style>
