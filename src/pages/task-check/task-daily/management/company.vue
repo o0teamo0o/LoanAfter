@@ -540,7 +540,8 @@ export default {
       text-align: right;
       font-weight: bold;
 
-      .keynote {
+      .keynote,
+      .ignore {
         margin-right: 0;
       }
     }
