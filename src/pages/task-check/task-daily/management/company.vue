@@ -172,6 +172,52 @@
         </el-table-column>
       </el-table>
     </f7-card>
+
+    <!-- <f7-block>对外担保情况</f7-block> -->
+    <f7-card>
+      <div class="production-layout">
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            简要评价：
+            <i class="keynote">*</i>
+          </f7-col>
+          <f7-col width="75">
+            <el-input type="textarea" :rows="2" placeholder="请输入简要评价内容" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            生产经营情况：
+            <i class="keynote">*</i>
+          </f7-col>
+          <f7-col width="75">
+            <el-select v-model="productionInfo" placeholder="--请选择--">
+              <el-option
+                v-for="item in productionInfos"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </f7-col>
+        </f7-row>
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            变动较大财务指标分析
+            <i class="keynote">*</i>
+          </f7-col>
+          <f7-col width="75">
+            <el-input
+              type="textarea"
+              :rows="2"
+              cols="400"
+              placeholder="请输入变动较大财务指标分析内容"
+              v-model="variableFinance"
+            ></el-input>
+          </f7-col>
+        </f7-row>
+      </div>
+    </f7-card>
   </f7-page>
 </template>
 
@@ -274,7 +320,24 @@ export default {
           earlyYear: "", //年初
           currentIssue: "" //本期
         }
-      ]
+      ],
+      evaluate: "", //简要评价
+      productionInfos: [
+        {
+          value: "0",
+          label: "正常"
+        },
+        {
+          value: "1",
+          label: "基本正常"
+        },
+        {
+          value: "2",
+          label: "不正常"
+        }
+      ], //检查类型
+      productionInfo: "", //检查类型
+      variableFinance: "" //较大变动财务状况
     };
   },
   mounted() {
@@ -308,5 +371,25 @@ export default {
 <style lang='less'>
 .financial-layout .el-table td:nth-child(n + 1) {
   padding: 5px 0;
+}
+
+.production-layout {
+  padding: 10px 15px;
+  color: #666;
+
+  .item-layout {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+
+    .key {
+      text-align: right;
+      font-weight: bold;
+
+      .keynote {
+        margin-right: 0;
+      }
+    }
+  }
 }
 </style>
