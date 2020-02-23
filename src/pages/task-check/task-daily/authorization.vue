@@ -46,7 +46,7 @@
     </f7-card>
 
     <f7-block>放款后管理条件</f7-block>
-    <f7-card>
+    <f7-card class="financial-layout">
       <el-table :data="taskList" border>
         <el-table-column fixed prop="date" label="授信编号" width="150"></el-table-column>
         <el-table-column prop="zip" label="序号" width="70"></el-table-column>
@@ -247,5 +247,9 @@ export default {
       font-weight: bold;
     }
   }
+}
+
+.financial-layout .el-table td:nth-child(n + 1) {
+  padding: 5px 0;
 }
 </style>

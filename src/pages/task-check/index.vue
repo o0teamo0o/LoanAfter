@@ -342,7 +342,7 @@ export default {
     this.$nextTick(() => {
       that.screeHeight = that.$store.state.screeHeight - 85;
       var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-      that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
+      that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 40;
       that.smallTableMaxHeight = that.tableMaxHeight;
     });
 
@@ -367,7 +367,7 @@ export default {
           that.tableMaxHeight = that.bigTableMaxHeight;
         } else {
           var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-          that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
+          that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 40;
           that.bigTableMaxHeight = that.tableMaxHeight;
         }
       });
