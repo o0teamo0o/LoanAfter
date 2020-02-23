@@ -5,7 +5,8 @@ import TaskCheckPage from './pages/task-check/index.vue'; //任务检查页面
 import TaskNavigationPage from './pages/task-check/task-daily/navigation-menu.vue'; //日常任务导航页面
 import DailyInformationPage from './pages/task-check/task-daily/information.vue'; //日常任务-基本信息通用页面
 import DailyAuthorizationPage from './pages/task-check/task-daily/authorization.vue'; //日常任务-授信汇总通用页面
-import DailyManagementCompanyPage from './pages/task-check/task-daily/management/company.vue'; //日常任务-客户经营通用页面
+import DailyManagementCompanyPage from './pages/task-check/task-daily/management/company.vue'; //日常任务-客户经营-公司类页面
+import DailyManagementEnterprisePage from './pages/task-check/task-daily/management/enterprise.vue'; //日常任务-客户经营-事业法人页面
 import DailyProjectPage from './pages/task-check/task-daily/project.vue'; //日常任务-项目管理通用页面
 import DailyGuaranteePage from './pages/task-check/task-daily/guarantee.vue'; //日常任务-担保信息通用页面
 import DailyRiskPage from './pages/task-check/task-daily/risk.vue'; //日常任务-风险分类通用页面
@@ -85,6 +86,13 @@ export default [{
         path: '/daily-management-company/',
         name: 'DailyManagementCompanyPage',
         component: DailyManagementCompanyPage,
+        keepAlive: true, //保留之前数据状态
+    },
+    {
+        path: '/daily-management-enterprise/',
+        name: 'DailyManagementEnterprisePage',
+        component: DailyManagementEnterprisePage,
+        keepAlive: true, //保留之前数据状态
     },
     {
         path: '/daily-project/',

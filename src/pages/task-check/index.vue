@@ -192,7 +192,7 @@ export default {
       taskList: [
         {
           type: 0,
-          date: "P000089728",
+          date: "公司类客户",
           name: "P000089728",
           province: "第二代身份证",
           city: "430888888888888888",
@@ -205,7 +205,7 @@ export default {
         },
         {
           type: 1,
-          date: "P000089728",
+          date: "事业法人客户",
           name: "P000089728",
           province: "第二代身份证",
           city: "430888888888888888",
@@ -218,7 +218,7 @@ export default {
         },
         {
           type: 2,
-          date: "P000089728",
+          date: "平台客户",
           name: "P000089728",
           province: "第二代身份证",
           city: "430888888888888888",
@@ -231,7 +231,7 @@ export default {
         },
         {
           type: 3,
-          date: "P000089728",
+          date: "房地产客户",
           name: "P000089728",
           province: "第二代身份证",
           city: "430888888888888888",
@@ -244,7 +244,7 @@ export default {
         },
         {
           type: 4,
-          date: "P000089728",
+          date: "集团客户",
           name: "P000089728",
           province: "第二代身份证",
           city: "430888888888888888",
@@ -257,7 +257,7 @@ export default {
         },
         {
           type: 5,
-          date: "P000089728",
+          date: "小微企业客户",
           name: "P000089728",
           province: "第二代身份证",
           city: "430888888888888888",
@@ -270,7 +270,7 @@ export default {
         },
         {
           type: 6,
-          date: "P000089728",
+          date: "个人投资类",
           name: "P000089728",
           province: "第二代身份证",
           city: "430888888888888888",
@@ -283,7 +283,7 @@ export default {
         },
         {
           type: 7,
-          date: "P000089728",
+          date: "物业贷",
           name: "P000089728",
           province: "第二代身份证",
           city: "430888888888888888",
@@ -296,7 +296,7 @@ export default {
         },
         {
           type: 8,
-          date: "P000089728",
+          date: "税联贷",
           name: "P000089728",
           province: "第二代身份证",
           city: "430888888888888888",
@@ -309,7 +309,7 @@ export default {
         },
         {
           type: 9,
-          date: "P000089728",
+          date: "惠农系列",
           name: "P000089728",
           province: "第二代身份证",
           city: "430888888888888888",
@@ -322,7 +322,7 @@ export default {
         },
         {
           type: 10,
-          date: "P000089728",
+          date: "个人消费客户",
           name: "P000089728",
           province: "第二代身份证",
           city: "430888888888888888",
