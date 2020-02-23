@@ -289,7 +289,7 @@ export default {
               title: "客户经营",
               imgSelectedUrl: require("../../../assets/icon_daily_manage_selected.png"),
               imgNormalUrl: require("../../../assets/icon_daily_manage_normal.png"),
-              link: "/daily-management/"
+              link: "/daily-management-small/"
             },
             {
               title: "担保信息",
