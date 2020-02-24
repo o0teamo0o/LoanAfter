@@ -507,6 +507,8 @@ export default {
     });
   },
   methods: {
+    onLoadCreditReporting() {},
+
     /**
      * 页面返回事件
      */
