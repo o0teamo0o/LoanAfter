@@ -54,7 +54,7 @@ export default {
               title: "项目管理",
               imgSelectedUrl: require("../../../assets/icon_daily_project_selected.png"),
               imgNormalUrl: require("../../../assets/icon_daily_project_normal.png"),
-              link: "/daily-project/"
+              link: "/daily-project-currency/"
             },
             {
               title: "担保信息",
@@ -107,7 +107,7 @@ export default {
               title: "项目管理",
               imgSelectedUrl: require("../../../assets/icon_daily_project_selected.png"),
               imgNormalUrl: require("../../../assets/icon_daily_project_normal.png"),
-              link: "/daily-project/"
+              link: "/daily-project-currency/"
             },
             {
               title: "担保信息",
@@ -160,7 +160,7 @@ export default {
               title: "项目管理",
               imgSelectedUrl: require("../../../assets/icon_daily_project_selected.png"),
               imgNormalUrl: require("../../../assets/icon_daily_project_normal.png"),
-              link: "/daily-project/"
+              link: "/daily-project-currency/"
             },
             {
               title: "担保信息",
@@ -477,7 +477,7 @@ export default {
               title: "客户经营",
               imgSelectedUrl: require("../../../assets/icon_daily_manage_selected.png"),
               imgNormalUrl: require("../../../assets/icon_daily_manage_normal.png"),
-              link: "/daily-management/"
+              link: "/daily-management-farmers/"
             },
             {
               title: "担保信息",
@@ -557,11 +557,20 @@ export default {
         if (page.route.query.customType) {
           //获取当前客户类型
           that.customType = page.route.query.customType;
+          console.log("init:导航菜单页面获取到的下标:", that.customType);
           //获取当前容器路径
           that.currentContainerPath = page.route.path;
           // console.log("当前的url:", that.currentContainerPath);
         }
       });
+
+      // this.$$(document).on("page:mounted", function(e, page) {
+      //   if (page.route.query.customType) {
+      //     //获取当前客户类型
+      //     that.customType = page.route.query.customType;
+      //     console.error("mounted:导航菜单页面获取到的下标:", that.customType);
+      //   }
+      // });
     });
   },
   methods: {

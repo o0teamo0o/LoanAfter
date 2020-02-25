@@ -12,7 +12,8 @@ import DailyManagementSmallPage from './pages/task-check/task-daily/management/s
 import DailyManagementPersonalPage from './pages/task-check/task-daily/management/personal.vue'; //日常任务-客户经营-个人投资页面
 import DailyManagementPropertyPage from './pages/task-check/task-daily/management/property.vue'; //日常任务-客户经营-物业页面
 import DailyManagementTaxUnionPage from './pages/task-check/task-daily/management/tax-union.vue'; //日常任务-客户经营-税联贷页面
-import DailyProjectPage from './pages/task-check/task-daily/project.vue'; //日常任务-项目管理通用页面
+import DailyManagementFarmersPage from './pages/task-check/task-daily/management/farmers.vue'; //日常任务-客户经营-惠农页面
+import DailyProjectCurrencyPage from './pages/task-check/task-daily/project/currency.vue'; //日常任务-项目管理通用页面
 import DailyGuaranteePage from './pages/task-check/task-daily/guarantee.vue'; //日常任务-担保信息通用页面
 import DailyRiskPage from './pages/task-check/task-daily/risk.vue'; //日常任务-风险分类通用页面
 import DailyInspectPage from './pages/task-check/task-daily/inspect.vue'; //日常任务-检查结论通用页面
@@ -70,10 +71,6 @@ export default [{
         path: '/task-navigation/',
         name: "TaskNavigationPage",
         component: TaskNavigationPage,
-        options: {
-            history: true,
-            pushState: true
-        }
     },
     {
         path: '/daily-information/',
@@ -130,9 +127,15 @@ export default [{
         keepAlive: true, //保留之前数据状态
     },
     {
-        path: '/daily-project/',
-        name: 'DailyProjectPage',
-        component: DailyProjectPage,
+        path: '/daily-management-farmers/',
+        name: 'DailyManagementFarmersPage',
+        component: DailyManagementFarmersPage,
+        keepAlive: true, //保留之前数据状态
+    },
+    {
+        path: '/daily-project-currency/',
+        name: 'DailyProjectCurrencyPage',
+        component: DailyProjectCurrencyPage,
     },
     {
         path: '/daily-guarantee/',

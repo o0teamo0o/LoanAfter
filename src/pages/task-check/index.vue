@@ -119,9 +119,16 @@
           <el-table-column prop="state" label="任务状态" width="80"></el-table-column>
           <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="scope">
-              <f7-link
+              <!-- <f7-link
                 class="btn-link"
                 :href="itemUrl"
+                view="#left-panel-view"
+                data-force="true"
+                data-push-state="true"
+                @click="onItemClick(scope.row)"
+              >接收</f7-link>-->
+              <f7-link
+                class="btn-link"
                 view="#left-panel-view"
                 data-force="true"
                 data-push-state="true"
@@ -342,7 +349,7 @@ export default {
     this.$nextTick(() => {
       that.screeHeight = that.$store.state.screeHeight - 85;
       var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-      that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 40;
+      that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
       that.smallTableMaxHeight = that.tableMaxHeight;
     });
 
@@ -367,7 +374,7 @@ export default {
           that.tableMaxHeight = that.bigTableMaxHeight;
         } else {
           var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-          that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 40;
+          that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
           that.bigTableMaxHeight = that.tableMaxHeight;
         }
       });
@@ -400,9 +407,14 @@ export default {
      * 条目点击事件
      */
     onItemClick(item) {
+      console.error("传值的下标:", item.type);
       this.itemUrl = "/task-navigation/?customType=" + item.type;
       this.$f7router.navigate({
         name: "DailyInformationPage",
+        query: { customType: item.type }
+      });
+      this.$f7.views.left.router.navigate({
+        name: "TaskNavigationPage",
         query: { customType: item.type }
       });
     },

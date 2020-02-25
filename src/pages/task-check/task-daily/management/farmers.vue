@@ -1,0 +1,273 @@
+<template>
+  <f7-page>
+    <f7-navbar>
+      <f7-nav-left>
+        <a @click="onBack">
+          <i class="icon icon-back"></i>
+          <span>返回</span>
+        </a>
+      </f7-nav-left>
+      <f7-nav-title>客户经营情况</f7-nav-title>
+      <f7-nav-right>
+        <f7-button outline @click="onLoadCreditReporting">银行流水</f7-button>
+        <f7-button outline @click="onSave">保存</f7-button>
+      </f7-nav-right>
+    </f7-navbar>
+
+    <f7-block>检查期内是否出现过影响借款人盈利能力的重大事件</f7-block>
+    <f7-card>
+      <f7-card-header>种植类：</f7-card-header>
+      <div class="production-layout">
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>森林火灾:
+          </f7-col>
+          <f7-col width="25">
+            <el-radio-group v-model="productionInfo">
+              <el-radio label="是"></el-radio>
+              <el-radio label="否"></el-radio>
+            </el-radio-group>
+          </f7-col>
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>气候不佳挂果率底:
+          </f7-col>
+          <f7-col width="25">
+            <el-radio-group v-model="productionInfo">
+              <el-radio label="是"></el-radio>
+              <el-radio label="否"></el-radio>
+            </el-radio-group>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>虫灾入侵:
+          </f7-col>
+          <f7-col width="25">
+            <el-radio-group v-model="productionInfo">
+              <el-radio label="是"></el-radio>
+              <el-radio label="否"></el-radio>
+            </el-radio-group>
+          </f7-col>
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>旱涝水灾:
+          </f7-col>
+          <f7-col width="25">
+            <el-radio-group v-model="productionInfo">
+              <el-radio label="是"></el-radio>
+              <el-radio label="否"></el-radio>
+            </el-radio-group>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>台风冰雹天气:
+          </f7-col>
+          <f7-col width="25">
+            <el-radio-group v-model="productionInfo">
+              <el-radio label="是"></el-radio>
+              <el-radio label="否"></el-radio>
+            </el-radio-group>
+          </f7-col>
+          <f7-col width="25" class="key"></f7-col>
+          <f7-col width="25"></f7-col>
+          <f7-col width="25"></f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>其他灾害:
+          </f7-col>
+          <f7-col width="25"></f7-col>
+          <f7-col width="25" class="key"></f7-col>
+          <f7-col width="25"></f7-col>
+          <f7-col width="25"></f7-col>
+        </f7-row>
+        <f7-row class="item-layout">
+          <f7-col width="25"></f7-col>
+          <f7-col width="75" class="key">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+      </div>
+    </f7-card>
+
+    <f7-card>
+      <f7-card-header>养殖类：</f7-card-header>
+      <div class="production-layout">
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>传染性疾病:
+          </f7-col>
+          <f7-col width="25">
+            <el-radio-group v-model="productionInfo">
+              <el-radio label="是"></el-radio>
+              <el-radio label="否"></el-radio>
+            </el-radio-group>
+          </f7-col>
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>成品价格大幅上涨或下跌:
+          </f7-col>
+          <f7-col width="25">
+            <el-radio-group v-model="productionInfo">
+              <el-radio label="是"></el-radio>
+              <el-radio label="否"></el-radio>
+            </el-radio-group>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="50" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>养殖成本（饲料、防疫、污水处理等）显著变化:
+          </f7-col>
+          <f7-col width="25" class="key">
+            <el-radio-group v-model="productionInfo">
+              <el-radio label="是"></el-radio>
+              <el-radio label="否"></el-radio>
+            </el-radio-group>
+          </f7-col>
+          <f7-col width="25"></f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>其他因素:
+          </f7-col>
+          <f7-col width="25"></f7-col>
+          <f7-col width="25" class="key"></f7-col>
+          <f7-col width="25"></f7-col>
+          <f7-col width="25"></f7-col>
+        </f7-row>
+        <f7-row class="item-layout">
+          <f7-col width="25"></f7-col>
+          <f7-col width="75" class="key">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+
+        <f7-row class="item-layout">
+          <f7-col width="30" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>以上灾害对客户是否有影响:
+          </f7-col>
+          <f7-col width="20"></f7-col>
+          <f7-col width="25" class="key"></f7-col>
+          <f7-col width="25"></f7-col>
+          <f7-col width="25"></f7-col>
+        </f7-row>
+        <f7-row class="item-layout">
+          <f7-col width="25"></f7-col>
+          <f7-col width="75" class="key">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+
+        <f7-row class="item-layout">
+          <f7-col width="30" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>已采取（或计划采取）的措施:
+          </f7-col>
+          <f7-col width="20"></f7-col>
+          <f7-col width="25" class="key"></f7-col>
+          <f7-col width="25"></f7-col>
+          <f7-col width="25"></f7-col>
+        </f7-row>
+        <f7-row class="item-layout">
+          <f7-col width="25"></f7-col>
+          <f7-col width="75" class="key">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+      </div>
+    </f7-card>
+  </f7-page>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isShowChangeInfo: true,
+      productionInfo: "", //检查类型
+      variableFinance: "", //较大变动财务状况
+      supplier: "", //供应商
+      distributor: "", //经销商
+      marketChange: [], //市场变化多选
+      environment: [], //
+      interests: [
+        {
+          value: "0",
+          label: "是"
+        },
+        {
+          value: "1",
+          label: "否"
+        }
+      ], //任务状态
+      interest: "" //任务状态
+    };
+  },
+  mounted() {
+    var that = this;
+
+    this.$f7ready(f7 => {
+      this.$$(document).on("page:init", function(e, page) {
+        if (page.route.query.customType) {
+          that.customType = page.route.query.customType;
+          console.log("客户经营页面获取到的参数:", that.customType);
+        }
+      });
+    });
+  },
+  methods: {
+    onLoadCreditReporting() {},
+    /**
+     * 页面返回事件
+     */
+    onBack() {
+      this.$f7.views.main.router.back();
+      this.$f7.views.left.router.back();
+    },
+
+    /**
+     * 数据保存事件
+     */
+    onSave() {}
+  }
+};
+</script>
+<style lang='less'>
+.financial-layout .el-table td:nth-child(n + 1) {
+  padding: 5px 0;
+}
+
+.production-layout {
+  padding: 10px 15px;
+  color: #666;
+
+  .item-layout {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+
+    .key {
+      text-align: right;
+      font-weight: bold;
+
+      .keynote {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.market-checkbox-layout .el-checkbox {
+  display: block;
+  line-height: 25px;
+}
+
+.interest-col .el-input {
+  width: 90% !important;
+}
+</style>
