@@ -305,6 +305,89 @@
         </f7-row>
       </div>
     </f7-card>
+
+    <f7-block>按揭情况</f7-block>
+    <f7-card>
+      <div class="production-layout">
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>本行按揭户数:
+          </f7-col>
+          <f7-col width="25">
+            <el-input
+              style="width:90% !important;"
+              v-model="supplier"
+              :value="supplier"
+              clearable
+              placeholder="请输入主要供应商"
+            ></el-input>
+          </f7-col>
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>本行按揭余额:
+          </f7-col>
+          <f7-col width="25">
+            <el-input
+              style="width:90% !important;"
+              v-model="distributor"
+              :value="distributor"
+              clearable
+              placeholder="请输入主要经销商"
+            ></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>他行按揭户数:
+          </f7-col>
+          <f7-col width="25">
+            <el-input
+              style="width:90% !important;"
+              v-model="supplier"
+              :value="supplier"
+              clearable
+              placeholder="请输入主要供应商"
+            ></el-input>
+          </f7-col>
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>他行按揭余额:
+          </f7-col>
+          <f7-col width="25">
+            <el-input
+              style="width:90% !important;"
+              v-model="distributor"
+              :value="distributor"
+              clearable
+              placeholder="请输入主要经销商"
+            ></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="30" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>是否按规定用途使用项目贷款:
+          </f7-col>
+          <f7-col width="20" class="interest-col">
+            <el-select v-model="interest" placeholder="--请选择--">
+              <el-option
+                v-for="item in interests"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </f7-col>
+          <f7-col width="25" class="key"></f7-col>
+          <f7-col width="25" class="key"></f7-col>
+        </f7-row>
+        <f7-row v-show="isShowChangeInfo" class="item-layout">
+          <f7-col width="30" class="key"></f7-col>
+          <f7-col width="70">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+      </div>
+    </f7-card>
   </f7-page>
 </template>
 

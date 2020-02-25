@@ -14,6 +14,7 @@ import DailyManagementPropertyPage from './pages/task-check/task-daily/managemen
 import DailyManagementTaxUnionPage from './pages/task-check/task-daily/management/tax-union.vue'; //日常任务-客户经营-税联贷页面
 import DailyManagementFarmersPage from './pages/task-check/task-daily/management/farmers.vue'; //日常任务-客户经营-惠农页面
 import DailyProjectCurrencyPage from './pages/task-check/task-daily/project/currency.vue'; //日常任务-项目管理通用页面
+import DailyProjectRealEstatePage from './pages/task-check/task-daily/project/real-estate.vue'; //日常任务-项目管理-房地产页面
 import DailyGuaranteePage from './pages/task-check/task-daily/guarantee.vue'; //日常任务-担保信息通用页面
 import DailyRiskPage from './pages/task-check/task-daily/risk.vue'; //日常任务-风险分类通用页面
 import DailyInspectPage from './pages/task-check/task-daily/inspect.vue'; //日常任务-检查结论通用页面
@@ -136,6 +137,13 @@ export default [{
         path: '/daily-project-currency/',
         name: 'DailyProjectCurrencyPage',
         component: DailyProjectCurrencyPage,
+        keepAlive: true, //保留之前数据状态
+    },
+    {
+        path: '/daily-project-real-estate/',
+        name: 'DailyProjectRealEstatePage',
+        component: DailyProjectRealEstatePage,
+        keepAlive: true, //保留之前数据状态
     },
     {
         path: '/daily-guarantee/',

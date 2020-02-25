@@ -213,7 +213,7 @@ export default {
               title: "项目管理",
               imgSelectedUrl: require("../../../assets/icon_daily_project_selected.png"),
               imgNormalUrl: require("../../../assets/icon_daily_project_normal.png"),
-              link: "/daily-project/"
+              link: "/daily-project-real-estate/"
             },
             {
               title: "担保信息",
