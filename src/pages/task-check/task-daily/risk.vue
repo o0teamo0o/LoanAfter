@@ -64,9 +64,9 @@
           </f7-col>
         </f7-row>
         <div class="dashed-line-half"></div>
-        <f7-row v-show="isShowChangeInfo" class="item-layout">
+        <f7-row class="item-layout">
           <f7-col width="30" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>分类理由:
+            <i class="keynote">*&nbsp;&nbsp;</i>现场检查情况:
           </f7-col>
           <f7-col width="70">
             <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>

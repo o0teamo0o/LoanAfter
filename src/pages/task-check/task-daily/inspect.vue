@@ -12,7 +12,36 @@
         <f7-button outline>保存</f7-button>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block-title>检查结论</f7-block-title>
+    <f7-card>
+      <div class="production-layout">
+        <f7-row class="item-layout">
+          <f7-col width="30" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>分类理由:
+          </f7-col>
+          <f7-col width="70">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="30" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>预警信号处理情况:
+          </f7-col>
+          <f7-col width="70">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="30" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>检查总结:
+          </f7-col>
+          <f7-col width="70">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+      </div>
+    </f7-card>
   </f7-page>
 </template>
 
