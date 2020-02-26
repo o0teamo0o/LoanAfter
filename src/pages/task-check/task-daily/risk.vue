@@ -12,12 +12,78 @@
         <f7-button outline @click="onSave">保存</f7-button>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block-title>风险分类</f7-block-title>
+
+    <f7-block>五级分类情况</f7-block>
+    <f7-card>
+      <div class="production-layout">
+        <f7-row class="item-layout">
+          <f7-col width="30" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>不良信用情况:
+          </f7-col>
+          <f7-col width="10"></f7-col>
+          <f7-col width="60">
+            <el-radio-group v-model="productionInfo">
+              <el-radio label="是"></el-radio>
+              <el-radio label="否"></el-radio>
+            </el-radio-group>
+          </f7-col>
+        </f7-row>
+        <f7-row v-show="isShowChangeInfo" class="item-layout">
+          <f7-col width="30" class="key"></f7-col>
+          <f7-col width="70">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>分类结果(上期):
+          </f7-col>
+          <f7-col width="25">
+            <el-input
+              style="width:90% !important;"
+              v-model="supplier"
+              disabled
+              :value="supplier"
+              clearable
+              placeholder="回显"
+            ></el-input>
+          </f7-col>
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>分类结果(本期):
+          </f7-col>
+          <f7-col width="25">
+            <el-input
+              style="width:90% !important;"
+              v-model="distributor"
+              :value="distributor"
+              disabled
+              placeholder="回显"
+              clearable
+            ></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row v-show="isShowChangeInfo" class="item-layout">
+          <f7-col width="30" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>分类理由:
+          </f7-col>
+          <f7-col width="70">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+      </div>
+    </f7-card>
   </f7-page>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      isShowChangeInfo: true
+    };
+  },
   mounted() {
     var that = this;
 
