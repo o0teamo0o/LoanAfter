@@ -12,6 +12,7 @@
         <f7-button outline>保存</f7-button>
       </f7-nav-right>
     </f7-navbar>
+
     <f7-card>
       <div class="production-layout">
         <f7-row class="item-layout">

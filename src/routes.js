@@ -2,7 +2,8 @@ import HomePage from './pages/home/index.vue'; //首页
 import PanelLeftPage from './pages/panel/panel-left.vue'; //左边菜单视图
 import PanelRightPage from './pages/panel/panel-right.vue'; //右边菜单页面
 import TaskCheckPage from './pages/task-check/index.vue'; //任务检查页面
-import TaskNavigationPage from './pages/task-check/task-daily/navigation-menu.vue'; //日常任务导航页面
+import TaskDailyNavigationPage from './pages/task-check/task-daily/navigation-menu.vue'; //日常任务导航页面
+import TaskCapitalNavigationPage from './pages/task-check/task-capital/navigation-menu.vue'; //资金用途导航页面
 import DailyInformationPage from './pages/task-check/task-daily/information.vue'; //日常任务-基本信息通用页面
 import DailyAuthorizationPage from './pages/task-check/task-daily/authorization.vue'; //日常任务-授信汇总通用页面
 import DailyManagementCompanyPage from './pages/task-check/task-daily/management/company.vue'; //日常任务-客户经营-公司类页面
@@ -19,6 +20,9 @@ import DailyGuaranteePage from './pages/task-check/task-daily/guarantee.vue'; //
 import DailyRiskPage from './pages/task-check/task-daily/risk.vue'; //日常任务-风险分类通用页面
 import DailyInspectPage from './pages/task-check/task-daily/inspect.vue'; //日常任务-检查结论通用页面
 import DailyPortraitPage from './pages/task-check/task-daily/portrait.vue'; //日常任务-影像资料通用页面
+import TaskCapitalIOUSelectionPage from './pages/task-check/task-capital/iou-selection.vue'; //资金用途导-借据选择页面
+import TaskCapitalAddIOUPage from './pages/task-check/task-capital/add-iou.vue'; //资金用途导-添加借据页面
+import TaskCapitalCustomerSelectionPage from './pages/task-check/task-capital/customer-selection.vue'; //资金用途导-客户查询页面
 import SettingPage from './pages/setting/index.vue'; //设置页面
 
 
@@ -69,9 +73,32 @@ export default [{
         }
     },
     {
-        path: '/task-navigation/',
-        name: "TaskNavigationPage",
-        component: TaskNavigationPage,
+        path: '/task-daily-navigation/',
+        name: "TaskDailyNavigationPage",
+        component: TaskDailyNavigationPage,
+    },
+    {
+        path: '/task-capital-navigation/',
+        name: "TaskCapitalNavigationPage",
+        component: TaskCapitalNavigationPage,
+    },
+    {
+        path: '/task-capital-iou-selection/',
+        name: "TaskCapitalIOUSelectionPage",
+        component: TaskCapitalIOUSelectionPage,
+        keepAlive: true, //保留之前数据状态
+    },
+    {
+        path: '/task-capital-add-iou/',
+        name: "TaskCapitalAddIOUPage",
+        component: TaskCapitalAddIOUPage,
+        keepAlive: true, //保留之前数据状态
+    },
+    {
+        path: '/task-capital-customer-selection/',
+        name: "TaskCapitalCustomerSelectionPage",
+        component: TaskCapitalCustomerSelectionPage,
+        keepAlive: true, //保留之前数据状态
     },
     {
         path: '/daily-information/',

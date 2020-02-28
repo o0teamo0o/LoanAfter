@@ -174,7 +174,6 @@
       </el-table>
     </f7-card>
 
-    <!-- <f7-block>对外担保情况</f7-block> -->
     <f7-card>
       <div class="production-layout">
         <f7-row class="item-layout">

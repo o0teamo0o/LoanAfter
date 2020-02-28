@@ -119,14 +119,6 @@
           <el-table-column prop="state" label="任务状态" width="80"></el-table-column>
           <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="scope">
-              <!-- <f7-link
-                class="btn-link"
-                :href="itemUrl"
-                view="#left-panel-view"
-                data-force="true"
-                data-push-state="true"
-                @click="onItemClick(scope.row)"
-              >接收</f7-link>-->
               <f7-link
                 class="btn-link"
                 view="#left-panel-view"
@@ -339,6 +331,19 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查"
+        },
+        {
+          type: 11,
+          date: "资金用途检查",
+          name: "P000089728",
+          province: "第二代身份证",
+          city: "430888888888888888",
+          address: "",
+          zip: "日常维护检查",
+          jclx: "个人居住类检查",
+          M: "M12",
+          riqi: "2020-08-08",
+          state: "待检查"
         }
       ], //查询结果集
       itemUrl: "/task-navigation/"
@@ -408,15 +413,25 @@ export default {
      */
     onItemClick(item) {
       console.error("传值的下标:", item.type);
-      this.itemUrl = "/task-navigation/?customType=" + item.type;
-      this.$f7router.navigate({
-        name: "DailyInformationPage",
-        query: { customType: item.type }
-      });
-      this.$f7.views.left.router.navigate({
-        name: "TaskNavigationPage",
-        query: { customType: item.type }
-      });
+      if (item.type > 10) {
+        this.$f7router.navigate({
+          name: "TaskCapitalIOUSelectionPage",
+          query: { customType: item.type }
+        });
+        this.$f7.views.left.router.navigate({
+          name: "TaskCapitalNavigationPage",
+          query: { customType: item.type }
+        });
+      } else {
+        this.$f7router.navigate({
+          name: "DailyInformationPage",
+          query: { customType: item.type }
+        });
+        this.$f7.views.left.router.navigate({
+          name: "TaskDailyNavigationPage",
+          query: { customType: item.type }
+        });
+      }
     },
 
     /**

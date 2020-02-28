@@ -12,7 +12,55 @@
         <f7-button outline @click="onSave">保存</f7-button>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block-title>影像资料</f7-block-title>
+
+    <f7-card>
+      <div class="production-layout">
+        <f7-row class="item-layout">
+          <f7-col width="15" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>面谈情况:
+          </f7-col>
+          <f7-col width="85">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="15" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>生产经营情况:
+          </f7-col>
+          <f7-col width="85">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="15" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>担保物情况:
+          </f7-col>
+          <f7-col width="85">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="15" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>财务数据:
+          </f7-col>
+          <f7-col width="85">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="15" class="key">
+            <i class="keynote">&nbsp;&nbsp;</i>其他资料:
+          </f7-col>
+          <f7-col width="85">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          </f7-col>
+        </f7-row>
+      </div>
+    </f7-card>
   </f7-page>
 </template>
 

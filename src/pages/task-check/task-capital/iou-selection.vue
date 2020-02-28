@@ -1,0 +1,137 @@
+<template>
+  <f7-page>
+    <f7-navbar>
+      <f7-nav-left>
+        <a @click="onBack">
+          <i class="icon icon-back"></i>
+          <span>返回</span>
+        </a>
+      </f7-nav-left>
+      <f7-nav-title>借据选择</f7-nav-title>
+    </f7-navbar>
+
+    <f7-card class="financial-layout">
+      <div class="flex">
+        <div class="result-hint">借据信息</div>
+        <div class="empty"></div>
+        <f7-button outline @click="onSave">保存</f7-button>
+        <div class="margin-right15"></div>
+        <f7-button outline @click="onAdd">添加</f7-button>
+        <div class="margin-right15"></div>
+        <f7-button outline @click="onDelete">删除</f7-button>
+        <div class="margin-right15"></div>
+        <f7-button outline @click="onConfirm">确认</f7-button>
+        <div class="margin-right15"></div>
+      </div>
+      <el-table :data="taskList" border>
+        <el-table-column type="selection" width="55"></el-table-column>
+        <el-table-column fixed prop="date" label="书面合同编号" width="110"></el-table-column>
+        <el-table-column prop="name" label="合同编号" width="110"></el-table-column>
+        <el-table-column prop="province" label="借据编号" width="105"></el-table-column>
+        <el-table-column prop="city" label="业务种类" width="180"></el-table-column>
+        <el-table-column prop="address" label="借据金额" width="150"></el-table-column>
+        <el-table-column prop="zip" label="币种" width="110"></el-table-column>
+        <el-table-column prop="jclx" label="起始日期" width="120"></el-table-column>
+        <el-table-column prop="M" label="到期日期" width="80"></el-table-column>
+        <el-table-column prop="riqi" label="已检查金额" width="165"></el-table-column>
+        <el-table-column fixed="right" label="本次检查金额" width="200">
+          <template slot-scope="scope">
+            <i class="keynote">*</i>
+            <el-input
+              style="width:90% !important;"
+              v-model="scope.row.lastYear"
+              :value="scope.row.lastYear"
+              clearable
+            ></el-input>
+          </template>
+        </el-table-column>
+      </el-table>
+    </f7-card>
+  </f7-page>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      taskList: [
+        {
+          type: 0,
+          date: "公司类客户",
+          name: "P000089728",
+          province: "第二代身份证",
+          city: "430888888888888888",
+          address: "",
+          zip: "日常维护检查",
+          jclx: "个人居住类检查",
+          M: "M12",
+          riqi: "2020-08-08",
+          state: "待检查"
+        },
+        {
+          type: 1,
+          date: "事业法人客户",
+          name: "P000089728",
+          province: "第二代身份证",
+          city: "430888888888888888",
+          address: "",
+          zip: "日常维护检查",
+          jclx: "个人居住类检查",
+          M: "M12",
+          riqi: "2020-08-08",
+          state: "待检查"
+        }
+      ], //查询结果集
+      multipleSelection: []
+    };
+  },
+  mounted() {
+    var that = this;
+
+    this.$f7ready(f7 => {
+      this.$$(document).on("page:init", function(e, page) {
+        if (page.route.query.customType) {
+          that.customType = page.route.query.customType;
+          console.log("检查结论页面获取到的参数:", that.customType);
+        }
+      });
+    });
+  },
+  methods: {
+    /**
+     * 添加借据
+     */
+    onAdd() {
+      this.$f7router.navigate({
+        name: "TaskCapitalAddIOUPage",
+        query: { customType: "我是参数" }
+      });
+    },
+    /**
+     * 删除借据
+     */
+    onDelete() {},
+    /**
+     * 确认借据
+     */
+    onConfirm() {},
+    /**
+     * 保存借据
+     */
+    onSave() {},
+    /**
+     * 页面返回事件
+     */
+    onBack() {
+      this.$f7.views.main.router.back();
+      this.$f7.views.left.router.back();
+    }
+  }
+};
+</script>
+
+<style lang='less'>
+.interest-col .el-input {
+  width: 90% !important;
+}
+</style>
