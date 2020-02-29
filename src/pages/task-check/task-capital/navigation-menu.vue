@@ -25,7 +25,7 @@
 export default {
   data() {
     return {
-      customType: 0, //客户类型; 0:公司类客户 1:事业法人客户 2:平台客户 3:房地产客户 4:集团客户 5:小微企业客户 6:个人投资类客户 7:物业贷 8:税联贷 9:惠农系列 10.个人消费客户
+      customType: 0,
       currentNavigationIndex: 0, //当前导航下标
       currentContainerPath: "", //当前容器路径
       lists: [
@@ -39,7 +39,7 @@ export default {
           title: "用途检查",
           imgSelectedUrl: require("../../../assets/icon_daily_authorize_selected.png"),
           imgNormalUrl: require("../../../assets/icon_daily_authorize_normal.png"),
-          link: "/task-capital-iou-selection/"
+          link: "/task-capital-purpose/"
         },
         {
           title: "检查报告",
@@ -49,9 +49,9 @@ export default {
         },
         {
           title: "影像资料",
-          imgSelectedUrl: require("../../../assets/icon_daily_project_selected.png"),
-          imgNormalUrl: require("../../../assets/icon_daily_project_normal.png"),
-          link: "/task-capital-iou-selection/"
+          imgSelectedUrl: require("../../../assets/icon_daily_image_selected.png"),
+          imgNormalUrl: require("../../../assets/icon_daily_image_normal.png"),
+          link: "/daily-portrait/"
         }
       ]
     };
@@ -76,7 +76,7 @@ export default {
     onNavigationClick(index) {
       var that = this;
       that.currentNavigationIndex = index;
-      var jumpRouterUrl = that.lists[that.customType].items[index].link;
+      var jumpRouterUrl = that.lists[index].link;
       if (that.currentContainerPath != jumpRouterUrl) {
         that.$f7.views.main.router.navigate(jumpRouterUrl, {
           reloadCurrent: true //用路由中的新页面替换当前页面，在这种情况下不显示动画

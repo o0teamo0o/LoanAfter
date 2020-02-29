@@ -8,20 +8,29 @@
         </a>
       </f7-nav-left>
       <f7-nav-title>借据选择</f7-nav-title>
+      <f7-nav-right>
+        <f7-button outline @click="onAdd">添加</f7-button>
+        <f7-button outline @click="onDelete">删除</f7-button>
+        <f7-button outline @click="onConfirm">确认</f7-button>
+        <f7-button outline @click="onSave">保存</f7-button>
+      </f7-nav-right>
     </f7-navbar>
 
     <f7-card class="financial-layout">
       <div class="flex">
         <div class="result-hint">借据信息</div>
         <div class="empty"></div>
-        <f7-button outline @click="onSave">保存</f7-button>
-        <div class="margin-right15"></div>
-        <f7-button outline @click="onAdd">添加</f7-button>
-        <div class="margin-right15"></div>
-        <f7-button outline @click="onDelete">删除</f7-button>
-        <div class="margin-right15"></div>
-        <f7-button outline @click="onConfirm">确认</f7-button>
-        <div class="margin-right15"></div>
+        <el-pagination
+          class="pagination"
+          background
+          layout="prev, pager, next"
+          :page-count="total"
+          :page-size="pagesize"
+          :current-page="currentPage"
+          hide-on-single-page
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        ></el-pagination>
       </div>
       <el-table :data="taskList" border>
         <el-table-column type="selection" width="55"></el-table-column>
@@ -54,6 +63,9 @@
 export default {
   data() {
     return {
+      total: 2, //总页数
+      pagesize: 10, //每页数据
+      currentPage: 1, //当前页
       taskList: [
         {
           type: 0,

@@ -23,6 +23,7 @@ import DailyPortraitPage from './pages/task-check/task-daily/portrait.vue'; //�
 import TaskCapitalIOUSelectionPage from './pages/task-check/task-capital/iou-selection.vue'; //资金用途导-借据选择页面
 import TaskCapitalAddIOUPage from './pages/task-check/task-capital/add-iou.vue'; //资金用途导-添加借据页面
 import TaskCapitalCustomerSelectionPage from './pages/task-check/task-capital/customer-selection.vue'; //资金用途导-客户查询页面
+import TaskCapitalPurposePage from './pages/task-check/task-capital/purpose.vue'; //资金用途导-用途检查页面
 import SettingPage from './pages/setting/index.vue'; //设置页面
 
 
@@ -92,12 +93,16 @@ export default [{
         path: '/task-capital-add-iou/',
         name: "TaskCapitalAddIOUPage",
         component: TaskCapitalAddIOUPage,
-        keepAlive: true, //保留之前数据状态
     },
     {
         path: '/task-capital-customer-selection/',
         name: "TaskCapitalCustomerSelectionPage",
         component: TaskCapitalCustomerSelectionPage,
+    },
+    {
+        path: '/task-capital-purpose/',
+        name: "TaskCapitalPurposePage",
+        component: TaskCapitalPurposePage,
         keepAlive: true, //保留之前数据状态
     },
     {
