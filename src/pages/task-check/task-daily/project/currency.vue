@@ -22,9 +22,9 @@
           </f7-col>
           <f7-col width="10"></f7-col>
           <f7-col width="60">
-            <el-radio-group v-model="productionInfo">
-              <el-radio label="是"></el-radio>
-              <el-radio label="否"></el-radio>
+            <el-radio-group v-model="inputManagement">
+              <el-radio label="是">是</el-radio>
+              <el-radio label="否">否</el-radio>
             </el-radio-group>
           </f7-col>
         </f7-row>
@@ -119,8 +119,8 @@
           <f7-col width="25">
             <el-input
               style="width:90% !important;"
-              v-model="supplier"
-              :value="supplier"
+              v-model="practicalCompletion"
+              :value="practicalCompletion"
               clearable
               placeholder="请输入主要供应商"
             ></el-input>
@@ -131,8 +131,8 @@
           <f7-col width="25">
             <el-input
               style="width:90% !important;"
-              v-model="distributor"
-              :value="distributor"
+              v-model="plannedCompletion"
+              :value="plannedCompletion"
               clearable
               placeholder="请输入主要经销商"
             ></el-input>
@@ -146,8 +146,8 @@
           <f7-col width="25">
             <el-input
               style="width:90% !important;"
-              v-model="supplier"
-              :value="supplier"
+              v-model="newRevenue"
+              :value="newRevenue"
               clearable
               placeholder="请输入主要供应商"
             ></el-input>
@@ -175,9 +175,9 @@
             <i class="keynote">*&nbsp;&nbsp;</i>项目资金是否实行专户管理:
           </f7-col>
           <f7-col width="20" class="interest-col">
-            <el-select v-model="interest" placeholder="--请选择--">
+            <el-select v-model="specialAccount" placeholder="--请选择--">
               <el-option
-                v-for="item in interests"
+                v-for="item in specialAccounts"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
@@ -194,8 +194,8 @@
           <f7-col width="25">
             <el-input
               style="width:90% !important;"
-              v-model="supplier"
-              :value="supplier"
+              v-model="accountAccount"
+              :value="accountAccount"
               clearable
               placeholder="请输入主要供应商"
             ></el-input>
@@ -206,8 +206,8 @@
           <f7-col width="25">
             <el-input
               style="width:90% !important;"
-              v-model="distributor"
-              :value="distributor"
+              v-model="previousBalance"
+              :value="previousBalance"
               clearable
               placeholder="请输入主要经销商"
             ></el-input>
@@ -220,8 +220,8 @@
           <f7-col width="25">
             <el-input
               style="width:90% !important;"
-              v-model="supplier"
-              :value="supplier"
+              v-model="into"
+              :value="into"
               clearable
               placeholder="请输入主要供应商"
             ></el-input>
@@ -232,8 +232,8 @@
           <f7-col width="25">
             <el-input
               style="width:90% !important;"
-              v-model="distributor"
-              :value="distributor"
+              v-model="transfer"
+              :value="transfer"
               clearable
               placeholder="请输入主要经销商"
             ></el-input>
@@ -246,8 +246,8 @@
           <f7-col width="25">
             <el-input
               style="width:90% !important;"
-              v-model="supplier"
-              :value="supplier"
+              v-model="currentBalance"
+              :value="currentBalance"
               clearable
               placeholder="请输入主要供应商"
             ></el-input>
@@ -261,9 +261,9 @@
             <i class="keynote">*&nbsp;&nbsp;</i>是否按规定用途使用项目贷款:
           </f7-col>
           <f7-col width="20" class="interest-col">
-            <el-select v-model="interest" placeholder="--请选择--">
+            <el-select v-model="purpose" placeholder="--请选择--" @change="onPurposeChange">
               <el-option
-                v-for="item in interests"
+                v-for="item in purposes"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
@@ -273,7 +273,7 @@
           <f7-col width="25" class="key"></f7-col>
           <f7-col width="25" class="key"></f7-col>
         </f7-row>
-        <f7-row v-show="isShowChangeInfo" class="item-layout">
+        <f7-row v-show="isShowPurposeChange" class="item-layout">
           <f7-col width="30" class="key"></f7-col>
           <f7-col width="70">
             <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
@@ -285,9 +285,9 @@
             <i class="keynote">*&nbsp;&nbsp;</i>项目贷款的保证措施是否有出现问题的迹象:
           </f7-col>
           <f7-col width="20" class="interest-col">
-            <el-select v-model="interest" placeholder="--请选择--">
+            <el-select v-model="problem" placeholder="--请选择--" @change="onProblemChange">
               <el-option
-                v-for="item in interests"
+                v-for="item in problems"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
@@ -297,7 +297,7 @@
           <f7-col width="25" class="key"></f7-col>
           <f7-col width="25" class="key"></f7-col>
         </f7-row>
-        <f7-row v-show="isShowChangeInfo" class="item-layout">
+        <f7-row v-show="isShowProblemChange" class="item-layout">
           <f7-col width="30" class="key"></f7-col>
           <f7-col width="70">
             <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
@@ -343,6 +343,43 @@ export default {
           currentIssue: "" //本期
         }
       ],
+      inputManagement: "是",
+      practicalCompletion: "", //实际完工
+      plannedCompletion: "", //计划完工
+      newRevenue: "", //新增收入
+      specialAccounts: [
+        {
+          value: "0",
+          label: "是"
+        },
+        {
+          value: "1",
+          label: "否"
+        }
+      ], //专户管理数组
+      specialAccount: "", //专户管理
+      purposes: [
+        {
+          value: "0",
+          label: "是"
+        },
+        {
+          value: "1",
+          label: "否"
+        }
+      ],
+      purpose: "", //使用用途
+      problems: [
+        {
+          value: "0",
+          label: "是"
+        },
+        {
+          value: "1",
+          label: "否"
+        }
+      ],
+      problem: "", //出现问题
       debtList: [
         //偿债能力
         {
@@ -361,7 +398,14 @@ export default {
         }
       ],
       marketChange: [], //市场变化多选
-      isShowChangeInfo: true
+      isShowPurposeChange: false,
+      isShowProblemChange: false, //是否出现问题
+      accountAccount: "", //专户账号
+      previousBalance: "", //上期余额
+      currentBalance: "", //本期余额
+      into: "", //资金转入
+      transfer: "", //资金转出
+      evaluate: ""
     };
   },
   mounted() {
@@ -377,6 +421,26 @@ export default {
     });
   },
   methods: {
+    /**
+     * 规定用途使用监听
+     */
+    onPurposeChange(index) {
+      if (index == 0) {
+        this.isShowPurposeChange = true;
+      } else {
+        this.isShowPurposeChange = false;
+      }
+    },
+    /**
+     * 保护措施出现问题监听
+     */
+    onProblemChange(index) {
+      if (index == 0) {
+        this.isShowProblemChange = true;
+      } else {
+        this.isShowProblemChange = false;
+      }
+    },
     /**
      * 页面返回事件
      */

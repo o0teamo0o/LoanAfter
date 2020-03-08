@@ -38,10 +38,10 @@
 
     <f7-block>授信放款条件</f7-block>
     <f7-card>
-      <el-table :data="taskList" border>
-        <el-table-column fixed prop="date" label="授信编号" width="150"></el-table-column>
-        <el-table-column prop="zip" label="序号" width="70"></el-table-column>
-        <el-table-column prop="province" label="内容" min-width="583"></el-table-column>
+      <el-table :data="loanConditionsList" border>
+        <el-table-column fixed prop="no" label="授信编号" width="150"></el-table-column>
+        <el-table-column prop="serial" label="序号" width="70"></el-table-column>
+        <el-table-column prop="content" label="内容" min-width="583"></el-table-column>
       </el-table>
     </f7-card>
 
@@ -126,6 +126,15 @@ export default {
           state: "19,888.00",
           practicable: "", //落实情况选项
           practicableContent: "" //落实情况说明
+        }
+      ],
+      loanConditionsList: [
+        //放款条件
+        {
+          no: "MC007000009191",
+          serial: "001",
+          content:
+            "放款条件内容数据|放款条件内容数据|放款条件内容数据|放款条件内容数据"
         }
       ],
       checkTypes: [

@@ -58,9 +58,10 @@
         main
       >
         <!-- Pages -->
-        <f7-pages>
+        <f7-page>
           <home-page></home-page>
-        </f7-pages>
+          <!-- <task-check-page></task-check-page> -->
+        </f7-page>
       </f7-view>
     </f7-views>
   </f7-app>
@@ -70,6 +71,7 @@
 // 引入路由文件
 import routes from "./routes.js";
 import HomePage from "./pages/home/index.vue"; //引入首页
+import TaskCheckPage from "./pages/task-check/index.vue"; //引入首页
 
 export default {
   data() {
@@ -84,7 +86,7 @@ export default {
         routes: routes // App routes
       },
       menuToggle: true, //左边菜单当前展开状态 true:展开 false:收缩
-      menuWidth: 200, //左边菜单默认宽度
+      menuWidth: 210, //左边菜单默认宽度
       containerWidth: 0 //容器宽度
     };
   },
@@ -108,7 +110,7 @@ export default {
       // console.error("mainView:", mainView);
     });
   },
-  components: { HomePage },
+  components: { HomePage, TaskCheckPage },
   methods: {
     /**
      * 返回首页
@@ -127,7 +129,7 @@ export default {
     onMenuToggleListener() {
       this.menuToggle = !this.menuToggle;
       if (this.menuToggle) {
-        this.menuWidth = 200;
+        this.menuWidth = 210;
       } else {
         this.menuWidth = 55;
         // this.menuWidth = 0;

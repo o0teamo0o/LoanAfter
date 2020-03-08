@@ -28,7 +28,6 @@ import SettingPage from './pages/setting/index.vue'; //设置页面
 
 
 import AboutPage from './pages/about.vue';
-import FormPage from './pages/form.vue';
 import DynamicRoutePage from './pages/dynamic-route.vue';
 import NotFoundPage from './pages/not-found.vue';
 
@@ -218,11 +217,6 @@ export default [{
     {
         path: '/services/',
         component: ServicesPage
-    },
-    {
-        path: '/form/',
-        name: 'form',
-        component: FormPage,
     },
     {
         path: '/dynamic-route/blog/:blogId/post/:postId/',

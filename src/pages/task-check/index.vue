@@ -119,13 +119,24 @@
           <el-table-column prop="state" label="任务状态" width="80"></el-table-column>
           <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="scope">
-              <f7-link
-                class="btn-link"
-                view="#left-panel-view"
-                data-force="true"
-                data-push-state="true"
-                @click="onItemClick(scope.row)"
-              >接收</f7-link>
+              <div v-if="scope.row.status == 0">
+                <f7-link
+                  class="btn-link"
+                  view="#left-panel-view"
+                  data-force="true"
+                  data-push-state="true"
+                  @click="onItemClick(scope.row)"
+                >发起</f7-link>
+              </div>
+              <div v-if="scope.row.status == 1">
+                <f7-link
+                  class="btn-link"
+                  view="#left-panel-view"
+                  data-force="true"
+                  data-push-state="true"
+                  @click="onItemClick(scope.row)"
+                >检查</f7-link>
+              </div>
             </template>
           </el-table-column>
         </el-table>
@@ -200,7 +211,22 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 0
+        },
+        {
+          type: 0,
+          date: "公司类客户",
+          name: "P000089728",
+          province: "第二代身份证",
+          city: "430888888888888888",
+          address: "",
+          zip: "日常维护检查",
+          jclx: "个人居住类检查",
+          M: "M12",
+          riqi: "2020-08-08",
+          state: "待检查",
+          status: 1
         },
         {
           type: 1,
@@ -213,7 +239,8 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 1
         },
         {
           type: 2,
@@ -226,7 +253,8 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 1
         },
         {
           type: 3,
@@ -239,7 +267,8 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 1
         },
         {
           type: 4,
@@ -252,7 +281,8 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 1
         },
         {
           type: 5,
@@ -265,7 +295,8 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 1
         },
         {
           type: 6,
@@ -278,7 +309,8 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 1
         },
         {
           type: 7,
@@ -291,7 +323,8 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 1
         },
         {
           type: 8,
@@ -304,7 +337,8 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 1
         },
         {
           type: 9,
@@ -317,7 +351,8 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 1
         },
         {
           type: 10,
@@ -330,7 +365,8 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 1
         },
         {
           type: 11,
@@ -343,7 +379,8 @@ export default {
           jclx: "个人居住类检查",
           M: "M12",
           riqi: "2020-08-08",
-          state: "待检查"
+          state: "待检查",
+          status: 1
         }
       ], //查询结果集
       itemUrl: "/task-navigation/"
@@ -423,14 +460,17 @@ export default {
           query: { customType: item.type }
         });
       } else {
-        this.$f7router.navigate({
-          name: "DailyInformationPage",
-          query: { customType: item.type }
-        });
-        this.$f7.views.left.router.navigate({
-          name: "TaskDailyNavigationPage",
-          query: { customType: item.type }
-        });
+        if (item.status == 0) {
+        } else {
+          this.$f7router.navigate({
+            name: "DailyInformationPage",
+            query: { customType: item.type }
+          });
+          this.$f7.views.left.router.navigate({
+            name: "TaskDailyNavigationPage",
+            query: { customType: item.type }
+          });
+        }
       }
     },
 

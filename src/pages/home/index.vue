@@ -24,6 +24,14 @@
         </f7-col>
       </f7-row>
     </f7-block>
+
+    <f7-card>
+      <f7-card-header>贷后任务</f7-card-header>
+      <f7-card-content>
+        <p class="date">Posted on January 21, 2015</p>
+        <p>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus quis nibh hendrerit...</p>
+      </f7-card-content>
+    </f7-card>
   </f7-page>
 </template>
 
@@ -50,20 +58,19 @@ export default {
 
 .icon-head {
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   margin: 20px;
   border: 2px solid #b2b2b2;
 }
 
 .nickname {
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 18px;
   color: #333;
 }
 
 .role {
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 7px;
   color: @main-color;
 }
@@ -72,22 +79,20 @@ export default {
   padding: 20px;
 
   .time-mark {
-    font-size: 16px;
+    font-size: 14px;
     color: #666;
   }
 
   .week {
-    font-size: 18px;
+    font-size: 16px;
     color: #333;
     margin-top: 5px;
-    font-weight: bold;
   }
 
   .date {
-    font-size: 18px;
+    font-size: 16px;
     color: #333;
     margin-top: 5px;
-    font-weight: bold;
   }
 }
 </style>
