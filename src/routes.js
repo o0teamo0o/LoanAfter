@@ -2,14 +2,16 @@ import HomePage from './pages/home/index.vue'; //首页
 import PanelLeftPage from './pages/panel/panel-left.vue'; //左边菜单视图
 import PanelRightPage from './pages/panel/panel-right.vue'; //右边菜单页面
 
-import CapitalTaskPage from './pages/capital/index.vue'; //资金用途任务检查页面
+/*** 资金用途任务页面 ***/
+import CapitalTaskPage from './pages/capital/index.vue';
 import TaskCapitalNavigationPage from './pages/capital/navigation-menu.vue'; //资金用途导航页面
 import TaskCapitalIOUSelectionPage from './pages/capital/inspect/iou-selection.vue'; //资金用途导-借据选择页面
 import TaskCapitalAddIOUPage from './pages/capital/inspect/add-iou.vue'; //资金用途导-添加借据页面
 import TaskCapitalCustomerSelectionPage from './pages/capital/inspect/customer-selection.vue'; //资金用途导-客户查询页面
 import TaskCapitalPurposePage from './pages/capital/inspect/purpose.vue'; //资金用途导-用途检查页面
 
-import TaskCheckPage from './pages/daily/index.vue'; //日常维护任务检查页面
+/*** 日常维护任务页面 ***/
+import DailyTaskPage from './pages/daily/index.vue';
 import TaskDailyNavigationPage from './pages/daily/navigation-menu.vue'; //日常维护任务导航页面
 import DailyInformationPage from './pages/daily/inspect/information.vue'; //日常任务-基本信息通用页面
 import DailyAuthorizationPage from './pages/daily/inspect/authorization.vue'; //日常任务-授信汇总通用页面
@@ -27,16 +29,22 @@ import DailyGuaranteePage from './pages/daily/inspect/guarantee.vue'; //日常�
 import DailyRiskPage from './pages/daily/inspect/risk.vue'; //日常任务-风险分类通用页面
 import DailyInspectPage from './pages/daily/inspect/inspect.vue'; //日常任务-检查结论通用页面
 import DailyPortraitPage from './pages/daily/inspect/portrait.vue'; //日常任务-影像资料通用页面
-import SettingPage from './pages/setting/index.vue'; //设置页面
+
+/*** 到期检查页面 ***/
+import ExpireTaskPage from './pages/expire/index.vue';
+
+/*** 逾期催收检查页面 ***/
+import OverdueTaskPage from './pages/overdue/index.vue';
+
+/*** 内部监督检查页面 ***/
+import SuperviseTaskPage from './pages/supervise/index.vue';
+
+/*** 设置页面 ***/
+import SettingPage from './pages/setting/index.vue';
 
 
-import AboutPage from './pages/about.vue';
 import DynamicRoutePage from './pages/dynamic-route.vue';
 import NotFoundPage from './pages/not-found.vue';
-
-import ServicesPage from './pages/services.vue'
-import LeftPage1 from './pages/left-page-1.vue'
-import LeftPage2 from './pages/left-page-2.vue'
 
 export default [{
         path: '/',
@@ -75,9 +83,9 @@ export default [{
         }
     },
     {
-        path: '/task-check/',
-        name: "TaskCheckPage",
-        component: TaskCheckPage,
+        path: '/daily-task/',
+        name: "DailyTaskPage",
+        component: DailyTaskPage,
         keepAlive: true, //保留之前数据状态
         options: {
             history: true,
@@ -209,33 +217,31 @@ export default [{
         component: DailyPortraitPage,
     },
     {
+        path: '/expire-task/',
+        name: 'ExpireTaskPage',
+        component: ExpireTaskPage,
+    },
+    {
+        path: '/overdue-task/',
+        name: 'OverdueTaskPage',
+        component: OverdueTaskPage,
+    },
+    {
+        path: '/supervise-task/',
+        name: 'SuperviseTaskPage',
+        component: SuperviseTaskPage,
+    },
+    {
         path: '/setting/',
         name: 'SettingPage',
         component: SettingPage,
     },
     {
-        path: '/about/',
-        name: 'AboutPage',
-        component: AboutPage,
-    },
-    {
-        path: '/left-page-1/',
-        component: LeftPage1
-    },
-    {
-        path: '/left-page-2/',
-        component: LeftPage2
-    },
-    {
-        path: '/services/',
-        component: ServicesPage
+        path: '(.*)',
+        component: NotFoundPage,
     },
     {
         path: '/dynamic-route/blog/:blogId/post/:postId/',
         component: DynamicRoutePage,
-    },
-    {
-        path: '(.*)',
-        component: NotFoundPage,
     },
 ];

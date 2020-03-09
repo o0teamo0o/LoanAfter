@@ -1,9 +1,6 @@
 <template>
   <!-- App -->
   <f7-app :params="f7params">
-    <!-- Statusbar -->
-    <f7-statusbar></f7-statusbar>
-
     <!-- 左边菜单容器 -->
     <f7-panel class="menu-layout" id="left-view" :style="{width: menuWidth +'px'}" left reveal>
       <f7-view id="left-panel-view" url="/panel-left/" name="left"></f7-view>

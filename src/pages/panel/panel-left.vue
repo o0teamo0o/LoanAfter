@@ -20,15 +20,6 @@
         />
       </f7-list-item>
     </f7-list>
-
-    <!-- <f7-list>
-      <f7-list-item link="/task-check/" title="授信后任务检查" view="#main-view" @click="clearPageCache">
-        <img slot="media" class="icon-menu" src="../../assets/icon_menu_task.png" />
-      </f7-list-item>
-      <f7-list-item title="设置" view="#main-view" link="/setting/" @click="clearPageCache">
-        <img slot="media" class="icon-menu" src="../../assets/icon_menu_setting.png" />
-      </f7-list-item>
-    </f7-list>-->
   </f7-page>
 </template>
 
@@ -56,25 +47,25 @@ export default {
           title: "日常维护检查",
           imgSelectedUrl: require("../../assets/icon_task_maintain_selected.png"),
           imgNormalUrl: require("../../assets/icon_task_maintain_normal.png"),
-          link: "/task-check/"
+          link: "/daily-task/"
         },
         {
           title: "到期前检查",
           imgSelectedUrl: require("../../assets/icon_task_expire_selected.png"),
           imgNormalUrl: require("../../assets/icon_task_expire_normal.png"),
-          link: "/task-check/"
+          link: "/expire-task/"
         },
         {
           title: "逾期催收检查",
           imgSelectedUrl: require("../../assets/icon_task_collection_selected.png"),
           imgNormalUrl: require("../../assets/icon_task_collection_normal.png"),
-          link: "/task-check/"
+          link: "/overdue-task/"
         },
         {
           title: "内部监督检查",
           imgSelectedUrl: require("../../assets/icon_task_supervise_selected.png"),
           imgNormalUrl: require("../../assets/icon_task_supervise_normal.png"),
-          link: "/task-check/"
+          link: "/supervise-task/"
         },
         {
           title: "设置",
