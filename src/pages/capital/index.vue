@@ -8,7 +8,7 @@
       <f7-card class="top-layout">
         <f7-list accordion>
           <f7-list-item
-            id="accordionItem"
+            id="accordionCapitalItem"
             accordion-item
             title="查询要素"
             opened
@@ -50,7 +50,7 @@
                     disabled
                     suffix-icon="el-icon-search"
                     clearable
-                    placeholder="请输入客户名称"
+                    placeholder="--请选择--"
                   ></el-input>
                 </f7-col>
                 <f7-col width="50" class="title">
@@ -146,7 +146,7 @@
           :data="taskList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
           border
           style="transition: max-height 0.2s linear"
-          :max-height="tableMaxHeight"
+          :max-height="tableCapitalMaxHeight"
         >
           <el-table-column fixed prop="date" label="客户名称" width="120"></el-table-column>
           <el-table-column prop="name" label="客户编号" width="120"></el-table-column>
@@ -238,9 +238,9 @@ export default {
         }
       ],
       screeHeight: 768, //屏幕高度
-      tableMaxHeight: 0, //默认表格高度
-      bigTableMaxHeight: 0, //表格最大值
-      smallTableMaxHeight: 0, //表格最大值
+      tableCapitalMaxHeight: 0, //默认表格高度
+      bigTableCapitalMaxHeight: 0, //表格最大值
+      smallTableCapitalMaxHeight: 0, //表格最大值
       total: 2, //总页数
       pagesize: 10, //每页数据
       currentPage: 1, //当前页
@@ -435,33 +435,24 @@ export default {
     this.$nextTick(() => {
       that.screeHeight = that.$store.state.screeHeight - 85;
       var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-      that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
-      that.smallTableMaxHeight = that.tableMaxHeight;
+      that.tableCapitalMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
+      that.smallTableCapitalMaxHeight = that.tableCapitalMaxHeight;
     });
 
     this.$f7ready(f7 => {
-      //Accordion打开事件监听
-      // that.$$("#accordionItem").on("accordion:opened", function() {
-      //   if (that.smallTableMaxHeight != 0) {
-      //     that.tableMaxHeight = that.smallTableMaxHeight;
-      //   } else {
-      //     var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-      //     that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
-      //     that.smallTableMaxHeight = that.tableMaxHeight;
-      //   }
-      // });
-      that.$$("#accordionItem").on("accordion:beforeopen", function() {
-        that.tableMaxHeight = that.smallTableMaxHeight;
+      that.$$("#accordionCapitalItem").on("accordion:beforeopen", function() {
+        that.tableCapitalMaxHeight = that.smallTableCapitalMaxHeight;
       });
 
       //Accordion关闭事件监听
-      that.$$("#accordionItem").on("accordion:closed", function() {
-        if (that.bigTableMaxHeight != 0) {
-          that.tableMaxHeight = that.bigTableMaxHeight;
+      that.$$("#accordionCapitalItem").on("accordion:closed", function() {
+        if (that.bigTableCapitalMaxHeight != 0) {
+          that.tableCapitalMaxHeight = that.bigTableCapitalMaxHeight;
         } else {
           var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-          that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
-          that.bigTableMaxHeight = that.tableMaxHeight;
+          that.tableCapitalMaxHeight =
+            that.screeHeight - bottomViewOffsetTop - 30;
+          that.bigTableCapitalMaxHeight = that.tableCapitalMaxHeight;
         }
       });
     });
@@ -474,8 +465,12 @@ export default {
       var queryInfo = {};
       queryInfo.customerType = this.customerType;
       queryInfo.customerName = this.customerName;
-      queryInfo.checkType = this.checkType;
-      queryInfo.taskType = this.taskType;
+      queryInfo.mechanism = this.mechanism;
+      queryInfo.certificatesType = this.certificatesType;
+      queryInfo.customNo = this.customNo;
+      queryInfo.certificatesNo = this.certificatesNo;
+      queryInfo.automatic = this.automatic;
+      queryInfo.taskState = this.taskState;
       console.error(queryInfo);
     },
 
@@ -485,8 +480,26 @@ export default {
     onResetTask() {
       this.customerType = "";
       this.customerName = "";
-      this.checkType = "";
-      this.taskType = "";
+      this.mechanism = "";
+      this.certificatesType = "";
+      this.customNo = "";
+      this.certificatesNo = "";
+      this.taskState = "";
+      this.automatic = "";
+    },
+
+    /**
+     * 条目点击事件
+     */
+    onItemClick(item) {
+      this.$f7router.navigate({
+        name: "TaskCapitalIOUSelectionPage",
+        query: { customType: item.type }
+      });
+      this.$f7.views.left.router.navigate({
+        name: "TaskCapitalNavigationPage",
+        query: { customType: item.type }
+      });
     },
 
     /**

@@ -60,7 +60,6 @@
         <!-- Pages -->
         <f7-page>
           <home-page></home-page>
-          <!-- <task-check-page></task-check-page> -->
         </f7-page>
       </f7-view>
     </f7-views>
@@ -71,7 +70,6 @@
 // 引入路由文件
 import routes from "./routes.js";
 import HomePage from "./pages/home/index.vue"; //引入首页
-import TaskCheckPage from "./pages/task-check/index.vue"; //引入首页
 
 export default {
   data() {
@@ -110,7 +108,7 @@ export default {
       // console.error("mainView:", mainView);
     });
   },
-  components: { HomePage, TaskCheckPage },
+  components: { HomePage },
   methods: {
     /**
      * 返回首页

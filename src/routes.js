@@ -1,30 +1,32 @@
 import HomePage from './pages/home/index.vue'; //首页
 import PanelLeftPage from './pages/panel/panel-left.vue'; //左边菜单视图
 import PanelRightPage from './pages/panel/panel-right.vue'; //右边菜单页面
-import CapitalTaskPage from './pages/capital/index.vue'; //资金任务检查页面
-import TaskCheckPage from './pages/task-check/index.vue'; //任务检查页面
-import TaskDailyNavigationPage from './pages/task-check/task-daily/navigation-menu.vue'; //日常任务导航页面
-import TaskCapitalNavigationPage from './pages/task-check/task-capital/navigation-menu.vue'; //资金用途导航页面
-import DailyInformationPage from './pages/task-check/task-daily/information.vue'; //日常任务-基本信息通用页面
-import DailyAuthorizationPage from './pages/task-check/task-daily/authorization.vue'; //日常任务-授信汇总通用页面
-import DailyManagementCompanyPage from './pages/task-check/task-daily/management/company.vue'; //日常任务-客户经营-公司类页面
-import DailyManagementEnterprisePage from './pages/task-check/task-daily/management/enterprise.vue'; //日常任务-客户经营-事业法人页面
-import DailyManagementPlatformPage from './pages/task-check/task-daily/management/platform.vue'; //日常任务-客户经营-平台客户页面
-import DailyManagementSmallPage from './pages/task-check/task-daily/management/small.vue'; //日常任务-客户经营-小微企业页面
-import DailyManagementPersonalPage from './pages/task-check/task-daily/management/personal.vue'; //日常任务-客户经营-个人投资页面
-import DailyManagementPropertyPage from './pages/task-check/task-daily/management/property.vue'; //日常任务-客户经营-物业页面
-import DailyManagementTaxUnionPage from './pages/task-check/task-daily/management/tax-union.vue'; //日常任务-客户经营-税联贷页面
-import DailyManagementFarmersPage from './pages/task-check/task-daily/management/farmers.vue'; //日常任务-客户经营-惠农页面
-import DailyProjectCurrencyPage from './pages/task-check/task-daily/project/currency.vue'; //日常任务-项目管理通用页面
-import DailyProjectRealEstatePage from './pages/task-check/task-daily/project/real-estate.vue'; //日常任务-项目管理-房地产页面
-import DailyGuaranteePage from './pages/task-check/task-daily/guarantee.vue'; //日常任务-担保信息通用页面
-import DailyRiskPage from './pages/task-check/task-daily/risk.vue'; //日常任务-风险分类通用页面
-import DailyInspectPage from './pages/task-check/task-daily/inspect.vue'; //日常任务-检查结论通用页面
-import DailyPortraitPage from './pages/task-check/task-daily/portrait.vue'; //日常任务-影像资料通用页面
-import TaskCapitalIOUSelectionPage from './pages/task-check/task-capital/iou-selection.vue'; //资金用途导-借据选择页面
-import TaskCapitalAddIOUPage from './pages/task-check/task-capital/add-iou.vue'; //资金用途导-添加借据页面
-import TaskCapitalCustomerSelectionPage from './pages/task-check/task-capital/customer-selection.vue'; //资金用途导-客户查询页面
-import TaskCapitalPurposePage from './pages/task-check/task-capital/purpose.vue'; //资金用途导-用途检查页面
+
+import CapitalTaskPage from './pages/capital/index.vue'; //资金用途任务检查页面
+import TaskCapitalNavigationPage from './pages/capital/navigation-menu.vue'; //资金用途导航页面
+import TaskCapitalIOUSelectionPage from './pages/capital/inspect/iou-selection.vue'; //资金用途导-借据选择页面
+import TaskCapitalAddIOUPage from './pages/capital/inspect/add-iou.vue'; //资金用途导-添加借据页面
+import TaskCapitalCustomerSelectionPage from './pages/capital/inspect/customer-selection.vue'; //资金用途导-客户查询页面
+import TaskCapitalPurposePage from './pages/capital/inspect/purpose.vue'; //资金用途导-用途检查页面
+
+import TaskCheckPage from './pages/daily/index.vue'; //日常维护任务检查页面
+import TaskDailyNavigationPage from './pages/daily/navigation-menu.vue'; //日常维护任务导航页面
+import DailyInformationPage from './pages/daily/inspect/information.vue'; //日常任务-基本信息通用页面
+import DailyAuthorizationPage from './pages/daily/inspect/authorization.vue'; //日常任务-授信汇总通用页面
+import DailyManagementCompanyPage from './pages/daily/inspect/management/company.vue'; //日常任务-客户经营-公司类页面
+import DailyManagementEnterprisePage from './pages/daily/inspect/management/enterprise.vue'; //日常任务-客户经营-事业法人页面
+import DailyManagementPlatformPage from './pages/daily/inspect/management/platform.vue'; //日常任务-客户经营-平台客户页面
+import DailyManagementSmallPage from './pages/daily/inspect/management/small.vue'; //日常任务-客户经营-小微企业页面
+import DailyManagementPersonalPage from './pages/daily/inspect/management/personal.vue'; //日常任务-客户经营-个人投资页面
+import DailyManagementPropertyPage from './pages/daily/inspect/management/property.vue'; //日常任务-客户经营-物业页面
+import DailyManagementTaxUnionPage from './pages/daily/inspect/management/tax-union.vue'; //日常任务-客户经营-税联贷页面
+import DailyManagementFarmersPage from './pages/daily/inspect/management/farmers.vue'; //日常任务-客户经营-惠农页面
+import DailyProjectCurrencyPage from './pages/daily/inspect/project/currency.vue'; //日常任务-项目管理通用页面
+import DailyProjectRealEstatePage from './pages/daily/inspect/project/real-estate.vue'; //日常任务-项目管理-房地产页面
+import DailyGuaranteePage from './pages/daily/inspect/guarantee.vue'; //日常任务-担保信息通用页面
+import DailyRiskPage from './pages/daily/inspect/risk.vue'; //日常任务-风险分类通用页面
+import DailyInspectPage from './pages/daily/inspect/inspect.vue'; //日常任务-检查结论通用页面
+import DailyPortraitPage from './pages/daily/inspect/portrait.vue'; //日常任务-影像资料通用页面
 import SettingPage from './pages/setting/index.vue'; //设置页面
 
 
