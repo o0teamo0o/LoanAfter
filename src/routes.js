@@ -1,6 +1,7 @@
 import HomePage from './pages/home/index.vue'; //首页
 import PanelLeftPage from './pages/panel/panel-left.vue'; //左边菜单视图
 import PanelRightPage from './pages/panel/panel-right.vue'; //右边菜单页面
+import CapitalTaskPage from './pages/capital/index.vue'; //资金任务检查页面
 import TaskCheckPage from './pages/task-check/index.vue'; //任务检查页面
 import TaskDailyNavigationPage from './pages/task-check/task-daily/navigation-menu.vue'; //日常任务导航页面
 import TaskCapitalNavigationPage from './pages/task-check/task-capital/navigation-menu.vue'; //资金用途导航页面
@@ -57,6 +58,15 @@ export default [{
         path: '/panel-right/',
         name: "PanelRightPage",
         component: PanelRightPage,
+        options: {
+            history: true,
+            pushState: true
+        }
+    },
+    {
+        path: '/task-capital/',
+        name: "CapitalTaskPage",
+        component: CapitalTaskPage,
         options: {
             history: true,
             pushState: true

@@ -50,7 +50,7 @@ export default {
           title: "资金用途检查",
           imgSelectedUrl: require("../../assets/icon_task_capital_selected.png"),
           imgNormalUrl: require("../../assets/icon_task_capital_normal.png"),
-          link: "/task-check/"
+          link: "/task-capital/"
         },
         {
           title: "日常维护检查",
