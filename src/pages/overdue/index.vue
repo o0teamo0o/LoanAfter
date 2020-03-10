@@ -78,16 +78,14 @@
           style="transition: max-height 0.2s linear"
           :max-height="tableOverdueMaxHeight"
         >
-          <el-table-column fixed prop="date" label="客户名称" width="120"></el-table-column>
           <el-table-column prop="name" label="客户编号" width="120"></el-table-column>
-          <el-table-column prop="province" label="证件类型" width="105"></el-table-column>
-          <el-table-column prop="city" label="证件号码" width="180"></el-table-column>
+          <el-table-column prop="province" label="客户名称" width="105"></el-table-column>
+          <el-table-column prop="city" label="所属机构" width="180"></el-table-column>
           <el-table-column prop="address" label="借据编号" width="150"></el-table-column>
-          <el-table-column prop="zip" label="检查类型" width="110"></el-table-column>
-          <el-table-column prop="jclx" label="日常检查类型" width="120"></el-table-column>
-          <el-table-column prop="M" label="检查频率" width="80"></el-table-column>
-          <el-table-column prop="riqi" label="本期检查最迟完成日期" width="165"></el-table-column>
-          <el-table-column prop="state" label="任务状态" width="80"></el-table-column>
+          <el-table-column prop="zip" label="借据金额" width="110"></el-table-column>
+          <el-table-column prop="M" label="借据起始日期" width="165"></el-table-column>
+          <el-table-column prop="riqi" label="借据到期日期" width="165"></el-table-column>
+          <el-table-column prop="state" label="逾期金额" width="80"></el-table-column>
           <el-table-column fixed="right" label="操作" width="80">
             <template slot-scope="scope">
               <div v-if="scope.row.status == 0">
@@ -369,7 +367,10 @@ export default {
      * 条目点击事件
      */
     onItemClick(item) {
-      this.$f7.dialog.alert("详细界面未定!!!");
+      this.$f7router.navigate({
+        name: "OverdueCollectionPage",
+        query: { customType: item.type }
+      });
     },
 
     /**

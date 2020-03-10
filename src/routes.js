@@ -35,6 +35,7 @@ import ExpireTaskPage from './pages/expire/index.vue';
 
 /*** 逾期催收检查页面 ***/
 import OverdueTaskPage from './pages/overdue/index.vue';
+import OverdueCollectionPage from './pages/overdue/inspect/collection.vue'; //催收检查页面
 
 /*** 内部监督检查页面 ***/
 import SuperviseTaskPage from './pages/supervise/index.vue';
@@ -225,6 +226,11 @@ export default [{
         path: '/overdue-task/',
         name: 'OverdueTaskPage',
         component: OverdueTaskPage,
+    },
+    {
+        path: '/overdue-collection/',
+        name: 'OverdueCollectionPage',
+        component: OverdueCollectionPage,
     },
     {
         path: '/supervise-task/',
