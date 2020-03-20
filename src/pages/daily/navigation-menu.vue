@@ -207,7 +207,7 @@ export default {
               title: "客户经营",
               imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
-              link: "/daily-management/"
+              link: "/daily-management-realestate/"
             },
             {
               title: "项目管理",
@@ -241,35 +241,35 @@ export default {
             }
           ]
         },
-        {
-          type: 4, //集团客户
-          items: [
-            {
-              title: "基本信息",
-              imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
-            },
-            {
-              title: "客户经营",
-              imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
-              link: "/daily-management/"
-            },
-            {
-              title: "检查结论",
-              imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
-              link: "/daily-inspect/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
-            }
-          ]
-        },
+        // {
+        //   type: 4, //集团客户
+        //   items: [
+        //     {
+        //       title: "基本信息",
+        //       imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
+        //       imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
+        //       link: "/daily-information/"
+        //     },
+        //     {
+        //       title: "客户经营",
+        //       imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
+        //       imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
+        //       link: "/daily-management/"
+        //     },
+        //     {
+        //       title: "检查结论",
+        //       imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
+        //       imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
+        //       link: "/daily-inspect/"
+        //     },
+        //     {
+        //       title: "影像资料",
+        //       imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+        //       imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+        //       link: "/daily-portrait/"
+        //     }
+        //   ]
+        // },
         {
           type: 5, //小微企业客户
           items: [

@@ -95,7 +95,7 @@ export default {
 
       //判断当前系统是否是ipad使用
       if (!this.$device.ipad) {
-        f7.dialog.alert("请使用ipad运行此程序");
+        f7.dialog.alert("如果是浏览器,请按F12-使用ipad横屏模式运行此程序");
       }
 
       // var mainView = this.$f7.views.main;

@@ -18,6 +18,7 @@ import DailyAuthorizationPage from './pages/daily/inspect/authorization.vue'; //
 import DailyManagementCompanyPage from './pages/daily/inspect/management/company.vue'; //日常任务-客户经营-公司类页面
 import DailyManagementEnterprisePage from './pages/daily/inspect/management/enterprise.vue'; //日常任务-客户经营-事业法人页面
 import DailyManagementPlatformPage from './pages/daily/inspect/management/platform.vue'; //日常任务-客户经营-平台客户页面
+import DailyManagementRealEstatePage from './pages/daily/inspect/management/real-estate.vue'; //日常任务-客户经营-房地产客户页面
 import DailyManagementSmallPage from './pages/daily/inspect/management/small.vue'; //日常任务-客户经营-小微企业页面
 import DailyManagementPersonalPage from './pages/daily/inspect/management/personal.vue'; //日常任务-客户经营-个人投资页面
 import DailyManagementPropertyPage from './pages/daily/inspect/management/property.vue'; //日常任务-客户经营-物业页面
@@ -153,6 +154,12 @@ export default [{
         path: '/daily-management-platform/',
         name: 'DailyManagementPlatformPage',
         component: DailyManagementPlatformPage,
+        keepAlive: true, //保留之前数据状态
+    },
+    {
+        path: '/daily-management-realestate/',
+        name: 'DailyManagementRealEstatePage',
+        component: DailyManagementRealEstatePage,
         keepAlive: true, //保留之前数据状态
     },
     {

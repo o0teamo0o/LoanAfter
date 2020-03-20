@@ -290,7 +290,7 @@
               v-model="supplier"
               :value="supplier"
               clearable
-              placeholder="请输入主要供应商"
+              placeholder="请输入"
             ></el-input>
           </f7-col>
           <f7-col width="25" class="key">
@@ -302,7 +302,7 @@
               v-model="distributor"
               :value="distributor"
               clearable
-              placeholder="请输入主要经销商"
+              placeholder="请输入"
             ></el-input>
           </f7-col>
         </f7-row>
@@ -317,7 +317,7 @@
               v-model="supplier"
               :value="supplier"
               clearable
-              placeholder="请输入主要供应商"
+              placeholder="请输入"
             ></el-input>
           </f7-col>
           <f7-col width="25" class="key">
@@ -329,7 +329,8 @@
               v-model="distributor"
               :value="distributor"
               clearable
-              placeholder="请输入主要经销商"
+              disabled
+              placeholder="自动计算"
             ></el-input>
           </f7-col>
         </f7-row>

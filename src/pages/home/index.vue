@@ -25,13 +25,10 @@
       </f7-row>
     </f7-block>
 
-    <f7-card>
-      <f7-card-header>贷后任务</f7-card-header>
-      <f7-card-content>
-        <p class="date">Posted on January 21, 2015</p>
-        <p>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus quis nibh hendrerit...</p>
-      </f7-card-content>
-    </f7-card>
+    <!-- <f7-card>
+      <f7-card-header>授信后任务快捷菜单</f7-card-header>
+      <f7-card-content>待定</f7-card-content>
+    </f7-card>-->
   </f7-page>
 </template>
 

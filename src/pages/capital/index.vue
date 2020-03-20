@@ -43,65 +43,22 @@
               <f7-row class="item-layout">
                 <f7-col width="50" class="title">
                   <i class="keynote">*</i>
-                  <span class="hint">所属机构</span>
-                  <el-input
-                    v-model="mechanism"
-                    :value="mechanism"
-                    disabled
-                    suffix-icon="el-icon-search"
-                    clearable
-                    placeholder="--请选择--"
-                  ></el-input>
-                </f7-col>
-                <f7-col width="50" class="title">
-                  <i class="keynote">*</i>
-                  <span class="hint">客户编号</span>
-                  <el-input v-model="customNo" :value="customNo" clearable placeholder="请输入客户名称"></el-input>
-                </f7-col>
-              </f7-row>
-              <f7-row class="item-layout">
-                <f7-col width="50" class="title">
-                  <i class="keynote">*</i>
-                  <span class="hint">证件类型</span>
-                  <el-select v-model="certificatesType" placeholder="--请选择--">
+                  <span class="hint">检查类型</span>
+                  <el-select v-model="checkType" placeholder="--请选择--">
                     <el-option
-                      v-for="item in certificatesTypes"
+                      v-for="item in checkTypes"
                       :key="item.value"
                       :label="item.label"
                       :value="item.value"
                     ></el-option>
                   </el-select>
                 </f7-col>
-                <f7-col width="50" class="title">
-                  <i class="keynote">*</i>
-                  <span class="hint">证件号码</span>
-                  <el-input
-                    v-model="certificatesNo"
-                    :value="certificatesNo"
-                    clearable
-                    placeholder="请输入客户名称"
-                  ></el-input>
-                </f7-col>
-              </f7-row>
-              <f7-row class="item-layout">
                 <f7-col width="50" class="title">
                   <i class="keynote">*</i>
                   <span class="hint">任务状态</span>
-                  <el-select v-model="taskState" placeholder="--请选择--">
+                  <el-select v-model="taskType" placeholder="--请选择--">
                     <el-option
-                      v-for="item in taskStates"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    ></el-option>
-                  </el-select>
-                </f7-col>
-                <f7-col width="50" class="title">
-                  <i class="keynote">*</i>
-                  <span class="hint">是否自动生成</span>
-                  <el-select v-model="automatic" placeholder="--请选择--">
-                    <el-option
-                      v-for="item in automatics"
+                      v-for="item in taskTypes"
                       :key="item.value"
                       :label="item.label"
                       :value="item.value"

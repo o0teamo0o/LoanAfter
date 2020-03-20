@@ -42,7 +42,7 @@
                 <f7-col width="50" class="title">
                   <i class="ignore">*</i>
                   <span class="hint">客户编号</span>
-                  <el-input v-model="IOUNo" :value="IOUNo" clearable placeholder="请输入借据编号"></el-input>
+                  <el-input v-model="IOUNo" :value="IOUNo" clearable placeholder="请输入客户编号"></el-input>
                 </f7-col>
                 <f7-col width="50" class="title"></f7-col>
               </f7-row>

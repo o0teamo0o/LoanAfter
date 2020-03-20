@@ -16,47 +16,97 @@
     <f7-card>
       <div class="production-layout">
         <f7-row class="item-layout">
-          <f7-col width="15" class="key">
+          <f7-col width="20" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>面谈情况:
           </f7-col>
-          <f7-col width="85">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          <f7-col width="80">
+            <el-upload
+              action="https://jsonplaceholder.typicode.com/posts/"
+              list-type="picture-card"
+              :on-preview="handlePictureCardPreview"
+              :on-remove="handleRemove"
+            >
+              <i class="el-icon-plus"></i>
+            </el-upload>
+            <el-dialog :visible.sync="dialogVisible">
+              <img width="100%" :src="dialogImageUrl" alt />
+            </el-dialog>
           </f7-col>
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
-          <f7-col width="15" class="key">
+          <f7-col width="20" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>生产经营情况:
           </f7-col>
-          <f7-col width="85">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          <f7-col width="80">
+            <el-upload
+              action="https://jsonplaceholder.typicode.com/posts/"
+              list-type="picture-card"
+              :on-preview="handlePictureCardPreview"
+              :on-remove="handleRemove"
+            >
+              <i class="el-icon-plus"></i>
+            </el-upload>
+            <el-dialog :visible.sync="dialogVisible">
+              <img width="100%" :src="dialogImageUrl" alt />
+            </el-dialog>
           </f7-col>
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
-          <f7-col width="15" class="key">
+          <f7-col width="20" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>担保物情况:
           </f7-col>
-          <f7-col width="85">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          <f7-col width="80">
+            <el-upload
+              action="https://jsonplaceholder.typicode.com/posts/"
+              list-type="picture-card"
+              :on-preview="handlePictureCardPreview"
+              :on-remove="handleRemove"
+            >
+              <i class="el-icon-plus"></i>
+            </el-upload>
+            <el-dialog :visible.sync="dialogVisible">
+              <img width="100%" :src="dialogImageUrl" alt />
+            </el-dialog>
           </f7-col>
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
-          <f7-col width="15" class="key">
+          <f7-col width="20" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>财务数据:
           </f7-col>
-          <f7-col width="85">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          <f7-col width="80">
+            <el-upload
+              action="https://jsonplaceholder.typicode.com/posts/"
+              list-type="picture-card"
+              :on-preview="handlePictureCardPreview"
+              :on-remove="handleRemove"
+            >
+              <i class="el-icon-plus"></i>
+            </el-upload>
+            <el-dialog :visible.sync="dialogVisible">
+              <img width="100%" :src="dialogImageUrl" alt />
+            </el-dialog>
           </f7-col>
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
-          <f7-col width="15" class="key">
+          <f7-col width="20" class="key">
             <i class="keynote">&nbsp;&nbsp;</i>其他资料:
           </f7-col>
-          <f7-col width="85">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          <f7-col width="80">
+            <el-upload
+              action="https://jsonplaceholder.typicode.com/posts/"
+              list-type="picture-card"
+              :on-preview="handlePictureCardPreview"
+              :on-remove="handleRemove"
+            >
+              <i class="el-icon-plus"></i>
+            </el-upload>
+            <el-dialog :visible.sync="dialogVisible">
+              <img width="100%" :src="dialogImageUrl" alt />
+            </el-dialog>
           </f7-col>
         </f7-row>
       </div>
@@ -66,6 +116,12 @@
 
 <script>
 export default {
+  data() {
+    return {
+      dialogImageUrl: "",
+      dialogVisible: false
+    };
+  },
   mounted() {
     var that = this;
 
@@ -87,6 +143,14 @@ export default {
       this.$f7.views.left.router.back();
     },
 
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    handlePictureCardPreview(file) {
+      this.dialogImageUrl = file.url;
+      this.dialogVisible = true;
+    },
+
     /**
      * 数据保存事件
      */
@@ -94,3 +158,14 @@ export default {
   }
 };
 </script>
+<style lang='less'>
+.el-upload--picture-card {
+  width: 80px !important;
+  height: 80px !important;
+  line-height: 88px !important;
+}
+.el-upload-list--picture-card .el-upload-list__item {
+  width: 80px !important;
+  height: 80px !important;
+}
+</style>

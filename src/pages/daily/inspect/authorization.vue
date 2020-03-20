@@ -93,14 +93,24 @@
 
     <f7-block>对外担保情况</f7-block>
     <f7-card>
-      <div class="foreign-layout">
+      <div class="production-layout">
         <f7-row class="item-layout">
           <f7-col width="20" class="key">对外担保金额(元):</f7-col>
-          <f7-col width="80">60,000,000.00</f7-col>
+          <f7-col width="80">
+            <el-input
+              style="width:100% !important;"
+              v-model="foreignMoney"
+              :value="foreignMoney"
+              clearable
+              placeholder="请输入对外担保金额"
+            ></el-input>
+          </f7-col>
         </f7-row>
         <f7-row class="item-layout">
           <f7-col width="20" class="key">对外担保情况说明:</f7-col>
-          <f7-col width="80">该公司主要管理层发生重大不利变化,在我行和他行的贷款出现逾期,并被其他金融机构起诉,无履行担保能力.</f7-col>
+          <f7-col width="80">
+            <el-input type="textarea" :rows="2" placeholder="请输入对外担保情况说明" v-model="foreignInfo"></el-input>
+          </f7-col>
         </f7-row>
       </div>
     </f7-card>
@@ -111,6 +121,8 @@
 export default {
   data() {
     return {
+      foreignMoney: "",
+      foreignInfo: "",
       taskList: [
         {
           type: 0,

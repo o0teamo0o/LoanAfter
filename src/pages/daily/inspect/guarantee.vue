@@ -51,14 +51,11 @@
             <i class="keynote">*&nbsp;&nbsp;</i>履约能力变化情况分析:
           </f7-col>
           <f7-col width="70" class="performance-col">
-            <el-select v-model="productionInfo" placeholder="--请选择--" style="width:90% !important;">
-              <el-option
-                v-for="item in productionInfos"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
+            <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
+              <el-checkbox label="保证人主要管理层和管理结构发生重大不利变化"></el-checkbox>
+              <el-checkbox label="保证人出现兼并、重组或分立情况"></el-checkbox>
+              <el-checkbox label="无变化"></el-checkbox>
+            </el-checkbox-group>
           </f7-col>
         </f7-row>
         <div class="dashed-line-half"></div>
@@ -67,14 +64,15 @@
             <i class="keynote">*&nbsp;&nbsp;</i>保证能力变化情况分析:
           </f7-col>
           <f7-col width="70" class="performance-col">
-            <el-select v-model="capacityChange" placeholder="--请选择--" style="width:90% !important;">
-              <el-option
-                v-for="item in capacityChanges"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
+            <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
+              <el-checkbox label="保证人销售收入（营业收入）下滑或出现亏损"></el-checkbox>
+              <el-checkbox label="保证人在我行或他行的贷款出现逾期"></el-checkbox>
+              <el-checkbox label="保证人被其他金融机构起诉"></el-checkbox>
+              <el-checkbox label="保证人违反保证合同或丧失承担连带担保责任能力"></el-checkbox>
+              <el-checkbox label="保证人陷入重大赔偿、诉讼、重大或有负债"></el-checkbox>
+              <el-checkbox label="保证人因其他重大风险事项导致重大损失"></el-checkbox>
+              <el-checkbox label="无变化"></el-checkbox>
+            </el-checkbox-group>
           </f7-col>
         </f7-row>
       </div>
@@ -121,6 +119,7 @@
 export default {
   data() {
     return {
+      taskList: [],
       productionInfos: [
         {
           value: "0",

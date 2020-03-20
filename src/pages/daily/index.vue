@@ -270,20 +270,20 @@ export default {
           state: "待检查",
           status: 1
         },
-        {
-          type: 4,
-          date: "集团客户",
-          name: "P000089728",
-          province: "第二代身份证",
-          city: "430888888888888888",
-          address: "",
-          zip: "日常维护检查",
-          jclx: "个人居住类检查",
-          M: "M12",
-          riqi: "2020-08-08",
-          state: "待检查",
-          status: 1
-        },
+        // {
+        //   type: 4,
+        //   date: "集团客户",
+        //   name: "P000089728",
+        //   province: "第二代身份证",
+        //   city: "430888888888888888",
+        //   address: "",
+        //   zip: "日常维护检查",
+        //   jclx: "个人居住类检查",
+        //   M: "M12",
+        //   riqi: "2020-08-08",
+        //   state: "待检查",
+        //   status: 1
+        // },
         {
           type: 5,
           date: "小微企业客户",
@@ -367,20 +367,6 @@ export default {
           riqi: "2020-08-08",
           state: "待检查",
           status: 1
-        },
-        {
-          type: 11,
-          date: "资金用途检查",
-          name: "P000089728",
-          province: "第二代身份证",
-          city: "430888888888888888",
-          address: "",
-          zip: "日常维护检查",
-          jclx: "个人居住类检查",
-          M: "M12",
-          riqi: "2020-08-08",
-          state: "待检查",
-          status: 1
         }
       ], //查询结果集
       itemUrl: "/task-navigation/"
@@ -449,29 +435,14 @@ export default {
      * 条目点击事件
      */
     onItemClick(item) {
-      console.error("传值的下标:", item.type);
-      if (item.type > 10) {
-        this.$f7router.navigate({
-          name: "TaskCapitalIOUSelectionPage",
-          query: { customType: item.type }
-        });
-        this.$f7.views.left.router.navigate({
-          name: "TaskCapitalNavigationPage",
-          query: { customType: item.type }
-        });
-      } else {
-        if (item.status == 0) {
-        } else {
-          this.$f7router.navigate({
-            name: "DailyInformationPage",
-            query: { customType: item.type }
-          });
-          this.$f7.views.left.router.navigate({
-            name: "TaskDailyNavigationPage",
-            query: { customType: item.type }
-          });
-        }
-      }
+      this.$f7router.navigate({
+        name: "DailyInformationPage",
+        query: { customType: item.type }
+      });
+      this.$f7.views.left.router.navigate({
+        name: "TaskDailyNavigationPage",
+        query: { customType: item.type }
+      });
     },
 
     /**

@@ -17,21 +17,21 @@
     <f7-card>
       <div class="production-layout">
         <f7-row class="item-layout">
-          <f7-col width="30" class="key">
+          <f7-col width="25" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>不良信用情况:
           </f7-col>
-          <f7-col width="10"></f7-col>
-          <f7-col width="60">
-            <el-radio-group v-model="productionInfo">
+          <!-- <f7-col width="10"></f7-col> -->
+          <f7-col width="70">
+            <el-radio-group v-model="productionInfo" @change="onRadigChange">
               <el-radio label="是"></el-radio>
               <el-radio label="否"></el-radio>
             </el-radio-group>
           </f7-col>
         </f7-row>
         <f7-row v-show="isShowChangeInfo" class="item-layout">
-          <f7-col width="30" class="key"></f7-col>
-          <f7-col width="70">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          <f7-col width="25" class="key"></f7-col>
+          <f7-col width="75">
+            <el-input type="textarea" :rows="2" placeholder="请输入不良信用情况" v-model="badCredit"></el-input>
           </f7-col>
         </f7-row>
         <div class="dashed-line-half"></div>
@@ -55,8 +55,8 @@
           <f7-col width="25">
             <el-input
               style="width:90% !important;"
-              v-model="distributor"
-              :value="distributor"
+              v-model="result"
+              :value="result"
               disabled
               placeholder="回显"
               clearable
@@ -65,11 +65,11 @@
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
-          <f7-col width="30" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>现场检查情况:
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>分类理由:
           </f7-col>
-          <f7-col width="70">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+          <f7-col width="75">
+            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="reason"></el-input>
           </f7-col>
         </f7-row>
       </div>
@@ -81,7 +81,22 @@
 export default {
   data() {
     return {
-      isShowChangeInfo: true
+      badCredit: "",
+      reason: "",
+      result: "",
+      supplier: "",
+      isShowChangeInfo: false,
+      productionInfos: [
+        {
+          value: "0",
+          label: "是"
+        },
+        {
+          value: "1",
+          label: "否"
+        }
+      ], //检查类型
+      productionInfo: "否" //检查类型
     };
   },
   mounted() {
@@ -103,6 +118,14 @@ export default {
     onBack() {
       this.$f7.views.main.router.back();
       this.$f7.views.left.router.back();
+    },
+
+    onRadigChange(index) {
+      if (index == "是") {
+        this.isShowChangeInfo = true;
+      } else {
+        this.isShowChangeInfo = false;
+      }
     },
 
     /**

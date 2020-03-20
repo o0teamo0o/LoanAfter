@@ -98,6 +98,48 @@
       </el-table>
     </f7-card>
 
+    <f7-block>运营能力分析</f7-block>
+    <f7-card class="financial-layout">
+      <el-table :data="profitList" border>
+        <el-table-column fixed prop="key" label="指标/科目" min-width="200"></el-table-column>
+        <el-table-column style="padding: 0;" prop="lastYear" label="上年同期" min-width="200">
+          <template slot-scope="scope">
+            <i class="keynote">*</i>
+            <el-input
+              style="width:90% !important;"
+              v-model="scope.row.lastYear"
+              :value="scope.row.lastYear"
+              disabled
+              clearable
+            ></el-input>
+          </template>
+        </el-table-column>
+        <el-table-column prop="earlyYear" label="年初" min-width="200">
+          <template slot-scope="scope">
+            <i class="keynote">*</i>
+            <el-input
+              style="width:90% !important;"
+              v-model="scope.row.earlyYear"
+              :value="scope.row.earlyYear"
+              disabled
+              clearable
+            ></el-input>
+          </template>
+        </el-table-column>
+        <el-table-column prop="currentIssue" label="本期" min-width="200">
+          <template slot-scope="scope">
+            <i class="keynote">*</i>
+            <el-input
+              style="width:90% !important;"
+              v-model="scope.row.currentIssue"
+              :value="scope.row.currentIssue"
+              clearable
+            ></el-input>
+          </template>
+        </el-table-column>
+      </el-table>
+    </f7-card>
+
     <f7-block>盈利能力分析</f7-block>
     <f7-card class="financial-layout">
       <el-table :data="profitList" border>
@@ -226,145 +268,6 @@
         </f7-row>
       </div>
     </f7-card>
-
-    <f7-block>经营产业链条</f7-block>
-    <f7-card>
-      <div class="production-layout">
-        <f7-row class="item-layout">
-          <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>主要供应商:
-          </f7-col>
-          <f7-col width="30">
-            <el-input
-              style="width:90% !important;"
-              v-model="supplier"
-              :value="supplier"
-              clearable
-              placeholder="请输入主要供应商"
-            ></el-input>
-          </f7-col>
-          <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>主要经销商:
-          </f7-col>
-          <f7-col width="30">
-            <el-input
-              style="width:90% !important;"
-              v-model="distributor"
-              :value="distributor"
-              clearable
-              placeholder="请输入主要经销商"
-            ></el-input>
-          </f7-col>
-        </f7-row>
-        <div class="dashed-line-half"></div>
-        <f7-row class="item-layout">
-          <f7-col width="35" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>借款人的市场环境是否出现变化:
-          </f7-col>
-          <f7-col width="65">
-            <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
-              <el-checkbox label="原材料价格明显上涨带来客户经营成本大幅度上升"></el-checkbox>
-              <el-checkbox label="原材料供应不正常明显影响企业正常生成"></el-checkbox>
-              <el-checkbox label="下游企业出现普遍性经营困难或亏损"></el-checkbox>
-              <el-checkbox label="企业与买家或供应商订立的重要合同无法履行"></el-checkbox>
-              <el-checkbox label="否"></el-checkbox>
-            </el-checkbox-group>
-          </f7-col>
-        </f7-row>
-        <div class="dashed-line-half"></div>
-        <f7-row class="item-layout">
-          <f7-col width="35" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>借款人的市场地位是否出现变化:
-          </f7-col>
-          <f7-col width="65">
-            <el-checkbox-group v-model="environment" class="market-checkbox-layout">
-              <el-checkbox label="市场占有率下降"></el-checkbox>
-              <el-checkbox label="销售收入(营业收入)下降"></el-checkbox>
-              <el-checkbox label="下游优质重点客户流失"></el-checkbox>
-              <el-checkbox label="否"></el-checkbox>
-            </el-checkbox-group>
-          </f7-col>
-        </f7-row>
-      </div>
-    </f7-card>
-
-    <f7-block>资金归行情况</f7-block>
-    <f7-card>
-      <div class="production-layout">
-        <f7-row class="item-layout">
-          <f7-col width="25" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>是否按约定还本付息:
-          </f7-col>
-          <f7-col width="25" class="interest-col">
-            <el-select v-model="interest" placeholder="--请选择--">
-              <el-option
-                v-for="item in interests"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </f7-col>
-          <f7-col width="25" class="key"></f7-col>
-          <f7-col width="25" class="key"></f7-col>
-        </f7-row>
-        <div class="dashed-line-half"></div>
-        <f7-row class="item-layout">
-          <f7-col width="25" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>检查日最新存款余额:
-          </f7-col>
-          <f7-col width="25">
-            <el-input
-              style="width:90% !important;"
-              v-model="supplier"
-              :value="supplier"
-              clearable
-              placeholder="请输入最新存款余额"
-            ></el-input>
-          </f7-col>
-          <f7-col width="25" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>上季度日均存款:
-          </f7-col>
-          <f7-col width="25">
-            <el-input
-              style="width:90% !important;"
-              v-model="distributor"
-              :value="distributor"
-              clearable
-              placeholder="请输入"
-            ></el-input>
-          </f7-col>
-        </f7-row>
-        <div class="dashed-line-half"></div>
-        <f7-row class="item-layout">
-          <f7-col width="25" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>本期的营业收入:
-          </f7-col>
-          <f7-col width="25">
-            <el-input
-              style="width:90% !important;"
-              v-model="supplier"
-              :value="supplier"
-              clearable
-              placeholder="请输入"
-            ></el-input>
-          </f7-col>
-          <f7-col width="25" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>指定资金账户归集率(%):
-          </f7-col>
-          <f7-col width="25">
-            <el-input
-              style="width:90% !important;"
-              v-model="distributor"
-              :value="distributor"
-              clearable
-              disabled
-              placeholder="自动计算"
-            ></el-input>
-          </f7-col>
-        </f7-row>
-      </div>
-    </f7-card>
   </f7-page>
 </template>
 
@@ -383,7 +286,7 @@ export default {
         },
         {
           type: 1, //类型
-          key: "销售收入",
+          key: "营业收入",
           lastYear: "", //上年
           earlyYear: "", //年初
           currentIssue: "" //本期
@@ -456,13 +359,6 @@ export default {
         {
           type: 0, //类型
           key: "利润增长率",
-          lastYear: "", //上年
-          earlyYear: "", //年初
-          currentIssue: "" //本期
-        },
-        {
-          type: 1, //类型
-          key: "总资产增长率",
           lastYear: "", //上年
           earlyYear: "", //年初
           currentIssue: "" //本期

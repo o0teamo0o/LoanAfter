@@ -27,7 +27,7 @@
               v-model="supplier"
               :value="supplier"
               clearable
-              placeholder="请输入主要供应商"
+              placeholder="请输入"
             ></el-input>
           </f7-col>
           <f7-col width="25" class="key">

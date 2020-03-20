@@ -55,18 +55,18 @@ export default {
           imgNormalUrl: require("../../assets/icon_task_expire_normal.png"),
           link: "/expire-task/"
         },
-        {
-          title: "逾期催收检查",
-          imgSelectedUrl: require("../../assets/icon_task_collection_selected.png"),
-          imgNormalUrl: require("../../assets/icon_task_collection_normal.png"),
-          link: "/overdue-task/"
-        },
-        {
-          title: "内部监督检查",
-          imgSelectedUrl: require("../../assets/icon_task_supervise_selected.png"),
-          imgNormalUrl: require("../../assets/icon_task_supervise_normal.png"),
-          link: "/supervise-task/"
-        },
+        // {
+        //   title: "逾期催收检查",
+        //   imgSelectedUrl: require("../../assets/icon_task_collection_selected.png"),
+        //   imgNormalUrl: require("../../assets/icon_task_collection_normal.png"),
+        //   link: "/overdue-task/"
+        // },
+        // {
+        //   title: "内部监督检查",
+        //   imgSelectedUrl: require("../../assets/icon_task_supervise_selected.png"),
+        //   imgNormalUrl: require("../../assets/icon_task_supervise_normal.png"),
+        //   link: "/supervise-task/"
+        // },
         {
           title: "设置",
           imgSelectedUrl: require("../../assets/icon_menu_setting_selected.png"),
