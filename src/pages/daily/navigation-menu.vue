@@ -25,7 +25,7 @@
 export default {
   data() {
     return {
-      customType: 0, //客户类型; 0:公司类客户 1:事业法人客户 2:平台客户 3:房地产客户 4:集团客户 5:小微企业客户 6:个人投资类客户 7:物业贷 8:税联贷 9:惠农系列 10.个人消费客户
+      customType: 0, //客户类型; 0:公司类客户 1:事业法人客户 2:平台客户 3:房地产客户 4:小微企业客户 5:个人投资类客户 6:物业贷 7:税联贷 8:惠农系列 9.个人消费客户
       currentNavigationIndex: 0, //当前导航下标
       currentContainerPath: "", //当前容器路径
       lists: [
@@ -241,37 +241,8 @@ export default {
             }
           ]
         },
-        // {
-        //   type: 4, //集团客户
-        //   items: [
-        //     {
-        //       title: "基本信息",
-        //       imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-        //       imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-        //       link: "/daily-information/"
-        //     },
-        //     {
-        //       title: "客户经营",
-        //       imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-        //       imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
-        //       link: "/daily-management/"
-        //     },
-        //     {
-        //       title: "检查结论",
-        //       imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-        //       imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
-        //       link: "/daily-inspect/"
-        //     },
-        //     {
-        //       title: "影像资料",
-        //       imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-        //       imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-        //       link: "/daily-portrait/"
-        //     }
-        //   ]
-        // },
         {
-          type: 5, //小微企业客户
+          type: 4, //小微企业客户
           items: [
             {
               title: "基本信息",
@@ -318,7 +289,7 @@ export default {
           ]
         },
         {
-          type: 6, //个人投资类客户
+          type: 5, //个人投资类客户
           items: [
             {
               title: "基本信息",
@@ -365,7 +336,7 @@ export default {
           ]
         },
         {
-          type: 7, //物业贷
+          type: 6, //物业贷
           items: [
             {
               title: "基本信息",
@@ -412,7 +383,7 @@ export default {
           ]
         },
         {
-          type: 8, //税联贷
+          type: 7, //税联贷
           items: [
             {
               title: "基本信息",
@@ -459,7 +430,7 @@ export default {
           ]
         },
         {
-          type: 9, //惠农系列
+          type: 8, //惠农系列
           items: [
             {
               title: "基本信息",
@@ -506,7 +477,7 @@ export default {
           ]
         },
         {
-          type: 10, //个人消费客户
+          type: 9, //个人消费客户
           items: [
             {
               title: "基本信息",

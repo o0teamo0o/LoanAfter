@@ -212,20 +212,6 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查",
-          status: 0
-        },
-        {
-          type: 0,
-          date: "公司类客户",
-          name: "P000089728",
-          province: "第二代身份证",
-          city: "430888888888888888",
-          address: "",
-          zip: "日常维护检查",
-          jclx: "个人居住类检查",
-          M: "M12",
-          riqi: "2020-08-08",
-          state: "待检查",
           status: 1
         },
         {
@@ -270,22 +256,8 @@ export default {
           state: "待检查",
           status: 1
         },
-        // {
-        //   type: 4,
-        //   date: "集团客户",
-        //   name: "P000089728",
-        //   province: "第二代身份证",
-        //   city: "430888888888888888",
-        //   address: "",
-        //   zip: "日常维护检查",
-        //   jclx: "个人居住类检查",
-        //   M: "M12",
-        //   riqi: "2020-08-08",
-        //   state: "待检查",
-        //   status: 1
-        // },
         {
-          type: 5,
+          type: 4,
           date: "小微企业客户",
           name: "P000089728",
           province: "第二代身份证",
@@ -299,7 +271,7 @@ export default {
           status: 1
         },
         {
-          type: 6,
+          type: 5,
           date: "个人投资类",
           name: "P000089728",
           province: "第二代身份证",
@@ -313,7 +285,7 @@ export default {
           status: 1
         },
         {
-          type: 7,
+          type: 6,
           date: "物业贷",
           name: "P000089728",
           province: "第二代身份证",
@@ -327,7 +299,7 @@ export default {
           status: 1
         },
         {
-          type: 8,
+          type: 7,
           date: "税联贷",
           name: "P000089728",
           province: "第二代身份证",
@@ -341,7 +313,7 @@ export default {
           status: 1
         },
         {
-          type: 9,
+          type: 8,
           date: "惠农系列",
           name: "P000089728",
           province: "第二代身份证",
@@ -355,7 +327,7 @@ export default {
           status: 1
         },
         {
-          type: 10,
+          type: 9,
           date: "个人消费客户",
           name: "P000089728",
           province: "第二代身份证",

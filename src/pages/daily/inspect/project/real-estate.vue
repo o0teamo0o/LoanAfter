@@ -42,6 +42,7 @@
               style="width:90% !important;"
               v-model="scope.row.lastYear"
               :value="scope.row.lastYear"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -53,6 +54,7 @@
               style="width:90% !important;"
               v-model="scope.row.earlyYear"
               :value="scope.row.earlyYear"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -63,6 +65,7 @@
               style="width:90% !important;"
               v-model="scope.row.currentIssue"
               :value="scope.row.currentIssue"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -81,6 +84,7 @@
               style="width:90% !important;"
               v-model="scope.row.lastYear"
               :value="scope.row.lastYear"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -92,6 +96,7 @@
               style="width:90% !important;"
               v-model="scope.row.earlyYear"
               :value="scope.row.earlyYear"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -102,6 +107,7 @@
               style="width:90% !important;"
               v-model="scope.row.currentIssue"
               :value="scope.row.currentIssue"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -157,10 +163,10 @@
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
-          <f7-col width="35" class="key">
+          <f7-col width="30" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>"四证"办理情况:
           </f7-col>
-          <f7-col width="65">
+          <f7-col width="70">
             <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
               <el-checkbox label="国有土地使用证"></el-checkbox>
               <el-checkbox label="建设用地规划许可证"></el-checkbox>
@@ -395,6 +401,9 @@
 export default {
   data() {
     return {
+      supplier: "",
+      distributor: "",
+      evaluate: "",
       productionInfos: [
         {
           value: "0",

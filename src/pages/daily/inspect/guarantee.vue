@@ -92,10 +92,10 @@
       </el-table>
       <div class="production-layout">
         <f7-row class="item-layout">
-          <f7-col width="35" class="key">
+          <f7-col width="30" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>抵（质）押物变化情况分析:
           </f7-col>
-          <f7-col width="65">
+          <f7-col width="70">
             <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
               <el-checkbox label="未经我行同意，抵押物权属变更为他人"></el-checkbox>
               <el-checkbox label="未经我行同意，借款人擅自将抵押物出租"></el-checkbox>

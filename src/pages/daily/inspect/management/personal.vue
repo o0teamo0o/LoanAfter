@@ -51,11 +51,11 @@
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
-          <f7-col width="30" class="key">
+          <f7-col width="20" class="key">
             主营业务收入凭证：
             <i class="ignore">*&nbsp;</i>
           </f7-col>
-          <f7-col width="70"></f7-col>
+          <f7-col width="80"></f7-col>
         </f7-row>
         <f7-row class="item-layout">
           <f7-col width="15" class="key">
@@ -129,11 +129,11 @@
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
-          <f7-col width="30" class="key">
+          <f7-col width="20" class="key">
             主营业务成本凭证：
             <i class="ignore">*&nbsp;</i>
           </f7-col>
-          <f7-col width="70"></f7-col>
+          <f7-col width="80"></f7-col>
         </f7-row>
         <f7-row class="item-layout">
           <f7-col width="15" class="key">
@@ -353,6 +353,7 @@ export default {
           label: "无变化"
         }
       ],
+      mainCampChange: "",
       isShowChangeInfo: false,
       evaluate: "", //简要评价
       productionInfos: [
