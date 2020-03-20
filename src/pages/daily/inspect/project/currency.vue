@@ -42,6 +42,7 @@
               style="width:90% !important;"
               v-model="scope.row.lastYear"
               :value="scope.row.lastYear"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -53,6 +54,7 @@
               style="width:90% !important;"
               v-model="scope.row.earlyYear"
               :value="scope.row.earlyYear"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -63,6 +65,7 @@
               style="width:90% !important;"
               v-model="scope.row.currentIssue"
               :value="scope.row.currentIssue"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -81,6 +84,7 @@
               style="width:90% !important;"
               v-model="scope.row.lastYear"
               :value="scope.row.lastYear"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -92,6 +96,7 @@
               style="width:90% !important;"
               v-model="scope.row.earlyYear"
               :value="scope.row.earlyYear"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -102,6 +107,7 @@
               style="width:90% !important;"
               v-model="scope.row.currentIssue"
               :value="scope.row.currentIssue"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -122,7 +128,7 @@
               v-model="practicalCompletion"
               :value="practicalCompletion"
               clearable
-              placeholder="请输入主要供应商"
+              placeholder="请输入"
             ></el-input>
           </f7-col>
           <f7-col width="25" class="key">
@@ -134,7 +140,7 @@
               v-model="plannedCompletion"
               :value="plannedCompletion"
               clearable
-              placeholder="请输入主要经销商"
+              placeholder="请输入"
             ></el-input>
           </f7-col>
         </f7-row>
@@ -149,7 +155,7 @@
               v-model="newRevenue"
               :value="newRevenue"
               clearable
-              placeholder="请输入主要供应商"
+              placeholder="请输入"
             ></el-input>
           </f7-col>
           <f7-col width="20" class="key"></f7-col>
@@ -157,10 +163,10 @@
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
-          <f7-col width="35" class="key">
+          <f7-col width="30" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>"四证"办理情况:
           </f7-col>
-          <f7-col width="65">
+          <f7-col width="70">
             <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
               <el-checkbox label="国有土地使用证"></el-checkbox>
               <el-checkbox label="建设用地规划许可证"></el-checkbox>
@@ -197,7 +203,7 @@
               v-model="accountAccount"
               :value="accountAccount"
               clearable
-              placeholder="请输入主要供应商"
+              placeholder="请输入专户帐号"
             ></el-input>
           </f7-col>
           <f7-col width="25" class="key">
@@ -209,7 +215,7 @@
               v-model="previousBalance"
               :value="previousBalance"
               clearable
-              placeholder="请输入主要经销商"
+              placeholder="请输入上期余额"
             ></el-input>
           </f7-col>
         </f7-row>
@@ -223,7 +229,7 @@
               v-model="into"
               :value="into"
               clearable
-              placeholder="请输入主要供应商"
+              placeholder="请输入资金转入"
             ></el-input>
           </f7-col>
           <f7-col width="25" class="key">
@@ -235,7 +241,7 @@
               v-model="transfer"
               :value="transfer"
               clearable
-              placeholder="请输入主要经销商"
+              placeholder="请输入资金转出"
             ></el-input>
           </f7-col>
         </f7-row>
@@ -249,7 +255,7 @@
               v-model="currentBalance"
               :value="currentBalance"
               clearable
-              placeholder="请输入主要供应商"
+              placeholder="请输入本期余额"
             ></el-input>
           </f7-col>
           <f7-col width="25" class="key"></f7-col>
@@ -276,7 +282,7 @@
         <f7-row v-show="isShowPurposeChange" class="item-layout">
           <f7-col width="30" class="key"></f7-col>
           <f7-col width="70">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+            <el-input type="textarea" :rows="2" placeholder="请描述情况" v-model="evaluate"></el-input>
           </f7-col>
         </f7-row>
         <div class="dashed-line-half"></div>
@@ -300,7 +306,12 @@
         <f7-row v-show="isShowProblemChange" class="item-layout">
           <f7-col width="30" class="key"></f7-col>
           <f7-col width="70">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+            <el-input
+              type="textarea"
+              :rows="2"
+              placeholder="请描述项目贷款的保证措施出现问题的迹象"
+              v-model="evaluate"
+            ></el-input>
           </f7-col>
         </f7-row>
       </div>

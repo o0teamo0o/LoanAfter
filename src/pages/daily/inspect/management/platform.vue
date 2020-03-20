@@ -49,6 +49,7 @@
               style="width:90% !important;"
               v-model="scope.row.currentIssue"
               :value="scope.row.currentIssue"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -91,6 +92,7 @@
               style="width:90% !important;"
               v-model="scope.row.currentIssue"
               :value="scope.row.currentIssue"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -133,6 +135,7 @@
               style="width:90% !important;"
               v-model="scope.row.currentIssue"
               :value="scope.row.currentIssue"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>
@@ -175,6 +178,7 @@
               style="width:90% !important;"
               v-model="scope.row.currentIssue"
               :value="scope.row.currentIssue"
+              placeholder="请输入"
               clearable
             ></el-input>
           </template>

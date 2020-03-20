@@ -395,6 +395,28 @@
 export default {
   data() {
     return {
+      productionInfos: [
+        {
+          value: "0",
+          label: "是"
+        },
+        {
+          value: "1",
+          label: "否"
+        }
+      ], //检查类型
+      productionInfo: "否", //检查类型
+      interests: [
+        {
+          value: "0",
+          label: "是"
+        },
+        {
+          value: "1",
+          label: "否"
+        }
+      ], //任务状态
+      interest: "否", //任务状态
       financeList: [
         //财务指标
         {
