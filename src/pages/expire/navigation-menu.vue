@@ -30,23 +30,11 @@ export default {
       currentContainerPath: "", //当前容器路径
       lists: [
         {
-          title: "借据选择",
+          title: "业务到期检查",
           imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
           imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-          link: "/task-capital-iou-selection/"
+          link: "/expire-inspect/"
         },
-        {
-          title: "用途检查",
-          imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-          imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
-          link: "/task-capital-purpose/"
-        },
-        // {
-        //   title: "检查报告",
-        //   imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-        //   imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
-        //   link: "/task-capital-iou-selection/"
-        // },
         {
           title: "影像资料",
           imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),

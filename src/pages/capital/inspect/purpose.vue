@@ -13,107 +13,6 @@
       </f7-nav-right>
     </f7-navbar>
 
-    <f7-block>检查信息</f7-block>
-    <f7-card class="production-layout">
-      <f7-row class="item-layout">
-        <f7-col width="20" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>检查行:
-        </f7-col>
-        <f7-col width="25">
-          <el-input style="width:100% !important;" disabled clearable placeholder="回显"></el-input>
-        </f7-col>
-        <f7-col width="20" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>检查人:
-        </f7-col>
-        <f7-col width="25">
-          <el-input style="width:100% !important;" disabled clearable placeholder="回显"></el-input>
-        </f7-col>
-      </f7-row>
-      <div class="dashed-line-half"></div>
-      <f7-row class="item-layout">
-        <f7-col width="20" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>检查日期:
-        </f7-col>
-        <f7-col width="25">
-          <el-date-picker
-            style="width:100% !important;"
-            v-model="checkDate"
-            align="right"
-            type="date"
-            placeholder="选择日期"
-            :picker-options="pickerOptions"
-          ></el-date-picker>
-        </f7-col>
-        <f7-col width="20" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>检查方式:
-        </f7-col>
-        <f7-col width="25" class="purpose-col">
-          <el-select v-model="interest" placeholder="--请选择--" @change="onPracticableChange">
-            <el-option
-              v-for="item in interests"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
-        </f7-col>
-      </f7-row>
-      <div v-if="isScene">
-        <div class="dashed-line-half"></div>
-        <f7-row class="item-layout">
-          <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>面谈对象职务:
-          </f7-col>
-          <f7-col width="25" class="purpose-col">
-            <el-select v-model="interest" placeholder="--请选择--">
-              <el-option
-                v-for="item in interests"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </f7-col>
-          <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>面谈人姓名:
-          </f7-col>
-          <f7-col width="25">
-            <el-input style="width:100% !important;" clearable placeholder="面谈人姓名"></el-input>
-          </f7-col>
-        </f7-row>
-        <f7-row class="item-layout">
-          <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>面谈人电话:
-          </f7-col>
-          <f7-col width="25">
-            <el-input style="width:100% !important;" clearable placeholder="面谈人姓名"></el-input>
-          </f7-col>
-          <f7-col width="20" class="key"></f7-col>
-          <f7-col width="25"></f7-col>
-        </f7-row>
-      </div>
-      <div v-if="isNotScene">
-        <div class="dashed-line-half"></div>
-        <f7-row class="item-layout">
-          <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>检查途径:
-          </f7-col>
-          <f7-col width="25" class="purpose-col">
-            <el-select v-model="interest" placeholder="--请选择--">
-              <el-option
-                v-for="item in interests"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </f7-col>
-          <f7-col width="20" class="key"></f7-col>
-          <f7-col width="25"></f7-col>
-        </f7-row>
-      </div>
-    </f7-card>
-
     <f7-block>客户基本信息</f7-block>
     <f7-card>
       <div class="customer-info">
@@ -150,185 +49,86 @@
       </div>
     </f7-card>
 
-    <f7-block>授信情况</f7-block>
+    <f7-block>授权情况及资金用途</f7-block>
     <f7-card>
       <el-table :data="taskList" border>
-        <el-table-column prop="date" label="序号" width="80"></el-table-column>
-        <el-table-column prop="date" label="借据编号" width="110"></el-table-column>
-        <el-table-column prop="name" label="合同编号" width="110"></el-table-column>
-        <el-table-column prop="province" label="业务品种" width="105"></el-table-column>
-        <el-table-column prop="city" label="金额" width="180"></el-table-column>
-        <el-table-column prop="address" label="余额" width="150"></el-table-column>
+        <el-table-column prop="date" label="书面合同编号" width="280"></el-table-column>
+        <el-table-column prop="name" label="合同编号" width="150"></el-table-column>
+        <el-table-column prop="province" label="借据编号" width="140"></el-table-column>
+        <el-table-column prop="city" label="业务品种" width="140"></el-table-column>
+        <el-table-column prop="address" label="放款金额" width="130"></el-table-column>
+        <el-table-column prop="address" label="余额" width="130"></el-table-column>
+        <el-table-column prop="zip" label="币种" width="90"></el-table-column>
+      </el-table>
+      <el-table :data="grantingList" border>
+        <el-table-column fixed prop="type" label="序号" width="80"></el-table-column>
+        <el-table-column prop="date" label="借据编号" width="140"></el-table-column>
+        <el-table-column prop="name" label="放款金额" width="130"></el-table-column>
+        <el-table-column prop="province" label="已检查金额" width="130"></el-table-column>
+        <el-table-column prop="city" label="本次检查金额" width="130"></el-table-column>
         <el-table-column prop="address" label="币种" width="150"></el-table-column>
+        <el-table-column prop="zip" label="起始日期" width="180"></el-table-column>
+        <el-table-column prop="jclx" label="到期日期" width="150"></el-table-column>
+        <el-table-column prop="M" label="支付方式" width="150"></el-table-column>
+        <el-table-column prop="riqi" label="资金用途" width="150"></el-table-column>
+      </el-table>
+      <el-transfer v-model="value" :data="shuttleData" :titles="titles"></el-transfer>
+    </f7-card>
+
+    <f7-block>交易流水</f7-block>
+    <f7-card>
+      <el-table :data="grantingList" border>
+        <el-table-column fixed prop="type" label="序号" width="80"></el-table-column>
+        <el-table-column prop="date" label="客户账号" width="140"></el-table-column>
+        <el-table-column prop="name" label="交易日期" width="130"></el-table-column>
+        <el-table-column prop="province" label="交易金额" width="130"></el-table-column>
+        <el-table-column prop="city" label="交易方向" width="130"></el-table-column>
+        <el-table-column prop="address" label="交易对手账号" width="150"></el-table-column>
+        <el-table-column prop="zip" label="摘要" width="180"></el-table-column>
       </el-table>
     </f7-card>
 
-    <f7-block>检查信息</f7-block>
+    <f7-block>检查情况</f7-block>
     <f7-card class="production-layout">
       <f7-row class="item-layout">
-        <f7-col width="20" class="key">至检查日客户在我行存款余额(元):</f7-col>
-        <f7-col width="25">
-          <el-input style="width:100% !important;" disabled clearable placeholder="回显"></el-input>
+        <f7-col width="30" class="key">
+          <i class="keynote">*&nbsp;&nbsp;</i>是否符合资金用途约定:
         </f7-col>
-        <f7-col width="20" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>客户是否清楚有授信即将到期:
-        </f7-col>
-        <f7-col width="25" class="purpose-col">
-          <el-select v-model="interest" placeholder="--请选择--">
+        <f7-col width="25" class="interest-col">
+          <el-select v-model="purpose" placeholder="--请选择--" @change="onPurposeChange">
             <el-option
-              v-for="item in interests"
+              v-for="item in purposes"
               :key="item.value"
               :label="item.label"
               :value="item.value"
             ></el-option>
           </el-select>
+        </f7-col>
+        <f7-col width="20" class="key"></f7-col>
+        <f7-col width="25"></f7-col>
+      </f7-row>
+      <div class="dashed-line-half"></div>
+      <f7-row class="item-layout">
+        <f7-col width="30" class="key">
+          <i class="ignore">*&nbsp;&nbsp;</i>资金支付证明材料:
+        </f7-col>
+        <f7-col width="70">
+          <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
+            <el-checkbox label="具有真实背景的交易合同"></el-checkbox>
+            <el-checkbox label="增值税发票"></el-checkbox>
+            <el-checkbox label="结算单据"></el-checkbox>
+            <el-checkbox label="工程监理证明"></el-checkbox>
+            <el-checkbox label="其他"></el-checkbox>
+          </el-checkbox-group>
         </f7-col>
       </f7-row>
       <div class="dashed-line-half"></div>
       <f7-row class="item-layout">
-        <f7-col width="20" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>客户还款意愿评价:
+        <f7-col width="30" class="key">
+          <i class="ignore">*&nbsp;&nbsp;</i>备注:
         </f7-col>
-        <f7-col width="25" class="purpose-col">
-          <el-select v-model="interest" placeholder="--请选择--">
-            <el-option
-              v-for="item in interests"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
-        </f7-col>
-        <f7-col width="20" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>客户是否有足额还款来源:
-        </f7-col>
-        <f7-col width="25" class="purpose-col">
-          <el-select
-            v-model="enoughRepayment"
-            placeholder="--请选择--"
-            @change="onEnoughRepaymentChange"
-          >
-            <el-option
-              v-for="item in enoughRepayments"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
-        </f7-col>
-      </f7-row>
-    </f7-card>
-
-    <div v-if="isEnoughRepayment">
-      <f7-block>客户还款资金来源和安排</f7-block>
-      <f7-card class="financial-layout">
-        <el-table :data="financeList" border>
-          <el-table-column fixed prop="key" label="资金来源" min-width="200"></el-table-column>
-          <el-table-column style="padding: 0;" prop="lastYear" label="金额" min-width="200">
-            <template slot-scope="scope">
-              <i class="keynote">*</i>
-              <el-input
-                style="width:90% !important;"
-                v-model="scope.row.lastYear"
-                :value="scope.row.lastYear"
-                clearable
-              ></el-input>
-            </template>
-          </el-table-column>
-          <el-table-column prop="earlyYear" label="预计到账时间" min-width="200">
-            <template slot-scope="scope">
-              <i class="keynote">*</i>
-              <el-input
-                style="width:90% !important;"
-                v-model="scope.row.earlyYear"
-                :value="scope.row.earlyYear"
-                clearable
-              ></el-input>
-            </template>
-          </el-table-column>
-          <el-table-column prop="currentIssue" label="备注" min-width="200">
-            <template slot-scope="scope">
-              <i class="keynote">*</i>
-              <el-input
-                style="width:90% !important;"
-                v-model="scope.row.currentIssue"
-                :value="scope.row.currentIssue"
-                clearable
-              ></el-input>
-            </template>
-          </el-table-column>
-        </el-table>
-      </f7-card>
-    </div>
-
-    <div v-if="isNotEnoughRepayment">
-      <f7-block>客户还款资金来源和安排</f7-block>
-
-      <f7-card class="production-layout">
-        <f7-row class="item-layout">
-          <f7-col width="35" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>原因:
-          </f7-col>
-          <f7-col width="65">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
-          </f7-col>
-        </f7-row>
-        <f7-row class="item-layout">
-          <f7-col width="35" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>拟采取的处置措施:
-          </f7-col>
-          <f7-col width="65">
-            <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
-              <el-checkbox label="现金清收"></el-checkbox>
-              <el-checkbox label="协议抵偿"></el-checkbox>
-              <el-checkbox label="债务重组"></el-checkbox>
-              <el-checkbox label="诉讼保全"></el-checkbox>
-              <el-checkbox label="破产清偿"></el-checkbox>
-              <el-checkbox label="资产转让"></el-checkbox>
-              <el-checkbox label="呆账核销"></el-checkbox>
-              <el-checkbox label="展期"></el-checkbox>
-              <el-checkbox label="借新还旧"></el-checkbox>
-              <el-checkbox label="其它"></el-checkbox>
-            </el-checkbox-group>
-          </f7-col>
-        </f7-row>
-      </f7-card>
-    </div>
-
-    <f7-block>工程预计完成时间</f7-block>
-    <f7-card class="production-layout">
-      <f7-row class="item-layout">
-        <f7-col width="25" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>操作员姓名:
-        </f7-col>
-        <f7-col width="25">
-          <el-input
-            style="width:90% !important;"
-            v-model="supplier"
-            :value="supplier"
-            clearable
-            placeholder="请输入主要供应商"
-          ></el-input>
-        </f7-col>
-        <f7-col width="25" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>操作员岗位:
-        </f7-col>
-        <f7-col width="25">
-          <el-input
-            style="width:90% !important;"
-            v-model="distributor"
-            :value="distributor"
-            clearable
-            placeholder="请输入主要经销商"
-          ></el-input>
-        </f7-col>
-      </f7-row>
-      <f7-row class="item-layout">
-        <f7-col width="25" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>意见内容:
-        </f7-col>
-        <f7-col width="75">
-          <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+        <f7-col width="70">
+          <el-input type="textarea" :rows="2" placeholder="请描述情况" v-model="evaluate"></el-input>
         </f7-col>
       </f7-row>
     </f7-card>
@@ -418,6 +218,59 @@ export default {
           earlyYear: "", //年初
           currentIssue: "" //本期
         }
+      ],
+      taskList: [
+        {
+          type: 0,
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
+        }
+      ],
+      grantingList: [
+        {
+          type: 1,
+          date: "MC111000000140",
+          name: "50,000.00",
+          province: "0.00",
+          city: "50,000.00 ",
+          address: "人民币",
+          zip: "2019-04-25",
+          jclx: "2019-04-25",
+          M: "受托支付",
+          riqi: "经营周转",
+          state: "0.00"
+        }
+      ],
+      titles: ["未查询交易流水的账户列表", "已查询交易流水的账户列表"],
+      shuttleData: [
+        {
+          key: "1",
+          label: "6213880673100008913(一般户)"
+        },
+        {
+          key: "1",
+          label: "6213880673100008913(一般户)"
+        },
+        {
+          key: "1",
+          label: "6213880673100008913(一般户)"
+        },
+        {
+          key: "1",
+          label: "6213880673100008913(一般户)"
+        },
+        {
+          key: "1",
+          label: "6213880673100008913(一般户)"
+        }
       ]
     };
   },
@@ -461,5 +314,11 @@ export default {
 <style lang='less'>
 .purpose-col .el-input {
   width: 100% !important;
+}
+.el-transfer-panel {
+  width: 29vw !important;
+}
+.el-transfer__button {
+  width: 56px !important;
 }
 </style>

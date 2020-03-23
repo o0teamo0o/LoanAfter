@@ -33,23 +33,23 @@
         ></el-pagination>
       </div>
       <el-table :data="taskList" border>
-        <el-table-column type="selection" width="55"></el-table-column>
-        <el-table-column fixed prop="date" label="书面合同编号" width="110"></el-table-column>
-        <el-table-column prop="name" label="合同编号" width="110"></el-table-column>
-        <el-table-column prop="province" label="借据编号" width="105"></el-table-column>
-        <el-table-column prop="city" label="业务种类" width="180"></el-table-column>
-        <el-table-column prop="address" label="借据金额" width="150"></el-table-column>
-        <el-table-column prop="zip" label="币种" width="110"></el-table-column>
-        <el-table-column prop="jclx" label="起始日期" width="120"></el-table-column>
-        <el-table-column prop="M" label="到期日期" width="80"></el-table-column>
-        <el-table-column prop="riqi" label="已检查金额" width="165"></el-table-column>
+        <el-table-column fixed type="selection" width="55"></el-table-column>
+        <el-table-column prop="date" label="书面合同编号" width="280"></el-table-column>
+        <el-table-column prop="name" label="合同编号" width="150"></el-table-column>
+        <el-table-column prop="province" label="借据编号" width="140"></el-table-column>
+        <el-table-column prop="city" label="业务种类" width="140"></el-table-column>
+        <el-table-column prop="address" label="借据金额" width="130"></el-table-column>
+        <el-table-column prop="zip" label="币种" width="90"></el-table-column>
+        <el-table-column prop="jclx" label="起始日期" width="110"></el-table-column>
+        <el-table-column prop="M" label="到期日期" width="110"></el-table-column>
+        <el-table-column prop="riqi" label="已检查金额" width="130"></el-table-column>
         <el-table-column fixed="right" label="本次检查金额" width="200">
           <template slot-scope="scope">
             <i class="keynote">*</i>
             <el-input
               style="width:90% !important;"
-              v-model="scope.row.lastYear"
-              :value="scope.row.lastYear"
+              v-model="scope.row.state"
+              :value="scope.row.state"
               clearable
             ></el-input>
           </template>
@@ -69,29 +69,146 @@ export default {
       taskList: [
         {
           type: 0,
-          date: "公司类客户",
-          name: "P000089728",
-          province: "第二代身份证",
-          city: "430888888888888888",
-          address: "",
-          zip: "日常维护检查",
-          jclx: "个人居住类检查",
-          M: "M12",
-          riqi: "2020-08-08",
-          state: "待检查"
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
         },
         {
-          type: 1,
-          date: "事业法人客户",
-          name: "P000089728",
-          province: "第二代身份证",
-          city: "430888888888888888",
-          address: "",
-          zip: "日常维护检查",
-          jclx: "个人居住类检查",
-          M: "M12",
-          riqi: "2020-08-08",
-          state: "待检查"
+          type: 0,
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
+        },
+        {
+          type: 0,
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
+        },
+        {
+          type: 0,
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
+        },
+        {
+          type: 0,
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
+        },
+        {
+          type: 0,
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
+        },
+        {
+          type: 0,
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
+        },
+        {
+          type: 0,
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
+        },
+        {
+          type: 0,
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
+        },
+        {
+          type: 0,
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
+        },
+        {
+          type: 0,
+          date: "华银长金星路支个贷担字2019年第001号",
+          name: "MC111000000140",
+          province: "JC049100724529",
+          city: "个人综合消费贷款 ",
+          address: "50,000.00",
+          zip: "人民币",
+          jclx: "2019-04-25",
+          M: "2021-08-08",
+          riqi: "0.00",
+          state: "0.00"
         }
       ], //查询结果集
       multipleSelection: []
@@ -137,6 +254,20 @@ export default {
     onBack() {
       this.$f7.views.main.router.back();
       this.$f7.views.left.router.back();
+    },
+
+    /**
+     * pageSize 改变时会触发
+     */
+    handleSizeChange(val) {
+      this.pageSize = val;
+    },
+
+    /**
+     * currentPage 改变时会触发
+     */
+    handleCurrentChange(val) {
+      this.currentPage = val;
     }
   }
 };

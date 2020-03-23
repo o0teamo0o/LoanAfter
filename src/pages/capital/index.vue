@@ -42,16 +42,15 @@
               </f7-row>
               <f7-row class="item-layout">
                 <f7-col width="50" class="title">
-                  <i class="keynote">*</i>
+                  <i class="ignore">*</i>
                   <span class="hint">检查类型</span>
-                  <el-select v-model="checkType" placeholder="--请选择--">
-                    <el-option
-                      v-for="item in checkTypes"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    ></el-option>
-                  </el-select>
+                  <el-input
+                    v-model="customerName"
+                    :value="customerName"
+                    clearable
+                    disabled
+                    placeholder="资金用途检查"
+                  ></el-input>
                 </f7-col>
                 <f7-col width="50" class="title">
                   <i class="keynote">*</i>
@@ -194,6 +193,17 @@ export default {
           label: "否"
         }
       ],
+      taskTypes: [
+        {
+          value: "0",
+          label: "待检查"
+        },
+        {
+          value: "1",
+          label: "检查中"
+        }
+      ], //任务状态
+      taskType: "", //任务状态
       screeHeight: 768, //屏幕高度
       tableCapitalMaxHeight: 0, //默认表格高度
       bigTableCapitalMaxHeight: 0, //表格最大值

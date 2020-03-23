@@ -33,6 +33,8 @@ import DailyPortraitPage from './pages/daily/inspect/portrait.vue'; //日常任�
 
 /*** 到期检查页面 ***/
 import ExpireTaskPage from './pages/expire/index.vue';
+import TaskExpireNavigationPage from './pages/expire/navigation-menu.vue'; //到期前检查导航页面
+import ExpireInspectPage from './pages/expire/inspect/inspect.vue'; //到期前检查-检查页面
 
 /*** 逾期催收检查页面 ***/
 import OverdueTaskPage from './pages/overdue/index.vue';
@@ -103,6 +105,11 @@ export default [{
         path: '/task-capital-navigation/',
         name: "TaskCapitalNavigationPage",
         component: TaskCapitalNavigationPage,
+    },
+    {
+        path: '/task-expire-navigation/',
+        name: 'TaskExpireNavigationPage',
+        component: TaskExpireNavigationPage,
     },
     {
         path: '/task-capital-iou-selection/',
@@ -228,6 +235,11 @@ export default [{
         path: '/expire-task/',
         name: 'ExpireTaskPage',
         component: ExpireTaskPage,
+    },
+    {
+        path: '/expire-inspect/',
+        name: 'ExpireInspectPage',
+        component: ExpireInspectPage,
     },
     {
         path: '/overdue-task/',

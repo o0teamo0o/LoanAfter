@@ -5,12 +5,10 @@
     </f7-navbar>
 
     <div class="query-layout">
-      <f7-block-title>基本信息</f7-block-title>
-
       <f7-card class="top-layout">
         <f7-list accordion>
           <f7-list-item
-            id="accordionItem"
+            id="accordionDailyItem"
             accordion-item
             title="查询要素"
             opened
@@ -44,16 +42,15 @@
               </f7-row>
               <f7-row class="item-layout">
                 <f7-col width="50" class="title">
-                  <i class="keynote">*</i>
+                  <i class="ignore">*</i>
                   <span class="hint">检查类型</span>
-                  <el-select v-model="checkType" placeholder="--请选择--">
-                    <el-option
-                      v-for="item in checkTypes"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    ></el-option>
-                  </el-select>
+                  <el-input
+                    v-model="customerName"
+                    :value="customerName"
+                    clearable
+                    disabled
+                    placeholder="日常维护检查"
+                  ></el-input>
                 </f7-col>
                 <f7-col width="50" class="title">
                   <i class="keynote">*</i>
@@ -107,8 +104,8 @@
           style="transition: max-height 0.2s linear"
           :max-height="tableMaxHeight"
         >
-          <el-table-column fixed prop="date" label="客户名称" width="110"></el-table-column>
-          <el-table-column prop="name" label="客户编号" width="110"></el-table-column>
+          <el-table-column fixed prop="date" label="客户名称" width="120"></el-table-column>
+          <el-table-column prop="name" label="客户编号" width="120"></el-table-column>
           <el-table-column prop="province" label="证件类型" width="105"></el-table-column>
           <el-table-column prop="city" label="证件号码" width="180"></el-table-column>
           <el-table-column prop="address" label="借据编号" width="150"></el-table-column>
@@ -354,22 +351,12 @@ export default {
     });
 
     this.$f7ready(f7 => {
-      //Accordion打开事件监听
-      // that.$$("#accordionItem").on("accordion:opened", function() {
-      //   if (that.smallTableMaxHeight != 0) {
-      //     that.tableMaxHeight = that.smallTableMaxHeight;
-      //   } else {
-      //     var bottomViewOffsetTop = that.$refs.bottomView.$el.offsetTop;
-      //     that.tableMaxHeight = that.screeHeight - bottomViewOffsetTop - 30;
-      //     that.smallTableMaxHeight = that.tableMaxHeight;
-      //   }
-      // });
-      that.$$("#accordionItem").on("accordion:beforeopen", function() {
+      that.$$("#accordionDailyItem").on("accordion:beforeopen", function() {
         that.tableMaxHeight = that.smallTableMaxHeight;
       });
 
       //Accordion关闭事件监听
-      that.$$("#accordionItem").on("accordion:closed", function() {
+      that.$$("#accordionDailyItem").on("accordion:closed", function() {
         if (that.bigTableMaxHeight != 0) {
           that.tableMaxHeight = that.bigTableMaxHeight;
         } else {
