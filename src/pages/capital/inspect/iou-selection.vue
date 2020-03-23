@@ -43,7 +43,7 @@
         <el-table-column prop="jclx" label="起始日期" width="110"></el-table-column>
         <el-table-column prop="M" label="到期日期" width="110"></el-table-column>
         <el-table-column prop="riqi" label="已检查金额" width="130"></el-table-column>
-        <el-table-column fixed="right" label="本次检查金额" width="200">
+        <el-table-column fixed="right" label="本次检查金额" width="130">
           <template slot-scope="scope">
             <i class="keynote">*</i>
             <el-input

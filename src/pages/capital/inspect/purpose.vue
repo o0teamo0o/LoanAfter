@@ -297,6 +297,10 @@ export default {
       }
     },
     /**
+     * 规定用途使用监听
+     */
+    onPurposeChange(index) {},
+    /**
      * 页面返回事件
      */
     onBack() {
