@@ -47,7 +47,6 @@ import SuperviseTaskPage from './pages/supervise/index.vue';
 import SettingPage from './pages/setting/index.vue';
 
 
-import DynamicRoutePage from './pages/dynamic-route.vue';
 import NotFoundPage from './pages/not-found.vue';
 
 export default [{
@@ -264,9 +263,5 @@ export default [{
     {
         path: '(.*)',
         component: NotFoundPage,
-    },
-    {
-        path: '/dynamic-route/blog/:blogId/post/:postId/',
-        component: DynamicRoutePage,
-    },
+    }
 ];
