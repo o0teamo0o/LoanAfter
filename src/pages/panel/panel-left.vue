@@ -50,7 +50,7 @@ export default {
           link: "/daily-task/"
         },
         {
-          title: "到期前检查",
+          title: "业务到期检查",
           imgSelectedUrl: require("../../assets/icon_task_expire_selected.png"),
           imgNormalUrl: require("../../assets/icon_task_expire_normal.png"),
           link: "/expire-task/"

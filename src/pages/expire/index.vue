@@ -437,7 +437,7 @@ export default {
      */
     onItemClick(item) {
       this.$f7router.navigate({
-        name: "ExpireInspectPage",
+        name: "TaskCapitalIOUSelectionPage",
         query: { customType: item.type }
       });
       this.$f7.views.left.router.navigate({

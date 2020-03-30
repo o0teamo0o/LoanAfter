@@ -13,6 +13,107 @@
       </f7-nav-right>
     </f7-navbar>
 
+    <f7-block>检查信息</f7-block>
+    <f7-card class="production-layout">
+      <f7-row class="item-layout">
+        <f7-col width="20" class="key">
+          <i class="keynote">*&nbsp;&nbsp;</i>检查行:
+        </f7-col>
+        <f7-col width="25">
+          <el-input style="width:100% !important;" disabled clearable placeholder="回显"></el-input>
+        </f7-col>
+        <f7-col width="20" class="key">
+          <i class="keynote">*&nbsp;&nbsp;</i>检查人:
+        </f7-col>
+        <f7-col width="25">
+          <el-input style="width:100% !important;" disabled clearable placeholder="回显"></el-input>
+        </f7-col>
+      </f7-row>
+      <div class="dashed-line-half"></div>
+      <f7-row class="item-layout">
+        <f7-col width="20" class="key">
+          <i class="keynote">*&nbsp;&nbsp;</i>检查日期:
+        </f7-col>
+        <f7-col width="25">
+          <el-date-picker
+            style="width:100% !important;"
+            v-model="checkDate"
+            align="right"
+            type="date"
+            placeholder="选择日期"
+            :picker-options="pickerOptions"
+          ></el-date-picker>
+        </f7-col>
+        <f7-col width="20" class="key">
+          <i class="keynote">*&nbsp;&nbsp;</i>检查方式:
+        </f7-col>
+        <f7-col width="25" class="purpose-col">
+          <el-select v-model="interest" placeholder="--请选择--" @change="onPracticableChange">
+            <el-option
+              v-for="item in interests"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </f7-col>
+      </f7-row>
+      <div v-if="isScene">
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="20" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>面谈对象职务:
+          </f7-col>
+          <f7-col width="25" class="purpose-col">
+            <el-select v-model="interest" placeholder="--请选择--">
+              <el-option
+                v-for="item in interests"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </f7-col>
+          <f7-col width="20" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>面谈人姓名:
+          </f7-col>
+          <f7-col width="25">
+            <el-input style="width:100% !important;" clearable placeholder="面谈人姓名"></el-input>
+          </f7-col>
+        </f7-row>
+        <f7-row class="item-layout">
+          <f7-col width="20" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>面谈人电话:
+          </f7-col>
+          <f7-col width="25">
+            <el-input style="width:100% !important;" clearable placeholder="面谈人姓名"></el-input>
+          </f7-col>
+          <f7-col width="20" class="key"></f7-col>
+          <f7-col width="25"></f7-col>
+        </f7-row>
+      </div>
+      <div v-if="isNotScene">
+        <div class="dashed-line-half"></div>
+        <f7-row class="item-layout">
+          <f7-col width="20" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>检查途径:
+          </f7-col>
+          <f7-col width="25" class="purpose-col">
+            <el-select v-model="interest" placeholder="--请选择--">
+              <el-option
+                v-for="item in interests"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </f7-col>
+          <f7-col width="20" class="key"></f7-col>
+          <f7-col width="25"></f7-col>
+        </f7-row>
+      </div>
+    </f7-card>
+
     <f7-block>客户基本信息</f7-block>
     <f7-card>
       <div class="customer-info">
