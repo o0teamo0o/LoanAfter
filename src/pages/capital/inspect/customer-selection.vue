@@ -5,88 +5,89 @@
     <f7-block>客户查询</f7-block>
     <f7-card class="production-layout">
       <f7-row class="item-layout">
-        <f7-col width="25" class="key">
+        <f7-col width="20" class="key">
           <i class="keynote">*&nbsp;&nbsp;</i>客户类别:
         </f7-col>
-        <f7-col width="25" class="interest-col">
-          <el-select v-model="interest" placeholder="--请选择--">
+        <f7-col width="30" class="interest-col">
+          <el-select v-model="customType" placeholder="--请选择--" 
+            style="width:100% !important;">
             <el-option
-              v-for="item in interests"
+              v-for="item in customTypes"
               :key="item.value"
               :label="item.label"
               :value="item.value"
             ></el-option>
           </el-select>
         </f7-col>
-        <f7-col width="25" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>所属机构:
+        <f7-col width="20" class="key">
+          <i class="ignore">*&nbsp;&nbsp;</i>所属机构:
         </f7-col>
-        <f7-col width="25">
+        <f7-col width="30">
           <el-input
             style="width:90% !important;"
             v-model="distributor"
             :value="distributor"
+            suffix-icon="el-icon-search"
             clearable
-            placeholder="请输入主要经销商"
+            disabled
+            placeholder="--请选择--"
           ></el-input>
         </f7-col>
       </f7-row>
-      <div class="dashed-line-half"></div>
       <f7-row class="item-layout">
-        <f7-col width="25" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>客户名称:
+        <f7-col width="20" class="key">
+          <i class="ignore">*&nbsp;&nbsp;</i>客户名称:
         </f7-col>
-        <f7-col width="25">
+        <f7-col width="30">
           <el-input
             style="width:90% !important;"
             v-model="supplier"
             :value="supplier"
             clearable
-            placeholder="请输入主要供应商"
+            placeholder="请输入客户名称"
           ></el-input>
         </f7-col>
-        <f7-col width="25" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>客户编号:
+        <f7-col width="20" class="key">
+          <i class="ignore">*&nbsp;&nbsp;</i>客户编号:
         </f7-col>
-        <f7-col width="25">
+        <f7-col width="30">
           <el-input
             style="width:90% !important;"
             v-model="distributor"
             :value="distributor"
             clearable
-            placeholder="请输入主要经销商"
+            placeholder="请输入客户编号"
           ></el-input>
         </f7-col>
       </f7-row>
-      <div class="dashed-line-half"></div>
       <f7-row class="item-layout">
-        <f7-col width="25" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>证件类型:
+        <f7-col width="20" class="key">
+          <i class="ignore">*&nbsp;&nbsp;</i>证件类型:
         </f7-col>
-        <f7-col width="25" class="interest-col">
-          <el-select v-model="interest" placeholder="--请选择--">
+        <f7-col width="30" class="interest-col">
+          <el-select v-model="certificate" placeholder="--请选择--"
+            style="width:100% !important;">
             <el-option
-              v-for="item in interests"
+              v-for="item in certificates"
               :key="item.value"
               :label="item.label"
               :value="item.value"
             ></el-option>
           </el-select>
         </f7-col>
-        <f7-col width="25" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>证件号码:
+        <f7-col width="20" class="key">
+          <i class="ignore">*&nbsp;&nbsp;</i>证件号码:
         </f7-col>
-        <f7-col width="25">
+        <f7-col width="30">
           <el-input
             style="width:90% !important;"
             v-model="distributor"
             :value="distributor"
             clearable
-            placeholder="请输入主要经销商"
+            placeholder="请输入证件号码"
           ></el-input>
         </f7-col>
       </f7-row>
-      <div class="dashed-line-half"></div>
       <f7-row class="btn-layout">
         <f7-col width="25"></f7-col>
         <f7-col width="20" tag="span">
@@ -104,9 +105,9 @@
     <f7-card>
       <el-table :data="taskList" border>
         <el-table-column type="selection" width="55"></el-table-column>
-        <el-table-column prop="date" label="客户编号" width="110"></el-table-column>
-        <el-table-column prop="name" label="客户名称" width="110"></el-table-column>
-        <el-table-column prop="province" label="客户类型" width="105"></el-table-column>
+        <el-table-column prop="date" label="客户编号" min-width="110"></el-table-column>
+        <el-table-column prop="name" label="客户名称" min-width="110"></el-table-column>
+        <el-table-column prop="province" label="客户类型" min-width="105"></el-table-column>
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <f7-link
@@ -122,5 +123,36 @@
   </f7-page>
 </template>
 <script>
-export default {};
+export default {
+  data(){
+    return {
+      customTypes:[
+        {
+          value: "0",
+          label: "个人客户"
+        },
+        {
+          value: "1",
+          label: "对公客户"
+        },
+      ],
+      customType: "",
+      certificates:[
+        {
+          value: "0",
+          label: "组织机构代码"
+        },
+        {
+          value: "1",
+          label: "其他类机构代码"
+        },
+        {
+          value: "2",
+          label: "统一社会信用代码"
+        }
+      ],
+      certificate: "",
+    }
+  }
+};
 </script>

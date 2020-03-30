@@ -23,6 +23,8 @@
           <el-input
             style="width:100% !important;"
             suffix-icon="el-icon-search"
+            v-model="customName"
+            :value="customName"
             disabled
             clearable
             placeholder="回显"
@@ -34,14 +36,14 @@
         <f7-col width="25">
           <el-input
             style="width:100% !important;"
-            v-model="distributor"
-            :value="distributor"
+            v-model="customNo"
+            :value="customNo"
             clearable
-            placeholder="请输入主要经销商"
+            disabled
+            placeholder="回显"
           ></el-input>
         </f7-col>
       </f7-row>
-      <div class="dashed-line-half"></div>
       <f7-row class="item-layout">
         <f7-col width="20" class="key">
           <i class="keynote">*&nbsp;&nbsp;</i>检查类型:
@@ -49,8 +51,8 @@
         <f7-col width="25">
           <el-input
             style="width:100% !important;"
-            v-model="distributor"
-            :value="distributor"
+            v-model="checkType"
+            :value="checkType"
             disabled
             clearable
             placeholder="资金用途检查"
@@ -59,7 +61,6 @@
         <f7-col width="25" class="key"></f7-col>
         <f7-col width="25"></f7-col>
       </f7-row>
-      <div class="dashed-line-half"></div>
       <f7-row class="btn-layout">
         <f7-col width="25"></f7-col>
         <f7-col width="20" tag="span">
@@ -77,11 +78,11 @@
     <f7-card>
       <el-table :data="taskList" border>
         <el-table-column type="selection" width="55"></el-table-column>
-        <el-table-column prop="date" label="客户编号" width="110"></el-table-column>
-        <el-table-column prop="name" label="客户名称" width="110"></el-table-column>
-        <el-table-column prop="province" label="客户类型" width="105"></el-table-column>
-        <el-table-column prop="city" label="借据编号" width="180"></el-table-column>
-        <el-table-column prop="address" label="业务种类" width="150"></el-table-column>
+        <el-table-column prop="date" label="客户编号" min-width="110"></el-table-column>
+        <el-table-column prop="name" label="客户名称" min-width="110"></el-table-column>
+        <el-table-column prop="province" label="客户类型" min-width="105"></el-table-column>
+        <el-table-column prop="city" label="借据编号" min-width="180"></el-table-column>
+        <el-table-column prop="address" label="业务种类" min-width="150"></el-table-column>
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <f7-link
@@ -102,6 +103,9 @@
 export default {
   data() {
     return {
+      customName: "",
+      customNo: "",
+      checkType: "",
       taskList: [
         {
           type: 0,
@@ -139,7 +143,19 @@ export default {
         query: { customType: "我是参数" }
       });
     },
-    onItemClick(item) {},
+
+    /**
+     * 重置按钮
+     */
+    onResetTask() {
+
+    },
+    /**
+     * 查询按钮
+     */
+    onQueryTask() {
+
+    },
     /**
      * 页面返回事件
      */

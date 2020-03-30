@@ -18,7 +18,7 @@
 
     <f7-card class="financial-layout">
       <div class="flex">
-        <div class="result-hint">借据信息</div>
+        <div class="result-hint">借据信息列表</div>
         <div class="empty"></div>
         <el-pagination
           class="pagination"
@@ -43,11 +43,11 @@
         <el-table-column prop="jclx" label="起始日期" width="110"></el-table-column>
         <el-table-column prop="M" label="到期日期" width="110"></el-table-column>
         <el-table-column prop="riqi" label="已检查金额" width="130"></el-table-column>
-        <el-table-column fixed="right" label="本次检查金额" width="130">
+        <el-table-column fixed="right" label="本次检查金额" width="150">
           <template slot-scope="scope">
             <i class="keynote">*</i>
             <el-input
-              style="width:90% !important;"
+              style="width:85% !important;"
               v-model="scope.row.state"
               :value="scope.row.state"
               clearable
