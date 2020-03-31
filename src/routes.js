@@ -8,6 +8,8 @@ import TaskCapitalNavigationPage from './pages/capital/navigation-menu.vue'; //�
 import TaskCapitalIOUSelectionPage from './pages/capital/inspect/iou-selection.vue'; //资金用途导-借据选择页面
 import TaskCapitalAddIOUPage from './pages/capital/inspect/add-iou.vue'; //资金用途导-添加借据页面
 import TaskCapitalCustomerSelectionPage from './pages/capital/inspect/customer-selection.vue'; //资金用途导-客户查询页面
+import TaskCapitalMechanismSelectionPage from './pages/capital/inspect/mechanism-selection.vue'; //资金用途导-机构选择页面
+import TaskCapitalCertificateSelectionPage from './pages/capital/inspect/certificate-selection.vue'; //资金用途导-证件类型选择页面
 import TaskCapitalPurposePage from './pages/capital/inspect/purpose.vue'; //资金用途导-用途检查页面
 
 /*** 日常维护任务页面 ***/
@@ -125,6 +127,16 @@ export default [{
         path: '/task-capital-customer-selection/',
         name: "TaskCapitalCustomerSelectionPage",
         component: TaskCapitalCustomerSelectionPage,
+    },
+    {
+        path: '/task-capital-mechanism-selection/',
+        name: "TaskCapitalMechanismSelectionPage",
+        component: TaskCapitalMechanismSelectionPage,
+    },
+    {
+        path: '/task-capital-certificate-selection/',
+        name: "TaskCapitalCertificateSelectionPage",
+        component: TaskCapitalCertificateSelectionPage,
     },
     {
         path: '/task-capital-purpose/',
