@@ -77,7 +77,7 @@
     <f7-block>客户查询列表</f7-block>
     <f7-card>
       <el-table :data="taskList" border>
-        <el-table-column type="selection" width="55"></el-table-column>
+        <el-table-column fixed type="selection" width="55"></el-table-column>
         <el-table-column prop="date" label="客户编号" min-width="110"></el-table-column>
         <el-table-column prop="name" label="客户名称" min-width="110"></el-table-column>
         <el-table-column prop="province" label="客户类型" min-width="105"></el-table-column>

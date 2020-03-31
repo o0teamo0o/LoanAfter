@@ -140,10 +140,24 @@
       </f7-row>
     </f7-card>
 
-    <f7-block>客户查询列表</f7-block>
     <f7-card>
+        <div class="flex">
+          <div class="result-hint">客户查询列表</div>
+          <div class="empty"></div>
+          <el-pagination
+            class="pagination"
+            background
+            layout="prev, pager, next"
+            :page-count="total"
+            :page-size="pagesize"
+            :current-page="currentPage"
+            hide-on-single-page
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+          ></el-pagination>
+        </div>
       <el-table :data="taskList" border>
-        <el-table-column type="selection" width="55"></el-table-column>
+        <el-table-column fixed type="selection" width="55"></el-table-column>
         <el-table-column
           prop="date"
           label="客户编号"
@@ -157,6 +171,21 @@
         <el-table-column
           prop="province"
           label="客户类型"
+          min-width="105"
+        ></el-table-column>
+        <el-table-column
+          prop="province"
+          label="证件类型"
+          min-width="130"
+        ></el-table-column>
+        <el-table-column
+          prop="province"
+          label="证件号码"
+          min-width="150"
+        ></el-table-column>
+        <el-table-column
+          prop="province"
+          label="所属机构"
           min-width="105"
         ></el-table-column>
         <el-table-column fixed="right" label="操作" width="100">
@@ -210,6 +239,9 @@ export default {
         }
       ],
       certificate: "",
+      total: 2, //总页数
+      pagesize: 10, //每页数据
+      currentPage: 1, //当前页
       taskList: []
     };
   },
@@ -251,7 +283,20 @@ export default {
     /**
      * 查询按钮
      */
-    onQueryTask() {}
+    onQueryTask() {},
+    /**
+     * pageSize 改变时会触发
+     */
+    handleSizeChange(val) {
+      this.pageSize = val;
+    },
+
+    /**
+     * currentPage 改变时会触发
+     */
+    handleCurrentChange(val) {
+      this.currentPage = val;
+    }
   }
 };
 </script>
