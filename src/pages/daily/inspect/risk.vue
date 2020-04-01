@@ -29,7 +29,8 @@
           </f7-col>
         </f7-row>
         <f7-row v-show="isShowChangeInfo" class="item-layout">
-          <f7-col width="25" class="key"></f7-col>
+          <f7-col width="25" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>情况说明:</f7-col>
           <f7-col width="75">
             <el-input type="textarea" :rows="2" placeholder="请输入不良信用情况" v-model="badCredit"></el-input>
           </f7-col>
@@ -37,7 +38,7 @@
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
           <f7-col width="25" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>分类结果(上期):
+            <i class="ignore">*&nbsp;&nbsp;</i>分类结果(上期):
           </f7-col>
           <f7-col width="25">
             <el-input
@@ -50,7 +51,7 @@
             ></el-input>
           </f7-col>
           <f7-col width="25" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>分类结果(本期):
+            <i class="ignore">*&nbsp;&nbsp;</i>分类结果(本期):
           </f7-col>
           <f7-col width="25">
             <el-input
@@ -66,7 +67,7 @@
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
           <f7-col width="25" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>分类理由:
+            <i class="ignore">*&nbsp;&nbsp;</i>分类理由:
           </f7-col>
           <f7-col width="75">
             <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="reason"></el-input>

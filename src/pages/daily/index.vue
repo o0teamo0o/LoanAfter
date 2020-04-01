@@ -69,11 +69,11 @@
               <f7-row class="btn-layout">
                 <f7-col width="25"></f7-col>
                 <f7-col width="20" tag="span">
-                  <f7-button large raised fill color="gray" @click="onResetTask">重置</f7-button>
+                  <el-button type="info" @click="onResetTask">重置</el-button>
                 </f7-col>
                 <f7-col width="10"></f7-col>
                 <f7-col width="20" tag="span">
-                  <f7-button large raised fill color="red" @click="onQueryTask">查询</f7-button>
+                  <el-button type="primary" @click="onQueryTask">查询</el-button>
                 </f7-col>
                 <f7-col width="25"></f7-col>
               </f7-row>

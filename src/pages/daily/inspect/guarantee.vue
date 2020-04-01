@@ -39,7 +39,7 @@
         <el-table-column prop="city" label="信用等级" width="130"></el-table-column>
         <el-table-column prop="address" label="担保资金" width="130"></el-table-column>
         <el-table-column prop="zip" label="币种" width="70"></el-table-column>
-        <el-table-column prop="jclx" label="操作" width="100"></el-table-column>
+        <el-table-column fixed="right" prop="jclx" label="操作" width="100"></el-table-column>
       </el-table>
     </f7-card>
 
@@ -88,7 +88,7 @@
         <el-table-column prop="address" label="估计价值" width="130"></el-table-column>
         <el-table-column prop="zip" label="币种" width="70"></el-table-column>
         <el-table-column prop="jclx" label="评估时间" width="100"></el-table-column>
-        <el-table-column prop="jclx" label="操作" width="100"></el-table-column>
+        <el-table-column fixed="right" prop="jclx" label="操作" width="100"></el-table-column>
       </el-table>
       <div class="production-layout">
         <f7-row class="item-layout">

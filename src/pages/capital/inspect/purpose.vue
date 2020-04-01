@@ -81,7 +81,7 @@
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
           <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>面谈对象职务:
+            <i class="ignore">*&nbsp;&nbsp;</i>面谈对象职务:
           </f7-col>
           <f7-col width="25" class="purpose-col">
             <el-select v-model="dutie" placeholder="--请选择--">
@@ -94,7 +94,7 @@
             </el-select>
           </f7-col>
           <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>面谈人姓名:
+            <i class="ignore">*&nbsp;&nbsp;</i>面谈人姓名:
           </f7-col>
           <f7-col width="25">
             <el-input
@@ -108,7 +108,7 @@
         </f7-row>
         <f7-row class="item-layout">
           <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>面谈人电话:
+            <i class="ignore">*&nbsp;&nbsp;</i>面谈人电话:
           </f7-col>
           <f7-col width="25">
             <el-input
@@ -130,8 +130,17 @@
             <i class="keynote">*&nbsp;&nbsp;</i>检查途径:
           </f7-col>
           <f7-col width="75" class="purpose-col">
-            <el-checkbox-group v-model="checkChannelResult" @change="onCheckChannelChange">
-              <el-checkbox v-for="item in checkChannelList" :checked="item.isCheck" :label="item.name" :key="item.name">{{item.name}}</el-checkbox>
+            <el-checkbox-group
+              v-model="checkChannelResult"
+              @change="onCheckChannelChange"
+            >
+              <el-checkbox
+                v-for="item in checkChannelList"
+                :checked="item.isCheck"
+                :label="item.name"
+                :key="item.name"
+                >{{ item.name }}</el-checkbox
+              >
             </el-checkbox-group>
           </f7-col>
         </f7-row>
@@ -264,11 +273,6 @@
           width="150"
         ></el-table-column>
       </el-table>
-      <el-transfer
-        v-model="value"
-        :data="shuttleData"
-        :titles="titles"
-      ></el-transfer>
     </f7-card>
 
     <f7-block>交易流水</f7-block>
@@ -360,7 +364,7 @@
             type="textarea"
             :rows="2"
             placeholder="请描述情况"
-            v-model="evaluate"
+            v-model="remarks"
           ></el-input>
         </f7-col>
       </f7-row>
@@ -443,6 +447,17 @@ export default {
         }
       ], //任务状态
       enoughRepayment: "", //任务状态
+      purposes: [
+        {
+          value: "0",
+          label: "是"
+        },
+        {
+          value: "1",
+          label: "否"
+        }
+      ], //任务状态
+      purpose: "", //任务状态
       isEnoughRepayment: false, //没有充足来源
       isNotEnoughRepayment: false, //没有充足来源
       marketChange: [],
@@ -554,7 +569,8 @@ export default {
           key: "5",
           label: "6213880673100008917(一般户)"
         }
-      ]
+      ],
+      remarks: ""
     };
   },
   methods: {
@@ -574,7 +590,7 @@ export default {
      * 检查用途监听
      */
     onCheckChannelChange(index) {
-      console.error(index)
+      console.error(index);
     },
     /**
      * 是否有足够还款来源

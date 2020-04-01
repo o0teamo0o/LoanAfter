@@ -20,13 +20,27 @@
           <i class="keynote">*&nbsp;&nbsp;</i>检查行:
         </f7-col>
         <f7-col width="25">
-          <el-input style="width:100% !important;" disabled clearable placeholder="回显"></el-input>
+          <el-input
+            style="width:100% !important;"
+            disabled
+            clearable
+            placeholder="回显"
+            v-model="branchName"
+            :value="branchName"
+          ></el-input>
         </f7-col>
         <f7-col width="20" class="key">
           <i class="keynote">*&nbsp;&nbsp;</i>检查人:
         </f7-col>
         <f7-col width="25">
-          <el-input style="width:100% !important;" disabled clearable placeholder="回显"></el-input>
+          <el-input
+            style="width:100% !important;"
+            disabled
+            clearable
+            v-model="inspectName"
+            :value="inspectName"
+            placeholder="回显"
+          ></el-input>
         </f7-col>
       </f7-row>
       <div class="dashed-line-half"></div>
@@ -38,6 +52,7 @@
           <el-date-picker
             style="width:100% !important;"
             v-model="checkDate"
+            :value="checkDate"
             align="right"
             type="date"
             placeholder="选择日期"
@@ -48,9 +63,13 @@
           <i class="keynote">*&nbsp;&nbsp;</i>检查方式:
         </f7-col>
         <f7-col width="25" class="purpose-col">
-          <el-select v-model="interest" placeholder="--请选择--" @change="onPracticableChange">
+          <el-select
+            v-model="checkType"
+            placeholder="--请选择--"
+            @change="onCheckTypeChange"
+          >
             <el-option
-              v-for="item in interests"
+              v-for="item in checkTypes"
               :key="item.value"
               :label="item.label"
               :value="item.value"
@@ -62,12 +81,12 @@
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
           <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>面谈对象职务:
+            <i class="ignore">*&nbsp;&nbsp;</i>面谈对象职务:
           </f7-col>
           <f7-col width="25" class="purpose-col">
-            <el-select v-model="interest" placeholder="--请选择--">
+            <el-select v-model="dutie" placeholder="--请选择--">
               <el-option
-                v-for="item in interests"
+                v-for="item in duties"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
@@ -75,18 +94,30 @@
             </el-select>
           </f7-col>
           <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>面谈人姓名:
+            <i class="ignore">*&nbsp;&nbsp;</i>面谈人姓名:
           </f7-col>
           <f7-col width="25">
-            <el-input style="width:100% !important;" clearable placeholder="面谈人姓名"></el-input>
+            <el-input
+              style="width:100% !important;"
+              v-model="interviewName"
+              :value="interviewName"
+              clearable
+              placeholder="请输入面谈人姓名"
+            ></el-input>
           </f7-col>
         </f7-row>
         <f7-row class="item-layout">
           <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>面谈人电话:
+            <i class="ignore">*&nbsp;&nbsp;</i>面谈人电话:
           </f7-col>
           <f7-col width="25">
-            <el-input style="width:100% !important;" clearable placeholder="面谈人姓名"></el-input>
+            <el-input
+              style="width:100% !important;"
+              v-model="interviewPhone"
+              :value="interviewPhone"
+              clearable
+              placeholder="请输入面谈人电话"
+            ></el-input>
           </f7-col>
           <f7-col width="20" class="key"></f7-col>
           <f7-col width="25"></f7-col>
@@ -98,18 +129,20 @@
           <f7-col width="20" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>检查途径:
           </f7-col>
-          <f7-col width="25" class="purpose-col">
-            <el-select v-model="interest" placeholder="--请选择--">
-              <el-option
-                v-for="item in interests"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
+          <f7-col width="75" class="purpose-col">
+            <el-checkbox-group
+              v-model="checkChannelResult"
+              @change="onCheckChannelChange"
+            >
+              <el-checkbox
+                v-for="item in checkChannelList"
+                :checked="item.isCheck"
+                :label="item.name"
+                :key="item.name"
+                >{{ item.name }}</el-checkbox
+              >
+            </el-checkbox-group>
           </f7-col>
-          <f7-col width="20" class="key"></f7-col>
-          <f7-col width="25"></f7-col>
         </f7-row>
       </div>
     </f7-card>
@@ -340,7 +373,9 @@
 export default {
   data() {
     return {
-      interests: [
+      branchName: "",
+      inspectName: "",
+      checkTypes: [
         {
           value: "0",
           label: "现场检查"
@@ -350,7 +385,55 @@ export default {
           label: "非现场检查"
         }
       ], //任务状态
-      interest: "", //任务状态
+      checkType: "", //任务状态
+      duties: [
+        {
+          value: "0",
+          label: "法人"
+        },
+        {
+          value: "1",
+          label: "主要股东"
+        },
+        {
+          value: "2",
+          label: "其他"
+        },
+        {
+          value: "3",
+          label: "财务总监"
+        }
+      ],
+      dutie: "",
+      interviewName: "",
+      interviewPhone: "",
+      checkChannelList: [
+        {
+          isCheck: false,
+          name: "电话"
+        },
+        {
+          isCheck: false,
+          name: "信函"
+        },
+        {
+          isCheck: false,
+          name: "邮件"
+        },
+        {
+          isCheck: false,
+          name: "媒体"
+        },
+        {
+          isCheck: false,
+          name: "短信"
+        },
+        {
+          isCheck: false,
+          name: "其他"
+        }
+      ],
+      checkChannelResult: [],
       enoughRepayments: [
         {
           value: "0",
@@ -428,6 +511,24 @@ export default {
     };
   },
   methods: {
+    /**
+     * 检查方式是监听
+     */
+    onCheckTypeChange(index) {
+      if (index == 0) {
+        this.isScene = true;
+        this.isNotScene = false;
+      } else {
+        this.isScene = false;
+        this.isNotScene = true;
+      }
+    },
+    /**
+     * 检查用途监听
+     */
+    onCheckChannelChange(index) {
+      console.error(index);
+    },
     onPracticableChange(index) {
       if (index == 0) {
         this.isScene = true;

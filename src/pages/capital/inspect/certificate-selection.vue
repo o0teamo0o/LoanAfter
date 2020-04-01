@@ -6,7 +6,7 @@
         :data="
           certificateList.filter(
             data =>
-              !search || data.name.toLowerCase().includes(search.toLowerCase())
+              !certificateSearchKey || data.name.toLowerCase().includes(certificateSearchKey.toLowerCase())
           )
         "
         style="width: 100%;margin-bottom: 20px;"
@@ -22,9 +22,10 @@
         ></el-table-column>
         <el-table-column prop="name" label="名称" width="400"></el-table-column>
         <el-table-column align="right">
-          <template slot="header">
+          <template slot="header" slot-scope="scope">
             <el-input
-              v-model="search"
+              v-model="certificateSearchKey"
+              :value="certificateSearchKey"
               size="mini"
               placeholder="输入关键字搜索"
             />
@@ -51,7 +52,7 @@
 export default {
   data() {
     return {
-      search: "",
+      certificateSearchKey: "",
       certificateList: [
         {
           id: "0",

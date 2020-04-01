@@ -7,7 +7,7 @@
           <span>返回</span>
         </a>
       </f7-nav-left>
-      <f7-nav-title>授权汇总</f7-nav-title>
+      <f7-nav-title>授信汇总</f7-nav-title>
       <f7-nav-right>
         <f7-button outline @click="onLoadCreditReporting">征信报告</f7-button>
         <f7-button outline @click="onSave">保存</f7-button>
@@ -23,34 +23,93 @@
         <f7-col width="25">可用额度：0.00</f7-col>
       </f7-row>
       <el-table :data="taskList" border>
-        <el-table-column fixed prop="date" label="合同编号" width="150"></el-table-column>
-        <el-table-column prop="name" label="借据编号" width="150"></el-table-column>
-        <el-table-column prop="province" label="业务品种" width="105"></el-table-column>
-        <el-table-column prop="city" label="放款金额" width="130"></el-table-column>
-        <el-table-column prop="address" label="余额" width="130"></el-table-column>
+        <el-table-column
+          fixed
+          prop="date"
+          label="合同编号"
+          width="150"
+        ></el-table-column>
+        <el-table-column
+          prop="name"
+          label="借据编号"
+          width="150"
+        ></el-table-column>
+        <el-table-column
+          prop="province"
+          label="业务品种"
+          width="105"
+        ></el-table-column>
+        <el-table-column
+          prop="city"
+          label="放款金额"
+          width="130"
+        ></el-table-column>
+        <el-table-column
+          prop="address"
+          label="余额"
+          width="130"
+        ></el-table-column>
         <el-table-column prop="zip" label="币种" width="70"></el-table-column>
-        <el-table-column prop="jclx" label="起始日期" width="100"></el-table-column>
-        <el-table-column prop="M" label="到期日期" width="100"></el-table-column>
-        <el-table-column prop="riqi" label="逾期(垫款)本金" width="130"></el-table-column>
-        <el-table-column prop="state" label="逾期利息" width="130"></el-table-column>
+        <el-table-column
+          prop="jclx"
+          label="起始日期"
+          width="100"
+        ></el-table-column>
+        <el-table-column
+          prop="M"
+          label="到期日期"
+          width="100"
+        ></el-table-column>
+        <el-table-column
+          prop="riqi"
+          label="逾期(垫款)本金"
+          width="130"
+        ></el-table-column>
+        <el-table-column
+          prop="state"
+          label="逾期利息"
+          width="130"
+        ></el-table-column>
       </el-table>
     </f7-card>
 
     <f7-block>授信放款条件</f7-block>
     <f7-card>
       <el-table :data="loanConditionsList" border>
-        <el-table-column fixed prop="no" label="授信编号" width="150"></el-table-column>
-        <el-table-column prop="serial" label="序号" width="70"></el-table-column>
-        <el-table-column prop="content" label="内容" min-width="583"></el-table-column>
+        <el-table-column
+          fixed
+          prop="no"
+          label="授信编号"
+          width="150"
+        ></el-table-column>
+        <el-table-column
+          prop="serial"
+          label="序号"
+          width="70"
+        ></el-table-column>
+        <el-table-column
+          prop="content"
+          label="内容"
+          min-width="583"
+        ></el-table-column>
       </el-table>
     </f7-card>
 
     <f7-block>放款后管理条件</f7-block>
     <f7-card class="financial-layout">
       <el-table :data="taskList" border>
-        <el-table-column fixed prop="date" label="授信编号" width="150"></el-table-column>
+        <el-table-column
+          fixed
+          prop="date"
+          label="授信编号"
+          width="150"
+        ></el-table-column>
         <el-table-column prop="zip" label="序号" width="70"></el-table-column>
-        <el-table-column prop="province" label="内容" width="300"></el-table-column>
+        <el-table-column
+          prop="province"
+          label="内容"
+          width="300"
+        ></el-table-column>
         <el-table-column label="落实情况" width="280">
           <template slot-scope="scope">
             <i class="keynote">*</i>
@@ -68,24 +127,66 @@
             </el-select>
           </template>
         </el-table-column>
-        <el-table-column v-if="practicableContent" prop="practicableContent" label="说明" width="300"></el-table-column>
+        <el-table-column
+          v-if="practicableContent"
+          prop="practicableContent"
+          label="说明"
+          width="300"
+        ></el-table-column>
       </el-table>
     </f7-card>
 
     <f7-block>其他金融机构授信情况</f7-block>
     <f7-card>
       <el-table :data="taskList" border>
-        <el-table-column fixed prop="date" label="机构名称" width="150"></el-table-column>
-        <el-table-column prop="name" label="授信品种" width="150"></el-table-column>
-        <el-table-column prop="city" label="放款金额" width="130"></el-table-column>
-        <el-table-column prop="address" label="余额" width="130"></el-table-column>
-        <el-table-column prop="jclx" label="起始日期" width="100"></el-table-column>
-        <el-table-column prop="M" label="到期日期" width="100"></el-table-column>
-        <el-table-column prop="riqi" label="逾期(垫款)本金" width="130"></el-table-column>
-        <el-table-column prop="state" label="逾期利息" width="130"></el-table-column>
+        <el-table-column
+          fixed
+          prop="date"
+          label="机构名称"
+          width="150"
+        ></el-table-column>
+        <el-table-column
+          prop="name"
+          label="授信品种"
+          width="150"
+        ></el-table-column>
+        <el-table-column
+          prop="city"
+          label="放款金额"
+          width="130"
+        ></el-table-column>
+        <el-table-column
+          prop="address"
+          label="余额"
+          width="130"
+        ></el-table-column>
+        <el-table-column
+          prop="jclx"
+          label="起始日期"
+          width="100"
+        ></el-table-column>
+        <el-table-column
+          prop="M"
+          label="到期日期"
+          width="100"
+        ></el-table-column>
+        <el-table-column
+          prop="riqi"
+          label="逾期(垫款)本金"
+          width="130"
+        ></el-table-column>
+        <el-table-column
+          prop="state"
+          label="逾期利息"
+          width="130"
+        ></el-table-column>
         <el-table-column fixed="right" label="操作" width="80">
           <template slot-scope="scope">
-            <f7-link class="btn-link" @click.native.prevent="deleteRow(scope.$index, taskList)">删除</f7-link>
+            <f7-link
+              class="btn-link"
+              @click.native.prevent="deleteRow(scope.$index, taskList)"
+              >删除</f7-link
+            >
           </template>
         </el-table-column>
       </el-table>
@@ -109,7 +210,12 @@
         <f7-row class="item-layout">
           <f7-col width="20" class="key">对外担保情况说明:</f7-col>
           <f7-col width="80">
-            <el-input type="textarea" :rows="2" placeholder="请输入对外担保情况说明" v-model="foreignInfo"></el-input>
+            <el-input
+              type="textarea"
+              :rows="2"
+              placeholder="请输入对外担保情况说明"
+              v-model="foreignInfo"
+            ></el-input>
           </f7-col>
         </f7-row>
       </div>
@@ -239,7 +345,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang="less">
 .total-info {
   line-height: 45px;
   text-align: center;
@@ -272,5 +378,13 @@ export default {
 
 .financial-layout .el-table td:nth-child(n + 1) {
   padding: 5px 0;
+}
+
+.navbar-current > .navbar-inner {
+  .left,
+  .title,
+  .right {
+    transform: translate3d(0px, 0px, 0px) !important;
+  }
 }
 </style>

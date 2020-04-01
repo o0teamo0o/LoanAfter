@@ -64,11 +64,11 @@
       <f7-row class="btn-layout">
         <f7-col width="25"></f7-col>
         <f7-col width="20" tag="span">
-          <f7-button large raised fill color="gray" @click="onResetTask">重置</f7-button>
+          <el-button type="info" @click="onResetTask">重置</el-button>
         </f7-col>
         <f7-col width="10"></f7-col>
         <f7-col width="20" tag="span">
-          <f7-button large raised fill color="red" @click="onQueryTask">查询</f7-button>
+          <el-button type="primary" @click="onQueryTask">查询</el-button>
         </f7-col>
         <f7-col width="25"></f7-col>
       </f7-row>
@@ -78,11 +78,31 @@
     <f7-card>
       <el-table :data="taskList" border>
         <el-table-column fixed type="selection" width="55"></el-table-column>
-        <el-table-column prop="date" label="客户编号" min-width="110"></el-table-column>
-        <el-table-column prop="name" label="客户名称" min-width="110"></el-table-column>
-        <el-table-column prop="province" label="客户类型" min-width="105"></el-table-column>
-        <el-table-column prop="city" label="借据编号" min-width="180"></el-table-column>
-        <el-table-column prop="address" label="业务种类" min-width="150"></el-table-column>
+        <el-table-column
+          prop="date"
+          label="客户编号"
+          min-width="110"
+        ></el-table-column>
+        <el-table-column
+          prop="name"
+          label="客户名称"
+          min-width="110"
+        ></el-table-column>
+        <el-table-column
+          prop="province"
+          label="客户类型"
+          min-width="105"
+        ></el-table-column>
+        <el-table-column
+          prop="city"
+          label="借据编号"
+          min-width="180"
+        ></el-table-column>
+        <el-table-column
+          prop="address"
+          label="业务种类"
+          min-width="150"
+        ></el-table-column>
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <f7-link
@@ -90,14 +110,14 @@
               data-force="true"
               data-push-state="true"
               @click="onItemClick(scope.row)"
-            >保存</f7-link>
+              >保存</f7-link
+            >
           </template>
         </el-table-column>
       </el-table>
     </f7-card>
   </f7-page>
 </template>
-
 
 <script>
 export default {
@@ -147,15 +167,11 @@ export default {
     /**
      * 重置按钮
      */
-    onResetTask() {
-
-    },
+    onResetTask() {},
     /**
      * 查询按钮
      */
-    onQueryTask() {
-
-    },
+    onQueryTask() {},
     /**
      * 页面返回事件
      */
@@ -171,5 +187,4 @@ export default {
 };
 </script>
 
-<style lang='less'>
-</style>
+<style lang="less"></style>

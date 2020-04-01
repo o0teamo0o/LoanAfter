@@ -126,36 +126,32 @@
       <f7-row class="btn-layout">
         <f7-col width="25"></f7-col>
         <f7-col width="20" tag="span">
-          <f7-button large raised fill color="gray" @click="onResetTask"
-            >重置</f7-button
-          >
+          <el-button type="info" @click="onResetTask">重置</el-button>
         </f7-col>
         <f7-col width="10"></f7-col>
         <f7-col width="20" tag="span">
-          <f7-button large raised fill color="red" @click="onQueryTask"
-            >查询</f7-button
-          >
+          <el-button type="primary" @click="onQueryTask">查询</el-button>
         </f7-col>
         <f7-col width="25"></f7-col>
       </f7-row>
     </f7-card>
 
     <f7-card>
-        <div class="flex">
-          <div class="result-hint">客户查询列表</div>
-          <div class="empty"></div>
-          <el-pagination
-            class="pagination"
-            background
-            layout="prev, pager, next"
-            :page-count="total"
-            :page-size="pagesize"
-            :current-page="currentPage"
-            hide-on-single-page
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-          ></el-pagination>
-        </div>
+      <div class="flex">
+        <div class="result-hint">客户查询列表</div>
+        <div class="empty"></div>
+        <el-pagination
+          class="pagination"
+          background
+          layout="prev, pager, next"
+          :page-count="total"
+          :page-size="pagesize"
+          :current-page="currentPage"
+          hide-on-single-page
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        ></el-pagination>
+      </div>
       <el-table :data="taskList" border>
         <el-table-column fixed type="selection" width="55"></el-table-column>
         <el-table-column
