@@ -2,7 +2,13 @@
   <!-- App -->
   <f7-app :params="f7params">
     <!-- 左边菜单容器 -->
-    <f7-panel class="menu-layout" id="left-view" :style="{width: menuWidth +'px'}" left reveal>
+    <f7-panel
+      class="menu-layout"
+      id="left-view"
+      :style="{ width: menuWidth + 'px' }"
+      left
+      reveal
+    >
       <f7-view id="left-panel-view" url="/panel-left/" name="left"></f7-view>
     </f7-panel>
 
@@ -30,16 +36,19 @@
         <img
           class="menu-switch"
           v-on:click="onMenuToggleListener"
-          v-bind:src="menuToggle ? require('./assets/icon_menu_shrink.png') : require('./assets/icon_menu_open.png')"
+          v-bind:src="
+            menuToggle
+              ? require('./assets/icon_menu_shrink.png')
+              : require('./assets/icon_menu_open.png')
+          "
         />
         <div class="empty" />
-
-        <f7-link
-          class="btn-right-menu"
-          icon-if-ios="f7:menu"
-          icon-if-md="material:menu"
-          panel-open="right"
-        ></f7-link>
+        <div class="appbar-right">
+          <el-badge :value="9" :max="99" class="item">
+            <img class="img-news" src="./assets/icon_news.png" />
+          </el-badge>
+          <img class="img-exit" src="./assets/icon_exit.png" @click="onExit" />
+        </div>
       </div>
     </f7-appbar>
 
@@ -48,7 +57,7 @@
       <f7-view
         id="main-view"
         class="view-main"
-        v-bind:style="{width: containerWidth + 'px'}"
+        v-bind:style="{ width: containerWidth + 'px' }"
         navbar-through
         toolbar-through
         :dynamic-navbar="true"
@@ -126,11 +135,37 @@ export default {
       if (this.menuToggle) {
         this.menuWidth = 210;
       } else {
-        this.menuWidth = 55;
+        this.menuWidth = 57;
         // this.menuWidth = 0;
       }
       this.containerWidth = this.screenWidth - this.menuWidth;
+    },
+    /**
+     * 退出
+     */
+    onExit() {
+      this.$f7.dialog.alert("确认退出系统吗?");
     }
   }
 };
 </script>
+
+<style lang="less">
+.appbar-right {
+  display: flex;
+  align-content: center;
+  align-items: center;
+
+  .img-news {
+    width: 20px;
+    height: 20px;
+  }
+
+  .img-exit {
+    width: 20px;
+    height: 20px;
+    margin-left: 30px;
+    margin-right: 15px;
+  }
+}
+</style>
