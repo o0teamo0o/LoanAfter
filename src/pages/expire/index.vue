@@ -73,7 +73,9 @@
                 </f7-col>
                 <f7-col width="10"></f7-col>
                 <f7-col width="20" tag="span">
-                  <el-button type="primary" @click="onQueryTask">查询</el-button>
+                  <el-button type="primary" @click="onQueryTask"
+                    >查询</el-button
+                  >
                 </f7-col>
                 <f7-col width="25"></f7-col>
               </f7-row>
@@ -99,22 +101,40 @@
           ></el-pagination>
         </div>
         <el-table
-          :data="taskList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+          :data="
+            taskList.slice((currentPage - 1) * pagesize, currentPage * pagesize)
+          "
           border
           style="transition: max-height 0.2s linear"
           :max-height="tableMaxHeight"
         >
-          <el-table-column fixed prop="date" label="客户名称" width="120"></el-table-column>
-          <el-table-column prop="name" label="客户编号" width="120"></el-table-column>
-          <el-table-column prop="province" label="证件类型" width="105"></el-table-column>
-          <el-table-column prop="city" label="证件号码" width="180"></el-table-column>
-          <el-table-column prop="address" label="借据编号" width="150"></el-table-column>
-          <el-table-column prop="zip" label="检查类型" width="110"></el-table-column>
-          <el-table-column prop="jclx" label="日常检查类型" width="120"></el-table-column>
-          <el-table-column prop="M" label="检查频率" width="80"></el-table-column>
-          <el-table-column prop="riqi" label="本期检查最迟完成日期" width="165"></el-table-column>
-          <el-table-column prop="state" label="任务状态" width="80"></el-table-column>
-          <el-table-column fixed="right" label="操作" width="80">
+          <el-table-column
+            fixed
+            prop="date"
+            label="客户名称"
+            min-width="120"
+          ></el-table-column>
+          <el-table-column
+            prop="name"
+            label="客户编号"
+            min-width="120"
+          ></el-table-column>
+          <el-table-column
+            prop="jclx"
+            label="日常检查类型"
+            min-width="120"
+          ></el-table-column>
+          <el-table-column
+            prop="M"
+            label="检查频率"
+            min-width="80"
+          ></el-table-column>
+          <el-table-column
+            prop="riqi"
+            label="本期检查最迟完成日期"
+            min-width="165"
+          ></el-table-column>
+          <el-table-column fixed="right" label="操作" min-width="80">
             <template slot-scope="scope">
               <div v-if="scope.row.status == 0">
                 <f7-link
@@ -123,7 +143,8 @@
                   data-force="true"
                   data-push-state="true"
                   @click="onItemClick(scope.row)"
-                >发起</f7-link>
+                  >发起</f7-link
+                >
               </div>
               <div v-if="scope.row.status == 1">
                 <f7-link
@@ -132,7 +153,8 @@
                   data-force="true"
                   data-push-state="true"
                   @click="onItemClick(scope.row)"
-                >检查</f7-link>
+                  >检查</f7-link
+                >
               </div>
             </template>
           </el-table-column>
@@ -144,7 +166,6 @@
     </div>
   </f7-page>
 </template>
-
 
 <script>
 export default {
@@ -463,7 +484,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import "../../css/base.less";
 .title {
   padding: 15px;

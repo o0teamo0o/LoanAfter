@@ -273,6 +273,11 @@
           width="150"
         ></el-table-column>
       </el-table>
+      <el-transfer
+        v-model="transferValue"
+        :data="shuttleData"
+        :titles="titles"
+      ></el-transfer>
     </f7-card>
 
     <f7-block>交易流水</f7-block>
@@ -548,6 +553,7 @@ export default {
         }
       ],
       titles: ["未查询交易流水的账户列表", "已查询交易流水的账户列表"],
+      transferValue:[1, 1],
       shuttleData: [
         {
           key: "1",

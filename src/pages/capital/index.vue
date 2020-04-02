@@ -110,54 +110,29 @@
             fixed
             prop="date"
             label="客户名称"
-            width="120"
+            min-width="120"
           ></el-table-column>
           <el-table-column
             prop="name"
             label="客户编号"
-            width="120"
-          ></el-table-column>
-          <el-table-column
-            prop="province"
-            label="证件类型"
-            width="105"
-          ></el-table-column>
-          <el-table-column
-            prop="city"
-            label="证件号码"
-            width="180"
-          ></el-table-column>
-          <el-table-column
-            prop="address"
-            label="借据编号"
-            width="150"
-          ></el-table-column>
-          <el-table-column
-            prop="zip"
-            label="检查类型"
-            width="110"
+            min-width="120"
           ></el-table-column>
           <el-table-column
             prop="jclx"
             label="日常检查类型"
-            width="120"
+            min-width="120"
           ></el-table-column>
           <el-table-column
             prop="M"
             label="检查频率"
-            width="80"
+            min-width="80"
           ></el-table-column>
           <el-table-column
             prop="riqi"
             label="本期检查最迟完成日期"
-            width="165"
+            min-width="165"
           ></el-table-column>
-          <el-table-column
-            prop="state"
-            label="任务状态"
-            width="80"
-          ></el-table-column>
-          <el-table-column fixed="right" label="操作" width="80">
+          <el-table-column fixed="right" label="操作" min-width="80">
             <template slot-scope="scope">
               <div v-if="scope.row.status == 0">
                 <f7-link

@@ -1,5 +1,5 @@
 <template>
-  <f7-page name="main">
+  <f7-page name="main" id="home-page">
     <f7-block class="ks-grid">
       <f7-row>
         <f7-col width="50">
@@ -17,8 +17,12 @@
           <f7-card>
             <f7-row class="card-padding">
               <f7-col width="100" class="time-mark">今天是:</f7-col>
-              <f7-col width="100" class="week">{{currentDate.currentWeek}}</f7-col>
-              <f7-col width="100" class="date">{{currentDate.currentDate}}</f7-col>
+              <f7-col width="100" class="week">{{
+                currentDate.currentWeek
+              }}</f7-col>
+              <f7-col width="100" class="date">{{
+                currentDate.currentDate
+              }}</f7-col>
             </f7-row>
           </f7-card>
         </f7-col>
@@ -32,7 +36,6 @@
   </f7-page>
 </template>
 
-
 <script>
 import { DateTime } from "../../utils/DataTime";
 export default {
@@ -41,16 +44,43 @@ export default {
       currentDate: {}
     };
   },
+  beforeCreate() {
+    console.error("beforeCreate");
+  },
   created() {
+    console.error("created");
     let date = new DateTime();
     this.currentDate.currentDate = date.getDate();
     this.currentDate.currentTime = date.getTime();
     this.currentDate.currentWeek = date.getWeek();
+  },
+  beforeMount() {
+    console.error("beforeMount");
+  },
+  mounted() {
+    this.$f7ready(f7 => {
+      //修改页面切换导致首页试图下移的问题
+      this.Dom7("#home-page").children("div").css({
+        paddingTop: "0px",
+      });
+    });
+  },
+  beforeUpdate() {
+    
+  },
+  updated() {
+    
+  },
+  beforeDestroy() {
+    
+  },
+  destroyed() {
+    
   }
 };
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 @import "../../css/base.less";
 
 .icon-head {

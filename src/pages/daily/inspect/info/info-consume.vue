@@ -88,27 +88,8 @@
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="customer-info-item">
-          <f7-col width="20" class="key">行业(四级):</f7-col>
-          <f7-col width="80">客户名称客户名称客户名称客户名称</f7-col>
-        </f7-row>
-        <div class="dashed-line-half"></div>
-        <f7-row class="customer-info-item">
-          <f7-col width="20" class="key">经营范围:</f7-col>
-          <f7-col width="80">经营范围经营范围经营范围经营范围经营范围经营范围经营范围</f7-col>
-        </f7-row>
-        <div class="dashed-line-half"></div>
-        <f7-row class="customer-info-item">
-          <f7-col width="20" class="key">法定代表人:</f7-col>
-          <f7-col width="40">法定代表人</f7-col>
-          <f7-col width="20" class="key">客户信用评级(上期):</f7-col>
-          <f7-col width="20">A</f7-col>
-        </f7-row>
-        <div class="dashed-line-half"></div>
-        <f7-row class="customer-info-item">
-          <f7-col width="20" class="key">客户信用评级(本期):</f7-col>
-          <f7-col width="40">A+</f7-col>
-          <f7-col width="20" class="key">评级有效截止日:</f7-col>
-          <f7-col width="20">2020-08-08</f7-col>
+          <f7-col width="20" class="key">客户地址:</f7-col>
+          <f7-col width="80">客户地址客户地址客户地址客户地址客户地址客户地址客户地址</f7-col>
         </f7-row>
       </div>
     </f7-card>
@@ -212,7 +193,7 @@ export default {
 </script>
 
 <style lang='less'>
-@import "../../../css/base.less";
+@import "../../../../css/base.less";
 .remind-mark {
   color: #fda929;
 }

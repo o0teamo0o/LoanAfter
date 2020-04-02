@@ -302,7 +302,7 @@
       <f7-card class="production-layout">
         <f7-row class="item-layout">
           <f7-col width="25" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>原因:
+            <i class="keynote">*&nbsp;&nbsp;</i>无足额还款来源原因:
           </f7-col>
           <f7-col width="75">
             <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
@@ -313,7 +313,7 @@
             <i class="keynote">*&nbsp;&nbsp;</i>拟采取的处置措施:
           </f7-col>
           <f7-col width="75">
-            <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
+            <el-checkbox-group v-model="marketChange" >
               <el-checkbox label="现金清收"></el-checkbox>
               <el-checkbox label="协议抵偿"></el-checkbox>
               <el-checkbox label="债务重组"></el-checkbox>
@@ -334,7 +334,7 @@
     <f7-card class="production-layout">
       <f7-row class="item-layout">
         <f7-col width="25" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>操作员姓名:
+          <i class="ignore">*&nbsp;&nbsp;</i>操作员姓名:
         </f7-col>
         <f7-col width="25">
           <el-input
@@ -342,11 +342,12 @@
             v-model="supplier"
             :value="supplier"
             clearable
-            placeholder="请输入主要供应商"
+            disabled
+            placeholder="回显"
           ></el-input>
         </f7-col>
         <f7-col width="25" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>操作员岗位:
+          <i class="ignore">*&nbsp;&nbsp;</i>操作员岗位:
         </f7-col>
         <f7-col width="25">
           <el-input
@@ -354,7 +355,8 @@
             v-model="distributor"
             :value="distributor"
             clearable
-            placeholder="请输入主要经销商"
+            disabled
+            placeholder="回显"
           ></el-input>
         </f7-col>
       </f7-row>

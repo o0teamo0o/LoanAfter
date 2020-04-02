@@ -90,7 +90,7 @@ export default {
         routes: routes // App routes
       },
       menuToggle: true, //左边菜单当前展开状态 true:展开 false:收缩
-      menuWidth: 210, //左边菜单默认宽度
+      menuWidth: 180, //左边菜单默认宽度
       containerWidth: 0 //容器宽度
     };
   },
@@ -133,7 +133,7 @@ export default {
     onMenuToggleListener() {
       this.menuToggle = !this.menuToggle;
       if (this.menuToggle) {
-        this.menuWidth = 210;
+        this.menuWidth = 180;
       } else {
         this.menuWidth = 57;
         // this.menuWidth = 0;

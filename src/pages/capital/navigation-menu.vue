@@ -51,7 +51,7 @@ export default {
           title: "影像资料",
           imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
           imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-          link: "/daily-portrait/"
+          link: "/task-capital-portrait/"
         }
       ]
     };

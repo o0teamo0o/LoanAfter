@@ -483,7 +483,7 @@ export default {
               title: "基本信息",
               imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
+              link: "/daily-info-consume/"
             },
             {
               title: "授信汇总",
