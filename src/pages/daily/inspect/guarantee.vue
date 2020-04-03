@@ -30,88 +30,257 @@
       </div>
     </f7-card>
 
-    <f7-block>保证人信息</f7-block>
+    <!-- <f7-block>保证人信息</f7-block> -->
     <f7-card class="financial-layout">
-      <el-table :data="taskList" border>
-        <el-table-column fixed prop="date" label="编号" width="150"></el-table-column>
-        <el-table-column prop="name" label="保证人客户号" width="150"></el-table-column>
-        <el-table-column prop="province" label="保证人名称" width="105"></el-table-column>
-        <el-table-column prop="city" label="信用等级" width="130"></el-table-column>
-        <el-table-column prop="address" label="担保资金" width="130"></el-table-column>
-        <el-table-column prop="zip" label="币种" width="70"></el-table-column>
-        <el-table-column fixed="right" prop="jclx" label="操作" width="100"></el-table-column>
+      <div class="flex">
+        <div class="result-hint">保证人信息</div>
+        <div class="empty"></div>
+        <f7-link class="analysis" @click="onGuarantorAnalysis"
+          >情况分析</f7-link
+        >
+      </div>
+      <el-table
+        :data="guarantorList"
+        border
+        @selection-change="onGuarantorSelectionChange"
+      >
+        <el-table-column fixed type="selection" width="50"></el-table-column>
+        <el-table-column
+          fixed
+          type="index"
+          label="编号"
+          width="55"
+        ></el-table-column>
+        <el-table-column
+          prop="no"
+          label="保证人客户号"
+          min-width="120"
+        ></el-table-column>
+        <el-table-column
+          prop="name"
+          label="保证人名称"
+          min-width="240"
+        ></el-table-column>
+        <el-table-column
+          prop="leven"
+          label="信用等级"
+          min-width="130"
+        ></el-table-column>
+        <el-table-column
+          prop="money"
+          label="担保资金"
+          min-width="130"
+        ></el-table-column>
+        <el-table-column
+          prop="bz"
+          label="币种"
+          min-width="70"
+        ></el-table-column>
       </el-table>
     </f7-card>
 
-    <f7-block>履约能力/保证能力变化情况分析</f7-block>
-    <f7-card>
-      <div class="production-layout">
-        <f7-row class="item-layout">
-          <f7-col width="30" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>履约能力变化情况分析:
-          </f7-col>
-          <f7-col width="70" class="performance-col">
-            <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
-              <el-checkbox label="保证人主要管理层和管理结构发生重大不利变化"></el-checkbox>
-              <el-checkbox label="保证人出现兼并、重组或分立情况"></el-checkbox>
-              <el-checkbox label="无变化"></el-checkbox>
-            </el-checkbox-group>
-          </f7-col>
-        </f7-row>
-        <div class="dashed-line-half"></div>
-        <f7-row class="item-layout">
-          <f7-col width="30" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>保证能力变化情况分析:
-          </f7-col>
-          <f7-col width="70" class="performance-col">
-            <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
-              <el-checkbox label="保证人销售收入（营业收入）下滑或出现亏损"></el-checkbox>
-              <el-checkbox label="保证人在我行或他行的贷款出现逾期"></el-checkbox>
-              <el-checkbox label="保证人被其他金融机构起诉"></el-checkbox>
-              <el-checkbox label="保证人违反保证合同或丧失承担连带担保责任能力"></el-checkbox>
-              <el-checkbox label="保证人陷入重大赔偿、诉讼、重大或有负债"></el-checkbox>
-              <el-checkbox label="保证人因其他重大风险事项导致重大损失"></el-checkbox>
-              <el-checkbox label="无变化"></el-checkbox>
-            </el-checkbox-group>
-          </f7-col>
-        </f7-row>
+    <!-- <f7-block>抵押物信息</f7-block> -->
+    <f7-card class="financial-layout">
+      <div class="flex">
+        <div class="result-hint">抵押物信息</div>
+        <div class="empty"></div>
+        <f7-link class="analysis" @click="onCollateralInfo">情况分析</f7-link>
       </div>
+      <el-table
+        :data="collateralList"
+        border
+        @selection-change="onCollateralSelectionChange"
+      >
+        <el-table-column fixed type="selection" width="50"></el-table-column>
+        <el-table-column
+          fixed
+          type="index"
+          label="编号"
+          width="55"
+        ></el-table-column>
+        <el-table-column
+          prop="no"
+          label="押品编号"
+          min-width="150"
+        ></el-table-column>
+        <el-table-column
+          prop="name"
+          label="押品名称"
+          min-width="105"
+        ></el-table-column>
+        <el-table-column
+          prop="leven"
+          label="押品所有人"
+          min-width="130"
+        ></el-table-column>
+        <el-table-column
+          prop="money"
+          label="估计价值"
+          min-width="130"
+        ></el-table-column>
+        <el-table-column
+          prop="bz"
+          label="币种"
+          min-width="70"
+        ></el-table-column>
+        <el-table-column
+          prop="time"
+          label="评估时间"
+          min-width="100"
+        ></el-table-column>
+      </el-table>
     </f7-card>
 
-    <f7-block>抵押物信息</f7-block>
-    <f7-card class="financial-layout">
-      <el-table :data="taskList" border>
-        <el-table-column fixed prop="date" label="编号" width="150"></el-table-column>
-        <el-table-column prop="name" label="押品编号" width="150"></el-table-column>
-        <el-table-column prop="province" label="押品名称" width="105"></el-table-column>
-        <el-table-column prop="city" label="押品所有人" width="130"></el-table-column>
-        <el-table-column prop="address" label="估计价值" width="130"></el-table-column>
-        <el-table-column prop="zip" label="币种" width="70"></el-table-column>
-        <el-table-column prop="jclx" label="评估时间" width="100"></el-table-column>
-        <el-table-column fixed="right" prop="jclx" label="操作" width="100"></el-table-column>
-      </el-table>
-      <div class="production-layout">
-        <f7-row class="item-layout">
-          <f7-col width="30" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>抵（质）押物变化情况分析:
-          </f7-col>
-          <f7-col width="70">
-            <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
-              <el-checkbox label="未经我行同意，抵押物权属变更为他人"></el-checkbox>
-              <el-checkbox label="未经我行同意，借款人擅自将抵押物出租"></el-checkbox>
-              <el-checkbox label="抵押物部分或全部缺失，或不再具备有效抵押的条件"></el-checkbox>
-              <el-checkbox label="抵押物被其他金融机构或企业查封"></el-checkbox>
-              <el-checkbox label="抵押物登记已失效"></el-checkbox>
-              <el-checkbox label="抵（质）押物保险期限已过期"></el-checkbox>
-              <el-checkbox label="抵质押物公允价值（或市场价格）发生明显变化"></el-checkbox>
-              <el-checkbox label="抵押物闲置，土地使用权抵押物新增建筑物"></el-checkbox>
-              <el-checkbox label="抵（质）押物重估价值无法覆盖贷款本息"></el-checkbox>
-              <el-checkbox label="无变化"></el-checkbox>
-            </el-checkbox-group>
-          </f7-col>
-        </f7-row>
-      </div>
-    </f7-card>
+    <f7-popup
+      :opened="isShowGuarantorAnalysisDialog"
+      :closeByBackdropClick="closeByBackdropClick"
+      @popup:closed="isShowGuarantorAnalysisDialog = false"
+      class="guarantor-analysis-layout"
+    >
+      <f7-page>
+        <f7-card class="production-layout">
+          <div class="flex">
+            <div class="empty"></div>
+            <div class="popup-title">履约能力/保证能力变化情况分析</div>
+            <div class="empty"></div>
+          </div>
+          <div class="line-half"></div>
+          <f7-row class="item-layout">
+            <f7-col width="30" class="key">
+              <i class="keynote">*&nbsp;&nbsp;</i>履约能力变化情况分析:
+            </f7-col>
+            <f7-col width="70" class="performance-col">
+              <el-checkbox-group
+                v-model="marketChange"
+                class="market-checkbox-layout"
+              >
+                <el-checkbox
+                  label="保证人主要管理层和管理结构发生重大不利变化"
+                ></el-checkbox>
+                <el-checkbox
+                  label="保证人出现兼并、重组或分立情况"
+                ></el-checkbox>
+                <el-checkbox label="无变化"></el-checkbox>
+              </el-checkbox-group>
+            </f7-col>
+          </f7-row>
+          <div class="dashed-line-half"></div>
+          <f7-row class="item-layout">
+            <f7-col width="30" class="key">
+              <i class="keynote">*&nbsp;&nbsp;</i>保证能力变化情况分析:
+            </f7-col>
+            <f7-col width="70" class="performance-col">
+              <el-checkbox-group
+                v-model="marketChange"
+                class="market-checkbox-layout"
+              >
+                <el-checkbox
+                  label="保证人销售收入（营业收入）下滑或出现亏损"
+                ></el-checkbox>
+                <el-checkbox
+                  label="保证人在我行或他行的贷款出现逾期"
+                ></el-checkbox>
+                <el-checkbox label="保证人被其他金融机构起诉"></el-checkbox>
+                <el-checkbox
+                  label="保证人违反保证合同或丧失承担连带担保责任能力"
+                ></el-checkbox>
+                <el-checkbox
+                  label="保证人陷入重大赔偿、诉讼、重大或有负债"
+                ></el-checkbox>
+                <el-checkbox
+                  label="保证人因其他重大风险事项导致重大损失"
+                ></el-checkbox>
+                <el-checkbox label="无变化"></el-checkbox>
+              </el-checkbox-group>
+            </f7-col>
+          </f7-row>
+          <f7-row class="btn-layout">
+            <f7-col width="25"></f7-col>
+            <f7-col width="20" tag="span">
+              <el-button type="info" @click="onPopupGuarantorAnalysisCancel"
+                >取消</el-button
+              >
+            </f7-col>
+            <f7-col width="10"></f7-col>
+            <f7-col width="20" tag="span">
+              <el-button type="primary" @click="onPopupGuarantorAnalysisOk"
+                >确认</el-button
+              >
+            </f7-col>
+            <f7-col width="25"></f7-col>
+          </f7-row>
+        </f7-card>
+      </f7-page>
+    </f7-popup>
+
+    <f7-popup
+      :opened="isShowCollateralDialog"
+      :closeByBackdropClick="closeByBackdropClick"
+      @popup:closed="isShowCollateralDialog = false"
+      class="collateral-layout"
+    >
+      <f7-page>
+        <f7-card class="production-layout">
+          <div class="flex">
+            <div class="empty"></div>
+            <div class="popup-title">抵（质）押物变化情况分析</div>
+            <div class="empty"></div>
+          </div>
+          <div class="line-half"></div>
+          <f7-row class="item-layout">
+            <f7-col width="30" class="key">
+              <i class="keynote">*&nbsp;&nbsp;</i>抵（质）押物变化情况分析:
+            </f7-col>
+            <f7-col width="70">
+              <el-checkbox-group
+                v-model="marketChange"
+                class="market-checkbox-layout"
+              >
+                <el-checkbox
+                  label="未经我行同意，抵押物权属变更为他人"
+                ></el-checkbox>
+                <el-checkbox
+                  label="未经我行同意，借款人擅自将抵押物出租"
+                ></el-checkbox>
+                <el-checkbox
+                  label="抵押物部分或全部缺失，或不再具备有效抵押的条件"
+                ></el-checkbox>
+                <el-checkbox
+                  label="抵押物被其他金融机构或企业查封"
+                ></el-checkbox>
+                <el-checkbox label="抵押物登记已失效"></el-checkbox>
+                <el-checkbox label="抵（质）押物保险期限已过期"></el-checkbox>
+                <el-checkbox
+                  label="抵质押物公允价值（或市场价格）发生明显变化"
+                ></el-checkbox>
+                <el-checkbox
+                  label="抵押物闲置，土地使用权抵押物新增建筑物"
+                ></el-checkbox>
+                <el-checkbox
+                  label="抵（质）押物重估价值无法覆盖贷款本息"
+                ></el-checkbox>
+                <el-checkbox label="无变化"></el-checkbox>
+              </el-checkbox-group>
+            </f7-col>
+          </f7-row>
+          <f7-row class="btn-layout">
+            <f7-col width="25"></f7-col>
+            <f7-col width="20" tag="span">
+              <el-button type="info" @click="onPopupCollateralCancel"
+                >取消</el-button
+              >
+            </f7-col>
+            <f7-col width="10"></f7-col>
+            <f7-col width="20" tag="span">
+              <el-button type="primary" @click="onPopupCollateralOk"
+                >确认</el-button
+              >
+            </f7-col>
+            <f7-col width="25"></f7-col>
+          </f7-row>
+        </f7-card>
+      </f7-page>
+    </f7-popup>
   </f7-page>
 </template>
 
@@ -119,7 +288,45 @@
 export default {
   data() {
     return {
-      taskList: [],
+      isShowGuarantorAnalysisDialog: false,
+      isShowCollateralDialog: false,
+      closeByBackdropClick: false,
+      guarantorList: [
+        {
+          no: "C000014947",
+          name: "永州大众朝阳房地产开发有限公司",
+          leven: "",
+          money: 2550000,
+          bz: "人民币"
+        },
+        {
+          no: "C000014947",
+          name: "永州大众朝阳房地产开发有限公司",
+          leven: "",
+          money: 2550000,
+          bz: "人民币"
+        }
+      ],
+      selectedGuarantorList: [],
+      collateralList: [
+        {
+          no: "YP00000055316",
+          name: "商用房",
+          leven: "P000111357",
+          money: 2550000,
+          bz: "人民币",
+          time: "2016-01-22"
+        },
+        {
+          no: "YP00000055317",
+          name: "商用房",
+          leven: "P000111357",
+          money: 2550000,
+          bz: "人民币",
+          time: "2016-01-22"
+        }
+      ],
+      selectedCollateralList: [],
       productionInfos: [
         {
           value: "0",
@@ -183,6 +390,64 @@ export default {
   },
   methods: {
     /**
+     * 担保人列表选择监听
+     */
+    onGuarantorSelectionChange(list) {
+      this.selectedGuarantorList = list;
+    },
+    /**
+     * 担保人情况分析
+     */
+    onGuarantorAnalysis() {
+      if (this.selectedGuarantorList.length == 0) {
+        var toast = this.$f7.toast.create({ text: "Hello, how are you?" });
+        toast.open();
+      } else {
+        this.isShowGuarantorAnalysisDialog = true;
+      }
+    },
+    /**
+     * 履约情况取消按钮
+     */
+    onPopupGuarantorAnalysisCancel() {
+      this.isShowGuarantorAnalysisDialog = false;
+    },
+    /**
+     * 履约情况确定按钮
+     */
+    onPopupGuarantorAnalysisOk() {
+      this.isShowGuarantorAnalysisDialog = false;
+    },
+    /**
+     * 抵押物选择监听
+     */
+    onCollateralSelectionChange(list) {
+      this.selectedCollateralList = list;
+    },
+    /**
+     * 抵押物情况分析监听
+     */
+    onCollateralInfo() {
+      if (this.selectedCollateralList.length == 0) {
+        var toast = this.$f7.toast.create({ text: "Hello, how are you?" });
+        toast.open();
+      } else {
+        this.isShowCollateralDialog = true;
+      }
+    },
+    /**
+     * 抵押物情况取消按钮
+     */
+    onPopupCollateralCancel() {
+      this.isShowCollateralDialog = false;
+    },
+    /**
+     * 抵押物情况确定按钮
+     */
+    onPopupCollateralOk() {
+      this.isShowCollateralDialog = false;
+    },
+    /**
      * 页面返回事件
      */
     onBack() {
@@ -197,8 +462,47 @@ export default {
   }
 };
 </script>
-<style lang='less'>
+<style lang="less">
 .performance-col .el-input {
   width: 400px !important;
+}
+.analysis {
+  margin-right: 15px;
+}
+@guarantor-analysis-layout-height: 445px; //履约情况分析高度
+.guarantor-analysis-layout {
+  height: @guarantor-analysis-layout-height !important;
+  background: transparent !important;
+  margin-top: calc(-1 * @guarantor-analysis-layout-height / 2) !important;
+
+  .page {
+    background: transparent !important;
+
+    .page-content {
+      background: transparent !important;
+    }
+  }
+}
+@collateral-layout-height: 425px;
+.collateral-layout {
+  height: @collateral-layout-height !important;
+  background: transparent !important;
+  margin-top: calc(-1 * @collateral-layout-height / 2) !important;
+
+  .page {
+    background: transparent !important;
+
+    .page-content {
+      background: transparent !important;
+    }
+  }
+}
+
+.popup-title {
+  line-height: 44px;
+  height: 44px;
+  padding: 0 15px;
+  font-size: 16px;
+  font-weight: bold;
 }
 </style>

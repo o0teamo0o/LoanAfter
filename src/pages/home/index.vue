@@ -33,30 +33,36 @@
       <f7-card-header>授信后任务快捷菜单</f7-card-header>
       <f7-card-content>待定</f7-card-content>
     </f7-card>-->
+    <Popup v-model="isShowInfoDialog">内容</Popup>
   </f7-page>
 </template>
 
 <script>
 import { DateTime } from "../../utils/DataTime";
+import Popup from "vant/lib/popup";
+import "vant/lib/popup/style";
+
 export default {
   data() {
     return {
+      isShowInfoDialog: false,
       currentDate: {}
     };
   },
   beforeCreate() {
-    console.error("beforeCreate");
+
   },
   created() {
-    console.error("created");
+
     let date = new DateTime();
     this.currentDate.currentDate = date.getDate();
     this.currentDate.currentTime = date.getTime();
     this.currentDate.currentWeek = date.getWeek();
   },
   beforeMount() {
-    console.error("beforeMount");
+
   },
+  components: { Popup },
   mounted() {
     this.$f7ready(f7 => {
       //修改页面切换导致首页试图下移的问题
