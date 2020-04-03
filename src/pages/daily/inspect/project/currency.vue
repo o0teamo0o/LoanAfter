@@ -9,7 +9,7 @@
       </f7-nav-left>
       <f7-nav-title>项目管理</f7-nav-title>
       <f7-nav-right>
-        <f7-button outline>增项目管理情况</f7-button>
+        <f7-button outline @click="onAddProject">增项目管理情况</f7-button>
         <f7-button outline @click="onSave">保存</f7-button>
       </f7-nav-right>
     </f7-navbar>
@@ -34,8 +34,18 @@
     <f7-block>资金到位情况</f7-block>
     <f7-card class="financial-layout">
       <el-table :data="financeList" border>
-        <el-table-column fixed prop="key" label="资金类型" min-width="200"></el-table-column>
-        <el-table-column style="padding: 0;" prop="lastYear" label="实际到位金额" min-width="200">
+        <el-table-column
+          fixed
+          prop="key"
+          label="资金类型"
+          min-width="200"
+        ></el-table-column>
+        <el-table-column
+          style="padding: 0;"
+          prop="lastYear"
+          label="实际到位金额"
+          min-width="200"
+        >
           <template slot-scope="scope">
             <i class="keynote">*</i>
             <el-input
@@ -76,8 +86,18 @@
     <f7-block>项目资金使用情况</f7-block>
     <f7-card class="financial-layout">
       <el-table :data="debtList" border>
-        <el-table-column fixed prop="key" label="资金类型" min-width="200"></el-table-column>
-        <el-table-column style="padding: 0;" prop="lastYear" label="使用情况" min-width="200">
+        <el-table-column
+          fixed
+          prop="key"
+          label="资金类型"
+          min-width="200"
+        ></el-table-column>
+        <el-table-column
+          style="padding: 0;"
+          prop="lastYear"
+          label="使用情况"
+          min-width="200"
+        >
           <template slot-scope="scope">
             <i class="keynote">*</i>
             <el-input
@@ -167,7 +187,10 @@
             <i class="keynote">*&nbsp;&nbsp;</i>"四证"办理情况:
           </f7-col>
           <f7-col width="70">
-            <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
+            <el-checkbox-group
+              v-model="marketChange"
+              class="market-checkbox-layout"
+            >
               <el-checkbox label="国有土地使用证"></el-checkbox>
               <el-checkbox label="建设用地规划许可证"></el-checkbox>
               <el-checkbox label="建设工程规划许可证"></el-checkbox>
@@ -267,7 +290,11 @@
             <i class="keynote">*&nbsp;&nbsp;</i>是否按规定用途使用项目贷款:
           </f7-col>
           <f7-col width="20" class="interest-col">
-            <el-select v-model="purpose" placeholder="--请选择--" @change="onPurposeChange">
+            <el-select
+              v-model="purpose"
+              placeholder="--请选择--"
+              @change="onPurposeChange"
+            >
               <el-option
                 v-for="item in purposes"
                 :key="item.value"
@@ -282,16 +309,26 @@
         <f7-row v-show="isShowPurposeChange" class="item-layout">
           <f7-col width="30" class="key"></f7-col>
           <f7-col width="70">
-            <el-input type="textarea" :rows="2" placeholder="请描述情况" v-model="evaluate"></el-input>
+            <el-input
+              type="textarea"
+              :rows="2"
+              placeholder="请描述情况"
+              v-model="evaluate"
+            ></el-input>
           </f7-col>
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
           <f7-col width="30" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>项目贷款的保证措施是否有出现问题的迹象:
+            <i class="keynote">*&nbsp;&nbsp;</i
+            >项目贷款的保证措施是否有出现问题的迹象:
           </f7-col>
           <f7-col width="20" class="interest-col">
-            <el-select v-model="problem" placeholder="--请选择--" @change="onProblemChange">
+            <el-select
+              v-model="problem"
+              placeholder="--请选择--"
+              @change="onProblemChange"
+            >
               <el-option
                 v-for="item in problems"
                 :key="item.value"
@@ -320,6 +357,7 @@
 </template>
 
 <script>
+// import navigation1 from "./pages/daily/navigation-menu.vue";
 export default {
   data() {
     return {
@@ -433,6 +471,13 @@ export default {
   },
   methods: {
     /**
+     * 新增项目管理页面
+     */
+    onAddProject() {
+      //发送消息让左边导航菜单增加监听
+      this.$bus.emit('addProjectmenu');
+    },
+    /**
      * 规定用途使用监听
      */
     onPurposeChange(index) {
@@ -468,7 +513,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang="less">
 .financial-layout .el-table td:nth-child(n + 1) {
   padding: 5px 0;
 }

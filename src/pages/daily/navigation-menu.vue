@@ -9,12 +9,18 @@
         :title="item.title"
         view="#main-view"
         @click="onNavigationClick(index)"
-        :class="currentNavigationIndex == index ? 'selected-item' : 'normal-item'"
+        :class="
+          currentNavigationIndex == index ? 'selected-item' : 'normal-item'
+        "
       >
         <img
           slot="media"
           class="icon-menu"
-          :src="currentNavigationIndex == index ? item.imgSelectedUrl : item.imgNormalUrl"
+          :src="
+            currentNavigationIndex == index
+              ? item.imgSelectedUrl
+              : item.imgNormalUrl
+          "
         />
       </f7-list-item>
     </f7-list>
@@ -25,6 +31,7 @@
 export default {
   data() {
     return {
+      screeHeight: 0,
       customType: 0, //客户类型; 0:公司类客户 1:事业法人客户 2:平台客户 3:房地产客户 4:小微企业客户 5:个人投资类客户 6:物业贷 7:税联贷 8:惠农系列 9.个人消费客户
       currentNavigationIndex: 0, //当前导航下标
       currentContainerPath: "", //当前容器路径
@@ -534,14 +541,18 @@ export default {
           // console.log("当前的url:", that.currentContainerPath);
         }
       });
-
-      // this.$$(document).on("page:mounted", function(e, page) {
-      //   if (page.route.query.customType) {
-      //     //获取当前客户类型
-      //     that.customType = page.route.query.customType;
-      //     console.error("mounted:导航菜单页面获取到的下标:", that.customType);
-      //   }
-      // });
+    });
+  },
+  created() {
+    var that = this;
+    this.$bus.on("addProjectmenu", () => {
+      var aaa = {
+        title: "项目管理",
+        imgSelectedUrl: require("../../assets/icon_daily_project_selected.png"),
+        imgNormalUrl: require("../../assets/icon_daily_project_normal.png"),
+        link: "/daily-project-currency/"
+      };
+      that.lists[that.customType].items.push(aaa);
     });
   },
   methods: {
@@ -560,7 +571,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang="less">
 .selected-item {
   color: #409eff !important;
   font-weight: bold;

@@ -18,6 +18,7 @@ const mutations = {
      * 设置屏幕高度
      */
     setScreeHeight(state, value) {
+        console.error("value:", value)
         state.screeHeight = value;
     }
 }
@@ -33,7 +34,7 @@ const getters = {
      * 获取屏幕高度
      */
     getScreenHeight(state) {
-        return state.setScreeHeight
+        return state.screeHeight;
     }
 }
 const store = new Vuex.Store({

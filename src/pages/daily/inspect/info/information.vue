@@ -225,7 +225,7 @@ export default {
 
   .customer-info-item {
     height: 45px;
-    line-height: 45px;
+    // line-height: 45px;
     font-size: 14px;
     color: #666;
 

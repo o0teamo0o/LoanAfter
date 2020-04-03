@@ -15,6 +15,9 @@ Vue.use(less);
 Framework7.use(Framework7Vue); // Init F7 Vue Plugin
 Vue.use(ElementUI);
 
+import VueBus from './vue-bus';
+Vue.use(VueBus);
+
 // Init App
 new Vue({
     el: '#app', //绑定的根元素对象
