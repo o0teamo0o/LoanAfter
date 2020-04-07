@@ -18,7 +18,6 @@ const mutations = {
      * 设置屏幕高度
      */
     setScreeHeight(state, value) {
-        console.error("value:", value)
         state.screeHeight = value;
     }
 }

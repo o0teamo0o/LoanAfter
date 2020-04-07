@@ -545,14 +545,25 @@ export default {
   },
   created() {
     var that = this;
+
+    //监听是否新增项目管理页面
     this.$bus.on("addProjectmenu", () => {
-      var aaa = {
-        title: "项目管理",
+      //先获取当前菜单集合个数
+      var menuCount = that.lists[that.customType].items.length;
+      //代表从来没有新增过
+      //1.先修改原型的项目管理名称 项目管理-1
+      that.lists[that.customType].items[3].title = "项目管理-1";
+      //2.产生一条新的项目管理记录
+      var newProjectNo = menuCount - 6;
+      var newProject = {
+        title: "项目管理-" + newProjectNo,
         imgSelectedUrl: require("../../assets/icon_daily_project_selected.png"),
         imgNormalUrl: require("../../assets/icon_daily_project_normal.png"),
         link: "/daily-project-currency/"
       };
-      that.lists[that.customType].items.push(aaa);
+      //3.再新增一条记录
+      var insertIndex = menuCount - 4;
+      that.lists[that.customType].items.splice(insertIndex, 0, newProject);
     });
   },
   methods: {

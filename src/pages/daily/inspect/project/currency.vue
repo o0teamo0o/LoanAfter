@@ -474,8 +474,27 @@ export default {
      * 新增项目管理页面
      */
     onAddProject() {
-      //发送消息让左边导航菜单增加监听
-      this.$bus.emit('addProjectmenu');
+      var that = this;
+      that.$f7.dialog
+        .create({
+          title: "温馨提示",
+          text: "确认新增项目管理吗?",
+          buttons: [
+            {
+              text: "取消"
+            },
+            {
+              text: "新增"
+            }
+          ],
+          onClick: function(dialog, index) {
+            if (index == 1) {
+              //发送消息让左边导航菜单增加监听
+              that.$bus.emit("addProjectmenu");
+            }
+          }
+        })
+        .open();
     },
     /**
      * 规定用途使用监听

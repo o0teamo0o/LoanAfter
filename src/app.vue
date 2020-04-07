@@ -100,7 +100,7 @@ export default {
       this.screeHeight = this.$$(window).height();
       this.containerWidth = this.screenWidth - this.menuWidth;
       this.$store.commit("setScreenWidth", this.screenWidth);
-      this.$store.commit("setScreenWidth", this.screenWidth);
+      this.$store.commit("setScreeHeight", this.screeHeight);
 
       //判断当前系统是否是ipad使用
       if (!this.$device.ipad) {
