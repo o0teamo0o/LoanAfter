@@ -18,6 +18,9 @@ Vue.use(ElementUI);
 import VueBus from './vue-bus';
 Vue.use(VueBus);
 
+import toast from './utils/toast' //引用toast
+Vue.use(toast);
+
 // Init App
 new Vue({
     el: '#app', //绑定的根元素对象

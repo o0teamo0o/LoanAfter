@@ -400,8 +400,7 @@ export default {
      */
     onGuarantorAnalysis() {
       if (this.selectedGuarantorList.length == 0) {
-        // var toast = this.$f7.toast.create({ text: "Hello, how are you?" });
-        // toast.open();
+        this.showToast("请先勾选需要操作的保证人信息!");
       } else {
         this.isShowGuarantorAnalysisDialog = true;
       }
@@ -429,8 +428,7 @@ export default {
      */
     onCollateralInfo() {
       if (this.selectedCollateralList.length == 0) {
-        // var toast = this.$f7.toast.create({ text: "Hello, how are you?" });
-        // toast.open();
+        this.showToast("请先勾选需要操作的抵押物信息!");
       } else {
         this.isShowCollateralDialog = true;
       }
