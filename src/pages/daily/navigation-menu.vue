@@ -46,6 +46,12 @@ export default {
               link: "/daily-information/"
             },
             {
+              title: "影像资料",
+              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
+            },
+            {
               title: "授信汇总",
               imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
@@ -80,12 +86,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
               link: "/daily-inspect/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
             }
           ]
         },
@@ -97,6 +97,12 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
               link: "/daily-information/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
             },
             {
               title: "授信汇总",
@@ -133,12 +139,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
               link: "/daily-inspect/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
             }
           ]
         },
@@ -150,6 +150,12 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
               link: "/daily-information/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
             },
             {
               title: "授信汇总",
@@ -186,12 +192,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
               link: "/daily-inspect/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
             }
           ]
         },
@@ -203,6 +203,12 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
               link: "/daily-information/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
             },
             {
               title: "授信汇总",
@@ -239,12 +245,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
               link: "/daily-inspect/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
             }
           ]
         },
@@ -256,6 +256,12 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
               link: "/daily-information/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
             },
             {
               title: "授信汇总",
@@ -286,12 +292,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
               link: "/daily-inspect/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
             }
           ]
         },
@@ -303,6 +303,12 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
               link: "/daily-information/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
             },
             {
               title: "授信汇总",
@@ -333,12 +339,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
               link: "/daily-inspect/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
             }
           ]
         },
@@ -350,6 +350,12 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
               link: "/daily-information/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
             },
             {
               title: "授信汇总",
@@ -380,12 +386,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
               link: "/daily-inspect/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
             }
           ]
         },
@@ -397,6 +397,12 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
               link: "/daily-information/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
             },
             {
               title: "授信汇总",
@@ -427,12 +433,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
               link: "/daily-inspect/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
             }
           ]
         },
@@ -444,6 +444,12 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
               link: "/daily-information/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
             },
             {
               title: "授信汇总",
@@ -474,12 +480,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
               link: "/daily-inspect/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
             }
           ]
         },
@@ -491,6 +491,12 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
               link: "/daily-info-consume/"
+            },
+            {
+              title: "影像资料",
+              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+              link: "/daily-portrait/"
             },
             {
               title: "授信汇总",
@@ -515,12 +521,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
               link: "/daily-inspect/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
             }
           ]
         }

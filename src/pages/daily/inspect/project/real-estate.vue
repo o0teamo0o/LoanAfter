@@ -318,7 +318,7 @@
         <f7-row class="item-layout">
           <f7-col width="25" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>本行按揭户数:
-          </f7-col>
+          </f7-col>                   
           <f7-col width="25">
             <el-input
               style="width:90% !important;"

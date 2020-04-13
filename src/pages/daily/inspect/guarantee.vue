@@ -400,8 +400,8 @@ export default {
      */
     onGuarantorAnalysis() {
       if (this.selectedGuarantorList.length == 0) {
-        var toast = this.$f7.toast.create({ text: "Hello, how are you?" });
-        toast.open();
+        // var toast = this.$f7.toast.create({ text: "Hello, how are you?" });
+        // toast.open();
       } else {
         this.isShowGuarantorAnalysisDialog = true;
       }
@@ -429,8 +429,8 @@ export default {
      */
     onCollateralInfo() {
       if (this.selectedCollateralList.length == 0) {
-        var toast = this.$f7.toast.create({ text: "Hello, how are you?" });
-        toast.open();
+        // var toast = this.$f7.toast.create({ text: "Hello, how are you?" });
+        // toast.open();
       } else {
         this.isShowCollateralDialog = true;
       }
