@@ -18,8 +18,11 @@ Vue.use(ElementUI);
 import VueBus from './vue-bus';
 Vue.use(VueBus);
 
-import toast from './utils/toast' //引用toast
+import toast from './utils/toast.js' //引用toast
 Vue.use(toast);
+
+import Bridge from './utils/bridge.js'
+Vue.prototype.$bridge = Bridge
 
 // Init App
 new Vue({

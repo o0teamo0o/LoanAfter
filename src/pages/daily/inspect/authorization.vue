@@ -291,6 +291,7 @@ export default {
     window["onPracticableContent"] = e => {
       that.practicableContent = e.value;
     };
+
   },
   methods: {
     onPracticableChange(index) {
@@ -340,7 +341,8 @@ export default {
     /**
      * 数据保存事件
      */
-    onSave() {}
+    onSave() {
+    }
   }
 };
 </script>

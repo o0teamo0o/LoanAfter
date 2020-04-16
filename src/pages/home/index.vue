@@ -49,40 +49,41 @@ export default {
       currentDate: {}
     };
   },
-  beforeCreate() {
-
-  },
+  beforeCreate() {},
   created() {
-
     let date = new DateTime();
     this.currentDate.currentDate = date.getDate();
     this.currentDate.currentTime = date.getTime();
     this.currentDate.currentWeek = date.getWeek();
   },
-  beforeMount() {
-
-  },
+  beforeMount() {},
   components: { Popup },
   mounted() {
     this.$f7ready(f7 => {
       //修改页面切换导致首页试图下移的问题
-      this.Dom7("#home-page").children("div").css({
-        paddingTop: "0px",
-      });
+      this.Dom7("#home-page")
+        .children("div")
+        .css({
+          paddingTop: "0px"
+        });
+    });
+
+    window["objCCallme"] = e => {
+      that.$f7.dialog.alert("确认退出系统吗?");
+    };
+
+    this.init();
+  },
+  init() {
+    var that = this;
+    this.$bridge.registerhandler("objCCallWithString", (data, responseCallback) => {
+      that.$f7.dialog.alert("确认退出系统吗?");
     });
   },
-  beforeUpdate() {
-    
-  },
-  updated() {
-    
-  },
-  beforeDestroy() {
-    
-  },
-  destroyed() {
-    
-  }
+  beforeUpdate() {},
+  updated() {},
+  beforeDestroy() {},
+  destroyed() {}
 };
 </script>
 
