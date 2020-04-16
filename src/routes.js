@@ -10,7 +10,7 @@ import TaskCapitalAddIOUPage from './pages/capital/inspect/add-iou.vue'; //资�
 import TaskCapitalCustomerSelectionPage from './pages/capital/inspect/customer-selection.vue'; //资金用途导-客户查询页面
 import TaskCapitalMechanismSelectionPage from './pages/capital/inspect/mechanism-selection.vue'; //资金用途导-机构选择页面
 import TaskCapitalCertificateSelectionPage from './pages/capital/inspect/certificate-selection.vue'; //资金用途导-证件类型选择页面
-import TaskCapitalPortraitPage from './pages/capital/inspect/portrait.vue'; //日常任务-影像资料通用页面
+import TaskCapitalPortraitPage from './pages/capital/inspect/portrait.vue'; //资金用途导-影像资料通用页面
 import TaskCapitalPurposePage from './pages/capital/inspect/purpose.vue'; //资金用途导-用途检查页面
 
 /*** 日常维护任务页面 ***/
@@ -39,6 +39,7 @@ import DailyPortraitPage from './pages/daily/inspect/portrait.vue'; //日常任�
 import ExpireTaskPage from './pages/expire/index.vue';
 import TaskExpireNavigationPage from './pages/expire/navigation-menu.vue'; //到期前检查导航页面
 import ExpireInspectPage from './pages/expire/inspect/inspect.vue'; //到期前检查-检查页面
+import ExpirePortraitPage from './pages/expire/inspect/portrait.vue'; //到期前检查-影像资料通用页面
 
 /*** 逾期催收检查页面 ***/
 import OverdueTaskPage from './pages/overdue/index.vue';
@@ -264,6 +265,11 @@ export default [{
         path: '/expire-inspect/',
         name: 'ExpireInspectPage',
         component: ExpireInspectPage,
+    },
+    {
+        path: '/expire-portrait/',
+        name: 'ExpirePortraitPage',
+        component: ExpirePortraitPage,
     },
     {
         path: '/overdue-task/',

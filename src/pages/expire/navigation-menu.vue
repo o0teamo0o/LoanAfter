@@ -40,6 +40,12 @@ export default {
           imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
           imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
           link: "/expire-inspect/"
+        },
+        {
+          title: "影像资料",
+          imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+          imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+          link: "/expire-portrait/"
         }
       ]
     };
