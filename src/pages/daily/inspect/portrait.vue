@@ -127,6 +127,7 @@
 export default {
   data() {
     return {
+      customInfo: null, //当前用户信息
       dialogImageUrl: "",
       dialogVisible: false
     };
@@ -134,12 +135,11 @@ export default {
   mounted() {
     var that = this;
 
+    that.customInfo = this.$store.state.currentCensorInfo;
+    console.error("customInfo:", that.customInfo);
+
     this.$f7ready(f7 => {
-      this.$$(document).on("page:init", function(e, page) {
-        if (page.route.query.customInfo) {
-          var customInfo = JSON.parse(page.route.query.customInfo)
-        }
-      });
+      this.$$(document).on("page:init", function(e, page) {});
     });
   },
   methods: {
@@ -152,7 +152,8 @@ export default {
       that.$f7.dialog
         .create({
           title: "温馨提示",
-          text: "您已完成IPad端必填模块信息，下面的输入项模块是否通过IPad直接录入?",
+          text:
+            "您已完成IPad端必填模块信息，下面的输入项模块是否通过IPad直接录入?",
           buttons: [
             {
               text: "信贷系统录入"
@@ -162,7 +163,12 @@ export default {
             }
           ],
           onClick: function(dialog, index) {
+            if (index == 1) {
+              console.error("customInfo:", that.customInfo);
+              that.customInfo.isMustInput = true;
 
+              that.$store.commit("setCurrentCensorInfo", that.customInfo);
+            }
           }
         })
         .open();

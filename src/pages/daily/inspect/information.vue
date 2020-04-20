@@ -125,6 +125,7 @@
 export default {
   data() {
     return {
+      customInfo: null, //当前检查对象
       examiner: "", //检查人
       pickerOptions: {
         disabledDate(time) {
@@ -191,11 +192,11 @@ export default {
   mounted() {
     var that = this;
 
+    that.customInfo = this.$store.state.currentCensorInfo;
+    console.error("customInfo:", that.customInfo)
+
     this.$f7ready(f7 => {
       this.$$(document).on("page:init", function(e, page) {
-        if (page.route.query.customInfo) {
-          var customInfo = JSON.parse(page.route.query.customInfo)
-        }
       });
     });
   },

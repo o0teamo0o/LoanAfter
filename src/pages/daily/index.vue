@@ -425,14 +425,12 @@ export default {
      * 条目点击事件
      */
     onItemClick(item) {
-      var jsonStr = JSON.stringify(item);
+      this.$store.commit("setCurrentCensorInfo", item);
       this.$f7router.navigate({
         name: "DailyInformationPage",
-        query: { customInfo: jsonStr }
       });
       this.$f7.views.left.router.navigate({
         name: "TaskDailyNavigationPage",
-        query: { customInfo: jsonStr }
       });
     },
 

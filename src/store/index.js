@@ -4,6 +4,7 @@ Vue.use(Vuex);
 const state = {
     screenWidth: 1024, //屏幕宽
     screeHeight: 768, //屏幕高
+    currentCensorInfo: null, //当前检查对象
 }
 const actions = {}
 const mutations = {
@@ -19,6 +20,14 @@ const mutations = {
      */
     setScreeHeight(state, value) {
         state.screeHeight = value;
+    },
+
+    /**
+     * 设置当前检查对象
+     * @param {*} info 当前检查对象
+     */
+    setCurrentCensorInfo(state, info) {
+        state.currentCensorInfo = info;
     }
 }
 const getters = {
@@ -34,6 +43,13 @@ const getters = {
      */
     getScreenHeight(state) {
         return state.screeHeight;
+    },
+
+    /**
+     * 获取当前检查对象
+     */
+    getCurrentCensorInfo() {
+        return state.currentCensorInfo;
     }
 }
 const store = new Vuex.Store({

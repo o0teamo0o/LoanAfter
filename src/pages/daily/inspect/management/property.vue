@@ -412,7 +412,6 @@ export default {
     this.$f7ready(f7 => {
       this.$$(document).on("page:init", function(e, page) {
         if (page.route.query.customInfo) {
-          var customInfo = JSON.parse(page.route.query.customInfo)
         }
       });
     });

@@ -395,16 +395,21 @@ export default {
   mounted() {
     var that = this;
 
+    that.customInfo = this.$store.state.currentCensorInfo;
+    that.customType = that.customInfo.type;
+    console.error("customInfo:", that.customInfo)
+
     this.$f7ready(f7 => {
       this.$$(document).on("page:init", function(e, page) {
-        if (page.route.query.customInfo) {
-          var customInfo = JSON.parse(page.route.query.customInfo);
-          //获取当前客户类型
-          that.customType = customInfo.type;
-          //获取当前容器路径
           that.currentContainerPath = page.route.path;
+        // if (page.route.query.customInfo) {
+          // that.customInfo = JSON.parse(page.route.query.customInfo);
+          //获取当前客户类型
+          // that.customType = that.customInfo.type;
+          //获取当前容器路径
+          // that.currentContainerPath = page.route.path;
           // console.log("当前的url:", that.currentContainerPath);
-        }
+        // }
       });
     });
   },
@@ -432,7 +437,7 @@ export default {
       that.lists[that.customType].items[firstProjectIndex].title = "项目管理-1";
       //2.产生一条新的项目管理记录
       var newProjectNo = menuCount - 3;
-      console.error("customType:", that.customType)
+      //如果是事业法人模板
       if (that.customType == 1) {
         newProjectNo = menuCount - 4;
       }
@@ -444,6 +449,7 @@ export default {
       };
       //3.再新增一条记录
       var insertIndex = menuCount - 2;
+      //如果是事业法人模板
       if (that.customType == 1) {
         insertIndex = menuCount - 3;
       }
@@ -451,6 +457,9 @@ export default {
     });
   },
   methods: {
+    /**
+     * 必填项菜单选择
+     */
     onMustNavigationClick(index) {
       var that = this;
       that.currentNavigationIndex = index;
@@ -462,8 +471,28 @@ export default {
         that.currentContainerPath = jumpRouterUrl; //更新当前路径
       }
     },
+    /**
+     * 输入项菜单条目选择
+     */
     onNavigationClick(index) {
       var that = this;
+
+      if (!that.customInfo.isMustInput) {
+        that.$f7.dialog
+          .create({
+            title: "温馨提示",
+            text:
+              "请先完成“基本信息”及“影像资料”模块数据采集后，方可进行此操作!",
+            buttons: [
+              {
+                text: "确定"
+              }
+            ],
+            onClick: function(dialog, index) {}
+          })
+          .open();
+        return;
+      }
 
       that.currentNavigationIndex = index;
       var index = index - 2;
