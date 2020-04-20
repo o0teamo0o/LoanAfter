@@ -33,14 +33,14 @@
         view="#main-view"
         @click="onNavigationClick(index + 2)"
         :class="
-          currentNavigationIndex == (index + 2) ? 'selected-item' : 'normal-item'
+          currentNavigationIndex == index + 2 ? 'selected-item' : 'normal-item'
         "
       >
         <img
           slot="media"
           class="icon-menu"
           :src="
-            currentNavigationIndex == (index + 2)
+            currentNavigationIndex == index + 2
               ? item.imgSelectedUrl
               : item.imgNormalUrl
           "
@@ -59,7 +59,8 @@ export default {
       customType: 0, //客户类型; 0:公司类客户 1:事业法人客户 2:平台客户 3:房地产客户 4:小微企业客户 5:个人投资类客户 6:物业贷 7:税联贷 8:惠农系列 9.个人消费客户
       currentNavigationIndex: 0, //当前导航下标
       currentContainerPath: "", //当前容器路径
-      mustMenuList: [ //必填菜单
+      mustMenuList: [
+        //必填菜单
         {
           title: "基本信息",
           imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
@@ -397,7 +398,7 @@ export default {
     this.$f7ready(f7 => {
       this.$$(document).on("page:init", function(e, page) {
         if (page.route.query.customInfo) {
-          var customInfo = JSON.parse(page.route.query.customInfo)
+          var customInfo = JSON.parse(page.route.query.customInfo);
           //获取当前客户类型
           that.customType = customInfo.type;
           //获取当前容器路径
@@ -430,7 +431,11 @@ export default {
       //1.先修改原型的项目管理名称 项目管理-1
       that.lists[that.customType].items[firstProjectIndex].title = "项目管理-1";
       //2.产生一条新的项目管理记录
-      var newProjectNo = menuCount - 5;
+      var newProjectNo = menuCount - 3;
+      console.error("customType:", that.customType)
+      if (that.customType == 1) {
+        newProjectNo = menuCount - 4;
+      }
       var newProject = {
         title: "项目管理-" + newProjectNo,
         imgSelectedUrl: require("../../assets/icon_daily_project_selected.png"),
@@ -439,6 +444,9 @@ export default {
       };
       //3.再新增一条记录
       var insertIndex = menuCount - 2;
+      if (that.customType == 1) {
+        insertIndex = menuCount - 3;
+      }
       that.lists[that.customType].items.splice(insertIndex, 0, newProject);
     });
   },
@@ -456,7 +464,6 @@ export default {
     },
     onNavigationClick(index) {
       var that = this;
-
 
       that.currentNavigationIndex = index;
       var index = index - 2;
