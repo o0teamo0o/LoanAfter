@@ -261,9 +261,8 @@ export default {
 
     this.$f7ready(f7 => {
       this.$$(document).on("page:init", function(e, page) {
-        if (page.route.query.customType) {
-          that.customType = page.route.query.customType;
-          console.log("客户经营页面获取到的参数:", that.customType);
+        if (page.route.query.customInfo) {
+          var customInfo = JSON.parse(page.route.query.customInfo)
         }
       });
     });

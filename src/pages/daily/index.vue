@@ -230,7 +230,8 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查",
-          status: 1
+          status: 1,
+          isMustInput: false,
         },
         {
           type: 1,
@@ -244,7 +245,8 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查",
-          status: 1
+          status: 1,
+          isMustInput: false,
         },
         {
           type: 2,
@@ -258,7 +260,8 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查",
-          status: 1
+          status: 1,
+          isMustInput: false,
         },
         {
           type: 3,
@@ -272,7 +275,8 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查",
-          status: 1
+          status: 1,
+          isMustInput: false,
         },
         {
           type: 4,
@@ -286,7 +290,8 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查",
-          status: 1
+          status: 1,
+          isMustInput: false,
         },
         {
           type: 5,
@@ -300,7 +305,8 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查",
-          status: 1
+          status: 1,
+          isMustInput: false,
         },
         {
           type: 6,
@@ -314,7 +320,8 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查",
-          status: 1
+          status: 1,
+          isMustInput: false,
         },
         {
           type: 7,
@@ -328,7 +335,8 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查",
-          status: 1
+          status: 1,
+          isMustInput: false,
         },
         {
           type: 8,
@@ -342,7 +350,8 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查",
-          status: 1
+          status: 1,
+          isMustInput: false,
         },
         {
           type: 9,
@@ -356,7 +365,8 @@ export default {
           M: "M12",
           riqi: "2020-08-08",
           state: "待检查",
-          status: 1
+          status: 1,
+          isMustInput: false,
         }
       ], //查询结果集
       itemUrl: "/task-navigation/"
@@ -415,13 +425,14 @@ export default {
      * 条目点击事件
      */
     onItemClick(item) {
+      var jsonStr = JSON.stringify(item);
       this.$f7router.navigate({
         name: "DailyInformationPage",
-        query: { customType: item.type }
+        query: { customInfo: jsonStr }
       });
       this.$f7.views.left.router.navigate({
         name: "TaskDailyNavigationPage",
-        query: { customType: item.type }
+        query: { customInfo: jsonStr }
       });
     },
 

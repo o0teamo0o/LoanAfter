@@ -32,6 +32,7 @@ import DailyProjectRealEstatePage from './pages/daily/inspect/project/real-estat
 import DailyGuaranteePage from './pages/daily/inspect/guarantee.vue'; //日常任务-担保信息通用页面
 import DailyRiskPage from './pages/daily/inspect/risk.vue'; //日常任务-风险分类通用页面
 import DailyInspectPage from './pages/daily/inspect/inspect.vue'; //日常任务-检查结论通用页面
+import DailyStatusPage from './pages/daily/inspect/status.vue'; //日常任务-事业法人-行业地位页面
 import DailyPortraitPage from './pages/daily/inspect/portrait.vue'; //日常任务-影像资料通用页面
 
 /*** 到期检查页面 ***/
@@ -243,6 +244,11 @@ export default [{
         path: '/daily-inspect/',
         name: 'DailyInspectPage',
         component: DailyInspectPage,
+    },
+    {
+        path: '/daily-status/',
+        name: 'DailyStatusPage',
+        component: DailyStatusPage,
     },
     {
         path: '/daily-portrait/',

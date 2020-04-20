@@ -110,6 +110,15 @@
           </f7-col>
         </f7-row>
       </div>
+      <f7-row class="btn-layout">
+        <f7-col width="25"></f7-col>
+        <f7-col width="35" tag="span">
+          <el-button type="primary" @click="onMustSubmit"
+            >提交基本信息及影像资料</el-button
+          >
+        </f7-col>
+        <f7-col width="25"></f7-col>
+      </f7-row>
     </f7-card>
   </f7-page>
 </template>
@@ -127,14 +136,37 @@ export default {
 
     this.$f7ready(f7 => {
       this.$$(document).on("page:init", function(e, page) {
-        if (page.route.query.customType) {
-          that.customType = page.route.query.customType;
-          console.log("影像资料页面获取到的参数:", that.customType);
+        if (page.route.query.customInfo) {
+          var customInfo = JSON.parse(page.route.query.customInfo)
         }
       });
     });
   },
   methods: {
+    /**
+     * 必填信息提交
+     */
+    onMustSubmit() {
+      var that = this;
+
+      that.$f7.dialog
+        .create({
+          title: "温馨提示",
+          text: "您已完成IPad端必填模块信息，下面的输入项模块是否通过IPad直接录入?",
+          buttons: [
+            {
+              text: "信贷系统录入"
+            },
+            {
+              text: "直接IPad录入"
+            }
+          ],
+          onClick: function(dialog, index) {
+
+          }
+        })
+        .open();
+    },
     /**
      * 页面返回事件
      */
@@ -158,7 +190,7 @@ export default {
   }
 };
 </script>
-<style lang='less'>
+<style lang="less">
 .el-upload--picture-card {
   width: 80px !important;
   height: 80px !important;

@@ -4,11 +4,11 @@
 
     <f7-list>
       <f7-list-item
-        v-for="(item, index) in lists[customType].items"
+        v-for="(item, index) in mustMenuList"
         :key="index"
         :title="item.title"
         view="#main-view"
-        @click="onNavigationClick(index)"
+        @click="onMustNavigationClick(index)"
         :class="
           currentNavigationIndex == index ? 'selected-item' : 'normal-item'
         "
@@ -24,6 +24,29 @@
         />
       </f7-list-item>
     </f7-list>
+
+    <f7-list>
+      <f7-list-item
+        v-for="(item, index) in lists[customType].items"
+        :key="index"
+        :title="item.title"
+        view="#main-view"
+        @click="onNavigationClick(index + 2)"
+        :class="
+          currentNavigationIndex == (index + 2) ? 'selected-item' : 'normal-item'
+        "
+      >
+        <img
+          slot="media"
+          class="icon-menu"
+          :src="
+            currentNavigationIndex == (index + 2)
+              ? item.imgSelectedUrl
+              : item.imgNormalUrl
+          "
+        />
+      </f7-list-item>
+    </f7-list>
   </f7-page>
 </template>
 
@@ -32,25 +55,28 @@ export default {
   data() {
     return {
       screeHeight: 0,
+      customInfo: null, //当前客户信息
       customType: 0, //客户类型; 0:公司类客户 1:事业法人客户 2:平台客户 3:房地产客户 4:小微企业客户 5:个人投资类客户 6:物业贷 7:税联贷 8:惠农系列 9.个人消费客户
       currentNavigationIndex: 0, //当前导航下标
       currentContainerPath: "", //当前容器路径
+      mustMenuList: [ //必填菜单
+        {
+          title: "基本信息",
+          imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
+          imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
+          link: "/daily-information/"
+        },
+        {
+          title: "影像资料",
+          imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
+          imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+          link: "/daily-portrait/"
+        }
+      ],
       lists: [
         {
           type: 0, //公司类客户
           items: [
-            {
-              title: "基本信息",
-              imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
-            },
             {
               title: "授信汇总",
               imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
@@ -87,18 +113,6 @@ export default {
           type: 1, //事业法人客户
           items: [
             {
-              title: "基本信息",
-              imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
-            },
-            {
               title: "授信汇总",
               imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
@@ -123,6 +137,12 @@ export default {
               link: "/daily-guarantee/"
             },
             {
+              title: "行业地位",
+              imgSelectedUrl: require("../../assets/icon_daily_status_selected.png"),
+              imgNormalUrl: require("../../assets/icon_daily_status_normal.png"),
+              link: "/daily-status/"
+            },
+            {
               title: "检查结论",
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
@@ -133,18 +153,6 @@ export default {
         {
           type: 2, //平台客户
           items: [
-            {
-              title: "基本信息",
-              imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
-            },
             {
               title: "授信汇总",
               imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
@@ -181,18 +189,6 @@ export default {
           type: 3, //房地产客户
           items: [
             {
-              title: "基本信息",
-              imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
-            },
-            {
               title: "授信汇总",
               imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
@@ -228,18 +224,6 @@ export default {
           type: 4, //小微企业客户
           items: [
             {
-              title: "基本信息",
-              imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
-            },
-            {
               title: "授信汇总",
               imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
@@ -268,18 +252,6 @@ export default {
         {
           type: 5, //个人投资类客户
           items: [
-            {
-              title: "基本信息",
-              imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
-            },
             {
               title: "授信汇总",
               imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
@@ -310,18 +282,6 @@ export default {
           type: 6, //物业贷
           items: [
             {
-              title: "基本信息",
-              imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
-            },
-            {
               title: "授信汇总",
               imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
@@ -350,18 +310,6 @@ export default {
         {
           type: 7, //税联贷
           items: [
-            {
-              title: "基本信息",
-              imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
-            },
             {
               title: "授信汇总",
               imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
@@ -392,18 +340,6 @@ export default {
           type: 8, //惠农系列
           items: [
             {
-              title: "基本信息",
-              imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
-            },
-            {
               title: "授信汇总",
               imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
@@ -433,18 +369,6 @@ export default {
           type: 9, //个人消费客户
           items: [
             {
-              title: "基本信息",
-              imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-information/"
-            },
-            {
-              title: "影像资料",
-              imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
-              link: "/daily-portrait/"
-            },
-            {
               title: "授信汇总",
               imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
@@ -472,10 +396,10 @@ export default {
 
     this.$f7ready(f7 => {
       this.$$(document).on("page:init", function(e, page) {
-        if (page.route.query.customType) {
+        if (page.route.query.customInfo) {
+          var customInfo = JSON.parse(page.route.query.customInfo)
           //获取当前客户类型
-          that.customType = page.route.query.customType;
-          console.log("init:导航菜单页面获取到的下标:", that.customType);
+          that.customType = customInfo.type;
           //获取当前容器路径
           that.currentContainerPath = page.route.path;
           // console.log("当前的url:", that.currentContainerPath);
@@ -519,9 +443,23 @@ export default {
     });
   },
   methods: {
-    onNavigationClick(index) {
+    onMustNavigationClick(index) {
       var that = this;
       that.currentNavigationIndex = index;
+      var jumpRouterUrl = that.mustMenuList[index].link;
+      if (that.currentContainerPath != jumpRouterUrl) {
+        that.$f7.views.main.router.navigate(jumpRouterUrl, {
+          reloadCurrent: true //用路由中的新页面替换当前页面，在这种情况下不显示动画
+        });
+        that.currentContainerPath = jumpRouterUrl; //更新当前路径
+      }
+    },
+    onNavigationClick(index) {
+      var that = this;
+
+
+      that.currentNavigationIndex = index;
+      var index = index - 2;
       var jumpRouterUrl = that.lists[that.customType].items[index].link;
       if (that.currentContainerPath != jumpRouterUrl) {
         that.$f7.views.main.router.navigate(jumpRouterUrl, {

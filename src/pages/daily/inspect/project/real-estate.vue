@@ -15,36 +15,46 @@
     </f7-navbar>
 
     <f7-card class="production-layout">
-        <f7-row class="item-layout">
-          <f7-col width="15" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>项目名称:
-          </f7-col>
-          <f7-col width="35">
-            <el-input
-              style="width:90% !important;"
-              v-model="projectName"
-              :value="projectName"
-              clearable
-              placeholder="请输入项目名称"
-            ></el-input>
-          </f7-col>
-          <f7-col width="25" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>是否录入项目管理情况:
-          </f7-col>
-          <f7-col width="25">
-            <el-radio-group v-model="inputManagement">
-              <el-radio label="是">是</el-radio>
-              <el-radio label="否">否</el-radio>
-            </el-radio-group>
-          </f7-col>
-        </f7-row>
+      <f7-row class="item-layout">
+        <f7-col width="15" class="key">
+          <i class="keynote">*&nbsp;&nbsp;</i>项目名称:
+        </f7-col>
+        <f7-col width="35">
+          <el-input
+            style="width:90% !important;"
+            v-model="projectName"
+            :value="projectName"
+            clearable
+            placeholder="请输入项目名称"
+          ></el-input>
+        </f7-col>
+        <f7-col width="25" class="key">
+          <i class="keynote">*&nbsp;&nbsp;</i>是否录入项目管理情况:
+        </f7-col>
+        <f7-col width="25">
+          <el-radio-group v-model="inputManagement">
+            <el-radio label="是">是</el-radio>
+            <el-radio label="否">否</el-radio>
+          </el-radio-group>
+        </f7-col>
+      </f7-row>
     </f7-card>
 
     <f7-block>资金到位情况</f7-block>
     <f7-card class="financial-layout">
       <el-table :data="financeList" border>
-        <el-table-column fixed prop="key" label="资金类型" min-width="200"></el-table-column>
-        <el-table-column style="padding: 0;" prop="lastYear" label="实际到位金额" min-width="200">
+        <el-table-column
+          fixed
+          prop="key"
+          label="资金类型"
+          min-width="200"
+        ></el-table-column>
+        <el-table-column
+          style="padding: 0;"
+          prop="lastYear"
+          label="实际到位金额"
+          min-width="200"
+        >
           <template slot-scope="scope">
             <i class="keynote">*</i>
             <el-input
@@ -85,8 +95,18 @@
     <f7-block>项目资金使用情况</f7-block>
     <f7-card class="financial-layout">
       <el-table :data="debtList" border>
-        <el-table-column fixed prop="key" label="资金类型" min-width="200"></el-table-column>
-        <el-table-column style="padding: 0;" prop="lastYear" label="使用情况" min-width="200">
+        <el-table-column
+          fixed
+          prop="key"
+          label="资金类型"
+          min-width="200"
+        ></el-table-column>
+        <el-table-column
+          style="padding: 0;"
+          prop="lastYear"
+          label="使用情况"
+          min-width="200"
+        >
           <template slot-scope="scope">
             <i class="keynote">*</i>
             <el-input
@@ -176,7 +196,10 @@
             <i class="keynote">*&nbsp;&nbsp;</i>"四证"办理情况:
           </f7-col>
           <f7-col width="70">
-            <el-checkbox-group v-model="marketChange" class="market-checkbox-layout">
+            <el-checkbox-group
+              v-model="marketChange"
+              class="market-checkbox-layout"
+            >
               <el-checkbox label="国有土地使用证"></el-checkbox>
               <el-checkbox label="建设用地规划许可证"></el-checkbox>
               <el-checkbox label="建设工程规划许可证"></el-checkbox>
@@ -291,13 +314,19 @@
         <f7-row v-show="isShowChangeInfo" class="item-layout">
           <f7-col width="30" class="key"></f7-col>
           <f7-col width="70">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+            <el-input
+              type="textarea"
+              :rows="2"
+              placeholder="请描述变化及其原因"
+              v-model="evaluate"
+            ></el-input>
           </f7-col>
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="item-layout">
           <f7-col width="30" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>项目贷款的保证措施是否有出现问题的迹象:
+            <i class="keynote">*&nbsp;&nbsp;</i
+            >项目贷款的保证措施是否有出现问题的迹象:
           </f7-col>
           <f7-col width="20" class="interest-col">
             <el-select v-model="interest" placeholder="--请选择--">
@@ -315,7 +344,12 @@
         <f7-row v-show="isShowChangeInfo" class="item-layout">
           <f7-col width="30" class="key"></f7-col>
           <f7-col width="70">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+            <el-input
+              type="textarea"
+              :rows="2"
+              placeholder="请描述变化及其原因"
+              v-model="evaluate"
+            ></el-input>
           </f7-col>
         </f7-row>
       </div>
@@ -327,7 +361,7 @@
         <f7-row class="item-layout">
           <f7-col width="25" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>本行按揭户数:
-          </f7-col>                   
+          </f7-col>
           <f7-col width="25">
             <el-input
               style="width:90% !important;"
@@ -398,7 +432,12 @@
         <f7-row v-show="isShowChangeInfo" class="item-layout">
           <f7-col width="30" class="key"></f7-col>
           <f7-col width="70">
-            <el-input type="textarea" :rows="2" placeholder="请描述变化及其原因" v-model="evaluate"></el-input>
+            <el-input
+              type="textarea"
+              :rows="2"
+              placeholder="请描述变化及其原因"
+              v-model="evaluate"
+            ></el-input>
           </f7-col>
         </f7-row>
       </div>
@@ -493,9 +532,8 @@ export default {
 
     this.$f7ready(f7 => {
       this.$$(document).on("page:init", function(e, page) {
-        if (page.route.query.customType) {
-          that.customType = page.route.query.customType;
-          console.log("项目管理页面获取到的参数:", that.customType);
+        if (page.route.query.customInfo) {
+          var customInfo = JSON.parse(page.route.query.customInfo)
         }
       });
     });
@@ -543,7 +581,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang="less">
 .financial-layout .el-table td:nth-child(n + 1) {
   padding: 5px 0;
 }
