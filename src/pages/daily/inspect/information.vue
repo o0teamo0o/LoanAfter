@@ -86,6 +86,12 @@
           <f7-col width="20" class="key">客户编号:</f7-col>
           <f7-col width="20">C000011291</f7-col>
         </f7-row>
+        <f7-row class="customer-info-item">
+          <f7-col width="20" class="key">分类结果(上期):</f7-col>
+          <f7-col width="40">分类结果(上期)</f7-col>
+          <f7-col width="20" class="key">分类结果(本期):</f7-col>
+          <f7-col width="20">分类结果(本期)</f7-col>
+        </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="customer-info-item">
           <f7-col width="20" class="key">行业(四级):</f7-col>
@@ -94,7 +100,7 @@
         <div class="dashed-line-half"></div>
         <f7-row class="customer-info-item">
           <f7-col width="20" class="key">经营范围:</f7-col>
-          <f7-col width="80">经营范围经营范围经营范围经营范围经营范围经营范围经营范围</f7-col>
+          <f7-col width="80">经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围经营范围</f7-col>
         </f7-row>
         <div class="dashed-line-half"></div>
         <f7-row class="customer-info-item">
@@ -224,8 +230,7 @@ export default {
   padding: 15px 0;
 
   .customer-info-item {
-    height: 45px;
-    // line-height: 45px;
+    padding: 15px 0;
     font-size: 14px;
     color: #666;
 

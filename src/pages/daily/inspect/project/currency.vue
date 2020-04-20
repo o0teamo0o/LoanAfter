@@ -14,21 +14,30 @@
       </f7-nav-right>
     </f7-navbar>
 
-    <f7-card>
-      <div class="production-layout">
-        <f7-row class="item-layout">
-          <f7-col width="30" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>是否录入项目管理情况:
-          </f7-col>
-          <f7-col width="10"></f7-col>
-          <f7-col width="60">
-            <el-radio-group v-model="inputManagement">
-              <el-radio label="是">是</el-radio>
-              <el-radio label="否">否</el-radio>
-            </el-radio-group>
-          </f7-col>
-        </f7-row>
-      </div>
+    <f7-card class="production-layout">
+      <f7-row class="item-layout">
+        <f7-col width="15" class="key">
+          <i class="keynote">*&nbsp;&nbsp;</i>项目名称:
+        </f7-col>
+        <f7-col width="35">
+          <el-input
+            style="width:90% !important;"
+            v-model="projectName"
+            :value="projectName"
+            clearable
+            placeholder="请输入项目名称"
+          ></el-input>
+        </f7-col>
+        <f7-col width="25" class="key">
+          <i class="keynote">*&nbsp;&nbsp;</i>是否录入项目管理情况:
+        </f7-col>
+        <f7-col width="25">
+          <el-radio-group v-model="inputManagement">
+            <el-radio label="是">是</el-radio>
+            <el-radio label="否">否</el-radio>
+          </el-radio-group>
+        </f7-col>
+      </f7-row>
     </f7-card>
 
     <f7-block>资金到位情况</f7-block>
@@ -361,6 +370,7 @@
 export default {
   data() {
     return {
+      projectName: "", //项目管理名称
       financeList: [
         //财务指标
         {

@@ -9,26 +9,35 @@
       </f7-nav-left>
       <f7-nav-title>项目管理</f7-nav-title>
       <f7-nav-right>
-        <f7-button outline>增项目管理情况</f7-button>
+        <f7-button outline @click="onAddProject">增项目管理情况</f7-button>
         <f7-button outline @click="onSave">保存</f7-button>
       </f7-nav-right>
     </f7-navbar>
 
-    <f7-card>
-      <div class="production-layout">
+    <f7-card class="production-layout">
         <f7-row class="item-layout">
-          <f7-col width="30" class="key">
+          <f7-col width="15" class="key">
+            <i class="keynote">*&nbsp;&nbsp;</i>项目名称:
+          </f7-col>
+          <f7-col width="35">
+            <el-input
+              style="width:90% !important;"
+              v-model="projectName"
+              :value="projectName"
+              clearable
+              placeholder="请输入项目名称"
+            ></el-input>
+          </f7-col>
+          <f7-col width="25" class="key">
             <i class="keynote">*&nbsp;&nbsp;</i>是否录入项目管理情况:
           </f7-col>
-          <f7-col width="10"></f7-col>
-          <f7-col width="60">
-            <el-radio-group v-model="productionInfo">
-              <el-radio label="是"></el-radio>
-              <el-radio label="否"></el-radio>
+          <f7-col width="25">
+            <el-radio-group v-model="inputManagement">
+              <el-radio label="是">是</el-radio>
+              <el-radio label="否">否</el-radio>
             </el-radio-group>
           </f7-col>
         </f7-row>
-      </div>
     </f7-card>
 
     <f7-block>资金到位情况</f7-block>
@@ -401,6 +410,7 @@
 export default {
   data() {
     return {
+      projectName: "", //项目管理名称
       supplier: "",
       distributor: "",
       evaluate: "",
@@ -491,6 +501,32 @@ export default {
     });
   },
   methods: {
+    /**
+     * 新增项目管理页面
+     */
+    onAddProject() {
+      var that = this;
+      that.$f7.dialog
+        .create({
+          title: "温馨提示",
+          text: "确认新增项目管理吗?",
+          buttons: [
+            {
+              text: "取消"
+            },
+            {
+              text: "新增"
+            }
+          ],
+          onClick: function(dialog, index) {
+            if (index == 1) {
+              //发送消息让左边导航菜单增加监听
+              that.$bus.emit("addProjectmenu");
+            }
+          }
+        })
+        .open();
+    },
     /**
      * 页面返回事件
      */

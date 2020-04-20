@@ -76,12 +76,6 @@ export default {
               link: "/daily-guarantee/"
             },
             {
-              title: "风险分类",
-              imgSelectedUrl: require("../../assets/icon_daily_risk_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_risk_normal.png"),
-              link: "/daily-risk/"
-            },
-            {
               title: "检查结论",
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
@@ -127,12 +121,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
               link: "/daily-guarantee/"
-            },
-            {
-              title: "风险分类",
-              imgSelectedUrl: require("../../assets/icon_daily_risk_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_risk_normal.png"),
-              link: "/daily-risk/"
             },
             {
               title: "检查结论",
@@ -182,12 +170,6 @@ export default {
               link: "/daily-guarantee/"
             },
             {
-              title: "风险分类",
-              imgSelectedUrl: require("../../assets/icon_daily_risk_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_risk_normal.png"),
-              link: "/daily-risk/"
-            },
-            {
               title: "检查结论",
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
@@ -235,12 +217,6 @@ export default {
               link: "/daily-guarantee/"
             },
             {
-              title: "风险分类",
-              imgSelectedUrl: require("../../assets/icon_daily_risk_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_risk_normal.png"),
-              link: "/daily-risk/"
-            },
-            {
               title: "检查结论",
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
@@ -280,12 +256,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
               link: "/daily-guarantee/"
-            },
-            {
-              title: "风险分类",
-              imgSelectedUrl: require("../../assets/icon_daily_risk_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_risk_normal.png"),
-              link: "/daily-risk/"
             },
             {
               title: "检查结论",
@@ -329,12 +299,6 @@ export default {
               link: "/daily-guarantee/"
             },
             {
-              title: "风险分类",
-              imgSelectedUrl: require("../../assets/icon_daily_risk_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_risk_normal.png"),
-              link: "/daily-risk/"
-            },
-            {
               title: "检查结论",
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
@@ -374,12 +338,6 @@ export default {
               imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
               link: "/daily-guarantee/"
-            },
-            {
-              title: "风险分类",
-              imgSelectedUrl: require("../../assets/icon_daily_risk_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_risk_normal.png"),
-              link: "/daily-risk/"
             },
             {
               title: "检查结论",
@@ -423,12 +381,6 @@ export default {
               link: "/daily-guarantee/"
             },
             {
-              title: "风险分类",
-              imgSelectedUrl: require("../../assets/icon_daily_risk_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_risk_normal.png"),
-              link: "/daily-risk/"
-            },
-            {
               title: "检查结论",
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
@@ -470,12 +422,6 @@ export default {
               link: "/daily-guarantee/"
             },
             {
-              title: "风险分类",
-              imgSelectedUrl: require("../../assets/icon_daily_risk_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_risk_normal.png"),
-              link: "/daily-risk/"
-            },
-            {
               title: "检查结论",
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
@@ -511,12 +457,6 @@ export default {
               link: "/daily-guarantee/"
             },
             {
-              title: "风险分类",
-              imgSelectedUrl: require("../../assets/icon_daily_risk_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_risk_normal.png"),
-              link: "/daily-risk/"
-            },
-            {
               title: "检查结论",
               imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
@@ -550,11 +490,23 @@ export default {
     this.$bus.on("addProjectmenu", () => {
       //先获取当前菜单集合个数
       var menuCount = that.lists[that.customType].items.length;
+      var currentMenus = that.lists[that.customType].items;
+
+      var firstProjectIndex = 0;
+      for (let i = 0; i < currentMenus.length; i++) {
+        const item = currentMenus[i];
+        var firstIndex = item.title.indexOf("项目管理", 0);
+        if (firstIndex != -1) {
+          firstProjectIndex = i;
+          break;
+        }
+      }
+
       //代表从来没有新增过
       //1.先修改原型的项目管理名称 项目管理-1
-      that.lists[that.customType].items[3].title = "项目管理-1";
+      that.lists[that.customType].items[firstProjectIndex].title = "项目管理-1";
       //2.产生一条新的项目管理记录
-      var newProjectNo = menuCount - 6;
+      var newProjectNo = menuCount - 5;
       var newProject = {
         title: "项目管理-" + newProjectNo,
         imgSelectedUrl: require("../../assets/icon_daily_project_selected.png"),
@@ -562,7 +514,7 @@ export default {
         link: "/daily-project-currency/"
       };
       //3.再新增一条记录
-      var insertIndex = menuCount - 4;
+      var insertIndex = menuCount - 2;
       that.lists[that.customType].items.splice(insertIndex, 0, newProject);
     });
   },
