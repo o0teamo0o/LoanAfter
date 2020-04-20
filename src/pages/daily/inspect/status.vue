@@ -90,7 +90,7 @@
               <i class="ignore">*&nbsp;&nbsp;</i>医院级别:
             </f7-col>
             <f7-col width="80">
-              <el-radio-group v-model="inputManagement">
+              <el-radio-group v-model="hospitalLevel">
                 <el-radio label="三级">三级</el-radio>
                 <el-radio label="二级">二级</el-radio>
                 <el-radio label="一级">一级</el-radio>
@@ -102,7 +102,7 @@
               <i class="ignore">*&nbsp;&nbsp;</i>医院等级:
             </f7-col>
             <f7-col width="80">
-              <el-radio-group v-model="inputManagement">
+              <el-radio-group v-model="hospitalGrade">
                 <el-radio label="甲等">甲等</el-radio>
                 <el-radio label="乙等">乙等</el-radio>
                 <el-radio label="丙等">丙等</el-radio>
@@ -114,7 +114,7 @@
               <i class="ignore">*&nbsp;&nbsp;</i>高等院校级别:
             </f7-col>
             <f7-col width="80">
-              <el-radio-group v-model="inputManagement">
+              <el-radio-group v-model="collegesLevel">
                 <el-radio label="一本院校">一本院校</el-radio>
                 <el-radio label="二本院校">二本院校</el-radio>
                 <el-radio label="其他">其他</el-radio>
@@ -126,7 +126,7 @@
               <i class="ignore">*&nbsp;&nbsp;</i>中小学级别:
             </f7-col>
             <f7-col width="80">
-              <el-radio-group v-model="inputManagement">
+              <el-radio-group v-model="schoolLevel">
                 <el-radio label="一本院校">国家级重点</el-radio>
                 <el-radio label="二本院校">省级重点</el-radio>
                 <el-radio label="其他">市级重点</el-radio>
@@ -146,14 +146,14 @@
             <f7-col width="30" class="key">
               <el-input
                 style="width:90% !important;"
-                v-model="distributor"
-                :value="distributor"
+                v-model="recruitStudents"
+                :value="recruitStudents"
                 clearable
                 placeholder="请输入招生人数"
               ></el-input>
             </f7-col>
             <f7-col width="60">
-              <el-radio-group v-model="inputManagement">
+              <el-radio-group v-model="compareNo">
                 <el-radio label="较往年上升">较往年上升</el-radio>
                 <el-radio label="校往年持平">校往年持平</el-radio>
                 <el-radio label="校往年下降">校往年下降</el-radio>
@@ -168,14 +168,14 @@
           <i class="ignore">*&nbsp;&nbsp;</i>区域环境:
         </f7-col>
         <f7-col width="75">
-          <el-radio-group class="long-group" v-model="inputManagement">
-            <el-radio label="较往年上升"
+          <el-radio-group class="long-group" v-model="environment">
+            <el-radio label="1"
               >在本地区处于先进水平,综合竞争实力增强</el-radio
             >
-            <el-radio label="较往年上升"
+            <el-radio label="2"
               >在本地区处于一般水平,综合竞争实力一般</el-radio
             >
-            <el-radio label="较往年上升"
+            <el-radio label="3"
               >在本地区处于落后水平,综合竞争实力下降</el-radio
             >
           </el-radio-group>
@@ -185,7 +185,33 @@
   </f7-page>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      hospitalLevel: "三级",
+      hospitalGrade: "甲等",
+      collegesLevel: "一本院校",
+      schoolLevel: "国家级重点",
+      recruitStudents: "", //招生人数
+      compareNo: "校往年上升",
+      environment: "1",
+    }
+  },
+  methods: {
+    /**
+     * 页面返回事件
+     */
+    onBack() {
+      this.$f7.views.main.router.back();
+      this.$f7.views.left.router.back();
+    },
+
+    /**
+     * 数据保存事件
+     */
+    onSave() {}
+  }
+};
 </script>
 
 <style lang="less">
