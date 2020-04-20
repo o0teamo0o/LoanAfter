@@ -16,8 +16,7 @@ import TaskCapitalPurposePage from './pages/capital/inspect/purpose.vue'; //资�
 /*** 日常维护任务页面 ***/
 import DailyTaskPage from './pages/daily/index.vue';
 import TaskDailyNavigationPage from './pages/daily/navigation-menu.vue'; //日常维护任务导航页面
-import DailyInformationPage from './pages/daily/inspect/info/information.vue'; //日常任务-基本信息通用页面
-import DailyInfoConsumePage from './pages/daily/inspect/info/info-consume.vue'; //日常任务-基本信息通用页面
+import DailyInformationPage from './pages/daily/inspect/information.vue'; //日常任务-基本信息通用页面
 import DailyAuthorizationPage from './pages/daily/inspect/authorization.vue'; //日常任务-授信汇总通用页面
 import DailyManagementCompanyPage from './pages/daily/inspect/management/company.vue'; //日常任务-客户经营-公司类页面
 import DailyManagementEnterprisePage from './pages/daily/inspect/management/enterprise.vue'; //日常任务-客户经营-事业法人页面
@@ -156,12 +155,6 @@ export default [{
         path: '/daily-information/',
         name: 'DailyInformationPage',
         component: DailyInformationPage,
-        keepAlive: true, //保留之前数据状态
-    },
-    {
-        path: '/daily-info-consume/',
-        name: 'DailyInfoConsumePage',
-        component: DailyInfoConsumePage,
         keepAlive: true, //保留之前数据状态
     },
     {

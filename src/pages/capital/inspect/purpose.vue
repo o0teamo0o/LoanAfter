@@ -553,7 +553,7 @@ export default {
         }
       ],
       titles: ["未查询交易流水的账户列表", "已查询交易流水的账户列表"],
-      transferValue:[1, 1],
+      transferValue: [1, 1],
       shuttleData: [
         {
           key: "1",
@@ -625,7 +625,10 @@ export default {
     /**
      * 数据保存事件
      */
-    onSave() {}
+    onSave() {
+      var aaa = $(".el-button+");
+      alert(aaa);
+    }
   }
 };
 </script>
@@ -638,5 +641,13 @@ export default {
 }
 .el-transfer__button {
   width: 56px !important;
+}
+
+/**修改穿梭按钮样式 */
+.el-transfer__button:first-child {
+  display: none !important;
+}
+.el-button + .el-button {
+  margin-left: 0 !important;
 }
 </style>

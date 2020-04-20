@@ -59,26 +59,23 @@ export default {
   beforeMount() {},
   components: { Popup },
   mounted() {
+    var that = this;
     this.$f7ready(f7 => {
       //修改页面切换导致首页试图下移的问题
-      this.Dom7("#home-page")
+      that
+        .Dom7("#home-page")
         .children("div")
         .css({
           paddingTop: "0px"
         });
     });
 
-    window["objCCallme"] = e => {
-      that.$f7.dialog.alert("确认退出系统吗?");
-    };
-
-    this.init();
-  },
-  init() {
-    var that = this;
-    this.$bridge.registerhandler("objCCallWithString", (data, responseCallback) => {
-      that.$f7.dialog.alert("确认退出系统吗?");
-    });
+    this.$bridge.registerhandler(
+      "objCCallWithString",
+      (data, responseCallback) => {
+        that.$f7.dialog.alert("确认退出系统吗?");
+      }
+    );
   },
   beforeUpdate() {},
   updated() {},

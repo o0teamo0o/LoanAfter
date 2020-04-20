@@ -490,7 +490,7 @@ export default {
               title: "基本信息",
               imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
               imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
-              link: "/daily-info-consume/"
+              link: "/daily-information/"
             },
             {
               title: "影像资料",

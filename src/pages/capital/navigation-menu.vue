@@ -41,12 +41,6 @@ export default {
           imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
           link: "/task-capital-purpose/"
         },
-        // {
-        //   title: "检查报告",
-        //   imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-        //   imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
-        //   link: "/task-capital-iou-selection/"
-        // },
         {
           title: "影像资料",
           imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),

@@ -14,92 +14,6 @@
       </f7-nav-right>
     </f7-navbar>
 
-    <f7-block>客户经营指标分析</f7-block>
-    <f7-card class="financial-layout">
-      <el-table :data="debtList" border>
-        <el-table-column fixed prop="key" label="指标/科目" min-width="200"></el-table-column>
-        <el-table-column style="padding: 0;" prop="lastYear" label="上年同期" min-width="200">
-          <template slot-scope="scope">
-            <i class="keynote">*</i>
-            <el-input
-              style="width:90% !important;"
-              v-model="scope.row.lastYear"
-              :value="scope.row.lastYear"
-              disabled
-              clearable
-            ></el-input>
-          </template>
-        </el-table-column>
-        <el-table-column prop="earlyYear" label="年初" min-width="200">
-          <template slot-scope="scope">
-            <i class="keynote">*</i>
-            <el-input
-              style="width:90% !important;"
-              v-model="scope.row.earlyYear"
-              :value="scope.row.earlyYear"
-              disabled
-              clearable
-            ></el-input>
-          </template>
-        </el-table-column>
-        <el-table-column prop="currentIssue" label="本期" min-width="200">
-          <template slot-scope="scope">
-            <i class="keynote">*</i>
-            <el-input
-              style="width:90% !important;"
-              v-model="scope.row.currentIssue"
-              :value="scope.row.currentIssue"
-              placeholder="请输入"
-              clearable
-            ></el-input>
-          </template>
-        </el-table-column>
-      </el-table>
-    </f7-card>
-
-    <f7-block>财务指标分析</f7-block>
-    <f7-card class="financial-layout">
-      <el-table :data="financeList" border>
-        <el-table-column fixed prop="key" label="指标/科目" min-width="200"></el-table-column>
-        <el-table-column style="padding: 0;" prop="lastYear" label="上年同期" min-width="200">
-          <template slot-scope="scope">
-            <i class="keynote">*</i>
-            <el-input
-              style="width:90% !important;"
-              v-model="scope.row.lastYear"
-              :value="scope.row.lastYear"
-              disabled
-              clearable
-            ></el-input>
-          </template>
-        </el-table-column>
-        <el-table-column prop="earlyYear" label="年初" min-width="200">
-          <template slot-scope="scope">
-            <i class="keynote">*</i>
-            <el-input
-              style="width:90% !important;"
-              v-model="scope.row.earlyYear"
-              :value="scope.row.earlyYear"
-              disabled
-              clearable
-            ></el-input>
-          </template>
-        </el-table-column>
-        <el-table-column prop="currentIssue" label="本期" min-width="200">
-          <template slot-scope="scope">
-            <i class="keynote">*</i>
-            <el-input
-              style="width:90% !important;"
-              v-model="scope.row.currentIssue"
-              :value="scope.row.currentIssue"
-              placeholder="请输入"
-              clearable
-            ></el-input>
-          </template>
-        </el-table-column>
-      </el-table>
-    </f7-card>
-
     <f7-card>
       <div class="production-layout">
         <f7-row class="item-layout">
@@ -108,7 +22,12 @@
             <i class="keynote">*</i>
           </f7-col>
           <f7-col width="75">
-            <el-input type="textarea" :rows="2" placeholder="请输入简要评价内容" v-model="evaluate"></el-input>
+            <el-input
+              type="textarea"
+              :rows="2"
+              placeholder="请输入简要评价内容"
+              v-model="evaluate"
+            ></el-input>
           </f7-col>
         </f7-row>
         <f7-row class="item-layout">
@@ -229,75 +148,6 @@
 export default {
   data() {
     return {
-      financeList: [
-        //财务指标
-        {
-          type: 0, //类型
-          key: "总资产",
-          lastYear: "", //上年
-          earlyYear: "", //年初
-          currentIssue: "" //本期
-        },
-        {
-          type: 1, //类型
-          key: "销售收入",
-          lastYear: "", //上年
-          earlyYear: "", //年初
-          currentIssue: "" //本期
-        },
-        {
-          type: 2, //类型
-          key: "存货",
-          lastYear: "", //上年
-          earlyYear: "", //年初
-          currentIssue: "" //本期
-        },
-        {
-          type: 3, //类型
-          key: "应收账款",
-          lastYear: "", //上年
-          earlyYear: "", //年初
-          currentIssue: "" //本期
-        }
-      ],
-      debtList: [
-        //偿债能力
-        {
-          type: 0, //类型
-          key: "水表(吨)",
-          lastYear: "", //上年
-          earlyYear: "", //年初
-          currentIssue: "" //本期
-        },
-        {
-          type: 1, //类型
-          key: "电表(度)",
-          lastYear: "", //上年
-          earlyYear: "", //年初
-          currentIssue: "" //本期
-        },
-        {
-          type: 2, //类型
-          key: "税费",
-          lastYear: "", //上年
-          earlyYear: "", //年初
-          currentIssue: "" //本期
-        },
-        {
-          type: 3, //类型
-          key: "员工规模(人)",
-          lastYear: "", //上年
-          earlyYear: "", //年初
-          currentIssue: "" //本期
-        },
-        {
-          type: 4, //类型
-          key: "员工人均工资(元)",
-          lastYear: "", //上年
-          earlyYear: "", //年初
-          currentIssue: "" //本期
-        }
-      ],
       profitList: [
         //盈利能力
         {
@@ -379,6 +229,7 @@ export default {
     });
   },
   methods: {
+    onLoadCreditReporting() {},
     /**
      * 页面返回事件
      */
@@ -394,7 +245,7 @@ export default {
   }
 };
 </script>
-<style lang='less'>
+<style lang="less">
 .financial-layout .el-table td:nth-child(n + 1) {
   padding: 5px 0;
 }
