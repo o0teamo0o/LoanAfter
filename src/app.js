@@ -8,10 +8,8 @@ import IconsStyles from './css/icons.css'; // Import Icons and App Custom Styles
 import BaseStyles from './css/base.less';
 import AppStyles from './css/app.less';
 import App from './app.vue'; // Import App Component
-import less from 'less'; // Import less
 import store from './store/index';
 
-Vue.use(less);
 Framework7.use(Framework7Vue); // Init F7 Vue Plugin
 Vue.use(ElementUI);
 
