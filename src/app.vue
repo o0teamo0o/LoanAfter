@@ -27,11 +27,9 @@
     <!-- 最上面的导航条 -->
     <f7-appbar>
       <div class="appbar-layout">
-        <div class="logo-view">
-          <f7-link href="/" view="#main-view" @click="clearPageCache">
-            <img class="img-logo" src="./assets/logo.gif" />
-          </f7-link>
-        </div>
+        <img class="img-logo-l" src="./assets/logo_bg_l.png" />
+        <img class="img-logo-s" src="./assets/logo_bg_s.png" />
+        <div class="logo-view" :style="{ width: menuWidth + 'px' }"></div>
         <!-- 控制左边菜单的按钮 -->
         <img
           class="menu-switch"
@@ -134,9 +132,12 @@ export default {
       this.menuToggle = !this.menuToggle;
       if (this.menuToggle) {
         this.menuWidth = 180;
+        this.$$(".img-logo-l").css("opacity", "1");
+        this.$$(".img-logo-s").css("opacity", "0");
       } else {
         this.menuWidth = 57;
-        // this.menuWidth = 0;
+        this.$$(".img-logo-l").css("opacity", "0");
+        this.$$(".img-logo-s").css("opacity", "1");
       }
       this.containerWidth = this.screenWidth - this.menuWidth;
     },

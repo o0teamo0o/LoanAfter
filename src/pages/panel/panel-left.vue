@@ -1,10 +1,10 @@
 <template>
-  <f7-page>
-    <f7-navbar>
+  <f7-page class="navigation-layout">
+    <f7-navbar class="navigation-bar">
       <f7-nav-title>授信后管理</f7-nav-title>
     </f7-navbar>
 
-    <f7-list>
+    <f7-list class="nav-menu-list">
       <f7-list-item
         v-for="(item, index) in menus"
         :key="index"
@@ -110,12 +110,5 @@ export default {
 <style lang='less'>
 .icon-menu {
   width: 25px;
-}
-.selected-item {
-  color: #409eff !important;
-  font-weight: bold;
-}
-.normal-item {
-  color: #c0c4cc !important;
 }
 </style>

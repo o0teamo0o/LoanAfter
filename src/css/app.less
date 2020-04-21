@@ -1,5 +1,11 @@
 @appbar-height: 44px; //导航条高度
-@menu-width: 200px;
+@menu-width: 180px;
+@main-color: #1CC88A;
+
+.appbar-inner {
+  background-color: white;
+  padding: 0 !important;
+}
 
 .appbar-layout {
   height: @appbar-height;
@@ -9,19 +15,34 @@
 
   .logo-view {
     width: @menu-width;
+    height: 100%;
     text-align: center;
+    transition: width 0.2s linear;
+    background-color: @main-color;
+  }
 
-    .img-logo {
-      width: 150px;
-      margin-left: 10px;
-      height: auto;
-    }
+  .img-logo-l {
+    width: 150px;
+    position: absolute;
+    margin-left: 15px;
+    height: auto;
+    transition: 0.2s;
+  }
+
+  .img-logo-s {
+    width: 32px;
+    position: absolute;
+    margin-left: 15px;
+    height: auto;
+    transition: 0.2s;
+    opacity: 0;
   }
 
   .menu-switch {
     width: 30px;
     height: auto;
     padding: 10px;
+    z-index: 2;
   }
 
   .btn-right-menu {
@@ -35,7 +56,7 @@
   top: @appbar-height;
   width: @menu-width;
   height: calc(100% - @appbar-height);
-  border-right: 1px solid #b2b2b2;
+  box-shadow: 3px 0 5px rgba(0, 0, 0, 0.08) !important;
   transition: width 0.2s linear;
 }
 
@@ -123,11 +144,11 @@ span.input-clear-button {
 
 .appbar {
   background-color: white !important;
-  // box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08) !important;
 }
 
-.navbar-bg {
-  background-color: white !important;
+.appbar:after {
+  background-color: transparent;
 }
 
 .card {
@@ -141,4 +162,71 @@ span.input-clear-button {
 .ios .toast.toast-bottom {
   left: 50% !important;
   bottom: 50px !important;
+}
+
+/*左边容器视图背景色修改*/
+.navigation-layout {
+  background-color: @main-color  !important;
+}
+
+/*导航栏容器视图颜色修改*/
+.navigation-bar {
+  .navbar-bg {
+    background-color: transparent !important;
+    backdrop-filter: none;
+  }
+
+  .navbar-bg:after {
+    background-color: transparent;
+  }
+
+  .navbar-inner {
+    color: white;
+  }
+}
+
+.navbar-bg {
+  background-color: white !important;
+}
+
+.nav-menu-list {
+
+  ul {
+    background-color: transparent;
+  }
+
+  ul:before,
+  ul:after {
+    background-color: transparent;
+  }
+
+  .selected-item {
+    // backdrop-filter: saturate(90%);
+    background-color: #62d4a5;
+    color: white !important;
+    font-weight: bold;
+
+    .item-content .item-inner:after {
+      background-color: transparent;
+    }
+  }
+
+  .normal-item {
+    color: white !important;
+    opacity: 0.6;
+
+    .item-content .item-inner:after {
+      background-color: transparent;
+    }
+  }
+}
+
+
+.el-button--primary {
+  background-color: @main-color;
+  border-color: @main-color;
+}
+.el-button--primary:focus,
+.el-button--primary:hover {
+  background-color: @main-color;
 }
