@@ -240,16 +240,4 @@ export default {
     }
   }
 }
-//解决input图片和文字之间距离冲突
-.el-input--prefix .el-input__inner {
-  padding-left: 30px !important;
-}
-//解决input图片和文字之间距离冲突
-.el-input--suffix .el-input__inner {
-  padding-right: 30px !important;
-}
-//解决日历控件button宽度冲突
-.el-picker-panel__icon-btn {
-  width: 26px;
-}
 </style>

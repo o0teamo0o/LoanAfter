@@ -45,8 +45,6 @@
                   <i class="ignore">*</i>
                   <span class="hint">检查类型</span>
                   <el-input
-                    v-model="customerName"
-                    :value="customerName"
                     clearable
                     disabled
                     placeholder="资金用途检查"

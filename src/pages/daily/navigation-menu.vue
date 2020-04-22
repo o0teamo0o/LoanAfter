@@ -1,8 +1,8 @@
 <template>
-  <f7-page name="navigation">
-    <f7-navbar title="" back-link="返回"></f7-navbar>
+  <f7-page name="navigation" class="navigation-layout">
+    <f7-navbar class="navigation-bar" title="" back-link="返回"></f7-navbar>
 
-    <f7-list>
+    <f7-list class="nav-menu-list">
       <f7-list-item
         v-for="(item, index) in mustMenuList"
         :key="index"
@@ -15,17 +15,13 @@
       >
         <img
           slot="media"
-          class="icon-menu"
-          :src="
-            currentNavigationIndex == index
-              ? item.imgSelectedUrl
-              : item.imgNormalUrl
-          "
+          :class='["icon-menu", currentNavigationIndex == index ? "icon-selected" : "icon-normal"]'
+          :src="item.imgUrl"
         />
       </f7-list-item>
     </f7-list>
 
-    <f7-list>
+    <f7-list class="nav-menu-list">
       <f7-list-item
         v-for="(item, index) in lists[customType].items"
         :key="index"
@@ -38,12 +34,8 @@
       >
         <img
           slot="media"
-          class="icon-menu"
-          :src="
-            currentNavigationIndex == index + 2
-              ? item.imgSelectedUrl
-              : item.imgNormalUrl
-          "
+          :class='["icon-menu", currentNavigationIndex == index + 2 ? "icon-selected" : "icon-normal"]'
+          :src="item.imgUrl"
         />
       </f7-list-item>
     </f7-list>
@@ -63,14 +55,12 @@ export default {
         //必填菜单
         {
           title: "基本信息",
-          imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-          imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
+          imgUrl: require("../../assets/icon_daily_info.png"),
           link: "/daily-information/"
         },
         {
           title: "影像资料",
-          imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-          imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+          imgUrl: require("../../assets/icon_daily_image.png"),
           link: "/daily-portrait/"
         }
       ],
@@ -80,32 +70,27 @@ export default {
           items: [
             {
               title: "授信汇总",
-              imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
+              imgUrl: require("../../assets/icon_daily_authorize.png"),
               link: "/daily-authorization/"
             },
             {
               title: "客户经营",
-              imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
+              imgUrl: require("../../assets/icon_daily_manage.png"),
               link: "/daily-management-company/"
             },
             {
               title: "项目管理",
-              imgSelectedUrl: require("../../assets/icon_daily_project_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_project_normal.png"),
+              imgUrl: require("../../assets/icon_daily_project.png"),
               link: "/daily-project-currency/"
             },
             {
               title: "担保信息",
-              imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
+              imgUrl: require("../../assets/icon_daily_guarantee.png"),
               link: "/daily-guarantee/"
             },
             {
               title: "检查结论",
-              imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
+              imgUrl: require("../../assets/icon_daily_inspect.png"),
               link: "/daily-inspect/"
             }
           ]
@@ -115,38 +100,32 @@ export default {
           items: [
             {
               title: "授信汇总",
-              imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
+              imgUrl: require("../../assets/icon_daily_authorize.png"),
               link: "/daily-authorization/"
             },
             {
               title: "客户经营",
-              imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
+              imgUrl: require("../../assets/icon_daily_manage.png"),
               link: "/daily-management-enterprise/"
             },
             {
               title: "项目管理",
-              imgSelectedUrl: require("../../assets/icon_daily_project_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_project_normal.png"),
+              imgUrl: require("../../assets/icon_daily_project.png"),
               link: "/daily-project-currency/"
             },
             {
               title: "担保信息",
-              imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
+              imgUrl: require("../../assets/icon_daily_guarantee.png"),
               link: "/daily-guarantee/"
             },
             {
               title: "行业地位",
-              imgSelectedUrl: require("../../assets/icon_daily_status_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_status_normal.png"),
+              imgUrl: require("../../assets/icon_daily_status.png"),
               link: "/daily-status/"
             },
             {
               title: "检查结论",
-              imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
+              imgUrl: require("../../assets/icon_daily_inspect.png"),
               link: "/daily-inspect/"
             }
           ]
@@ -156,32 +135,27 @@ export default {
           items: [
             {
               title: "授信汇总",
-              imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
+              imgUrl: require("../../assets/icon_daily_authorize.png"),
               link: "/daily-authorization/"
             },
             {
               title: "客户经营",
-              imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
+              imgUrl: require("../../assets/icon_daily_manage.png"),
               link: "/daily-management-platform/"
             },
             {
               title: "项目管理",
-              imgSelectedUrl: require("../../assets/icon_daily_project_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_project_normal.png"),
+              imgUrl: require("../../assets/icon_daily_project.png"),
               link: "/daily-project-currency/"
             },
             {
               title: "担保信息",
-              imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
+              imgUrl: require("../../assets/icon_daily_guarantee.png"),
               link: "/daily-guarantee/"
             },
             {
               title: "检查结论",
-              imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
+              imgUrl: require("../../assets/icon_daily_inspect.png"),
               link: "/daily-inspect/"
             }
           ]
@@ -191,32 +165,27 @@ export default {
           items: [
             {
               title: "授信汇总",
-              imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
+              imgUrl: require("../../assets/icon_daily_authorize.png"),
               link: "/daily-authorization/"
             },
             {
               title: "客户经营",
-              imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
+              imgUrl: require("../../assets/icon_daily_manage.png"),
               link: "/daily-management-realestate/"
             },
             {
               title: "项目管理",
-              imgSelectedUrl: require("../../assets/icon_daily_project_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_project_normal.png"),
+              imgUrl: require("../../assets/icon_daily_project.png"),
               link: "/daily-project-real-estate/"
             },
             {
               title: "担保信息",
-              imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
+              imgUrl: require("../../assets/icon_daily_guarantee.png"),
               link: "/daily-guarantee/"
             },
             {
               title: "检查结论",
-              imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
+              imgUrl: require("../../assets/icon_daily_inspect.png"),
               link: "/daily-inspect/"
             }
           ]
@@ -226,26 +195,22 @@ export default {
           items: [
             {
               title: "授信汇总",
-              imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
+              imgUrl: require("../../assets/icon_daily_authorize.png"),
               link: "/daily-authorization/"
             },
             {
               title: "客户经营",
-              imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
+              imgUrl: require("../../assets/icon_daily_manage.png"),
               link: "/daily-management-small/"
             },
             {
               title: "担保信息",
-              imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
+              imgUrl: require("../../assets/icon_daily_guarantee.png"),
               link: "/daily-guarantee/"
             },
             {
               title: "检查结论",
-              imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
+              imgUrl: require("../../assets/icon_daily_inspect.png"),
               link: "/daily-inspect/"
             }
           ]
@@ -255,26 +220,22 @@ export default {
           items: [
             {
               title: "授信汇总",
-              imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
+              imgUrl: require("../../assets/icon_daily_authorize.png"),
               link: "/daily-authorization/"
             },
             {
               title: "客户经营",
-              imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
+              imgUrl: require("../../assets/icon_daily_manage.png"),
               link: "/daily-management-personal/"
             },
             {
               title: "担保信息",
-              imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
+              imgUrl: require("../../assets/icon_daily_guarantee.png"),
               link: "/daily-guarantee/"
             },
             {
               title: "检查结论",
-              imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
+              imgUrl: require("../../assets/icon_daily_inspect.png"),
               link: "/daily-inspect/"
             }
           ]
@@ -284,26 +245,22 @@ export default {
           items: [
             {
               title: "授信汇总",
-              imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
+              imgUrl: require("../../assets/icon_daily_authorize.png"),
               link: "/daily-authorization/"
             },
             {
               title: "客户经营",
-              imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
+              imgUrl: require("../../assets/icon_daily_manage.png"),
               link: "/daily-management-property/"
             },
             {
               title: "担保信息",
-              imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
+              imgUrl: require("../../assets/icon_daily_guarantee.png"),
               link: "/daily-guarantee/"
             },
             {
               title: "检查结论",
-              imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
+              imgUrl: require("../../assets/icon_daily_inspect.png"),
               link: "/daily-inspect/"
             }
           ]
@@ -313,26 +270,22 @@ export default {
           items: [
             {
               title: "授信汇总",
-              imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
+              imgUrl: require("../../assets/icon_daily_authorize.png"),
               link: "/daily-authorization/"
             },
             {
               title: "客户经营",
-              imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
+              imgUrl: require("../../assets/icon_daily_manage.png"),
               link: "/daily-management-tax-union/"
             },
             {
               title: "担保信息",
-              imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
+              imgUrl: require("../../assets/icon_daily_guarantee.png"),
               link: "/daily-guarantee/"
             },
             {
               title: "检查结论",
-              imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
+              imgUrl: require("../../assets/icon_daily_inspect.png"),
               link: "/daily-inspect/"
             }
           ]
@@ -342,26 +295,22 @@ export default {
           items: [
             {
               title: "授信汇总",
-              imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
+              imgUrl: require("../../assets/icon_daily_authorize.png"),
               link: "/daily-authorization/"
             },
             {
               title: "客户经营",
-              imgSelectedUrl: require("../../assets/icon_daily_manage_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_manage_normal.png"),
+              imgUrl: require("../../assets/icon_daily_manage.png"),
               link: "/daily-management-farmers/"
             },
             {
               title: "担保信息",
-              imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
+              imgUrl: require("../../assets/icon_daily_guarantee.png"),
               link: "/daily-guarantee/"
             },
             {
               title: "检查结论",
-              imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
+              imgUrl: require("../../assets/icon_daily_inspect.png"),
               link: "/daily-inspect/"
             }
           ]
@@ -371,20 +320,17 @@ export default {
           items: [
             {
               title: "授信汇总",
-              imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
+              imgUrl: require("../../assets/icon_daily_authorize.png"),
               link: "/daily-authorization/"
             },
             {
               title: "担保信息",
-              imgSelectedUrl: require("../../assets/icon_daily_guarantee_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_guarantee_normal.png"),
+              imgUrl: require("../../assets/icon_daily_guarantee.png"),
               link: "/daily-guarantee/"
             },
             {
               title: "检查结论",
-              imgSelectedUrl: require("../../assets/icon_daily_inspect_selected.png"),
-              imgNormalUrl: require("../../assets/icon_daily_inspect_normal.png"),
+              imgUrl: require("../../assets/icon_daily_inspect.png"),
               link: "/daily-inspect/"
             }
           ]

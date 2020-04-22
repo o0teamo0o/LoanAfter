@@ -1,8 +1,8 @@
 <template>
-  <f7-page name="navigation">
-    <f7-navbar title="" back-link="返回"></f7-navbar>
+  <f7-page name="navigation" class="navigation-layout">
+    <f7-navbar class="navigation-bar" title="" back-link="返回"></f7-navbar>
 
-    <f7-list>
+    <f7-list class="nav-menu-list">
       <f7-list-item
         v-for="(item, index) in lists"
         :key="index"
@@ -13,8 +13,8 @@
       >
         <img
           slot="media"
-          class="icon-menu"
-          :src="currentNavigationIndex == index ? item.imgSelectedUrl : item.imgNormalUrl"
+          :class='["icon-menu", currentNavigationIndex == index ? "icon-selected" : "icon-normal"]'
+          :src="item.imgUrl"
         />
       </f7-list-item>
     </f7-list>
@@ -31,20 +31,17 @@ export default {
       lists: [
         {
           title: "借据选择",
-          imgSelectedUrl: require("../../assets/icon_daily_info_selected.png"),
-          imgNormalUrl: require("../../assets/icon_daily_info_normal.png"),
+          imgUrl: require("../../assets/icon_task_iou.png"),
           link: "/task-capital-iou-selection/"
         },
         {
           title: "用途检查",
-          imgSelectedUrl: require("../../assets/icon_daily_authorize_selected.png"),
-          imgNormalUrl: require("../../assets/icon_daily_authorize_normal.png"),
+          imgUrl: require("../../assets/icon_task_purpose.png"),
           link: "/task-capital-purpose/"
         },
         {
           title: "影像资料",
-          imgSelectedUrl: require("../../assets/icon_daily_image_selected.png"),
-          imgNormalUrl: require("../../assets/icon_daily_image_normal.png"),
+          imgUrl: require("../../assets/icon_daily_image.png"),
           link: "/task-capital-portrait/"
         }
       ]

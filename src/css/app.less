@@ -1,6 +1,7 @@
 @appbar-height: 44px; //导航条高度
 @menu-width: 180px;
 @main-color: #1CC88A;
+@main-focus-color: rgb(26, 180, 124);
 
 .appbar-inner {
   background-color: white;
@@ -115,7 +116,7 @@ input.input-focused,
 input.input-with-value.input-focus,
 select.input-focused,
 select.input-with-value.input-focus {
-  border-color: #409eff !important;
+  border-color: @main-color  !important;
 }
 
 //处理block
@@ -182,6 +183,16 @@ span.input-clear-button {
 
   .navbar-inner {
     color: white;
+
+    .left>.back {
+      .icon-back {
+        color: white;
+      }
+
+      span {
+        color: white;
+      }
+    }
   }
 }
 
@@ -201,7 +212,6 @@ span.input-clear-button {
   }
 
   .selected-item {
-    // backdrop-filter: saturate(90%);
     background-color: #62d4a5;
     color: white !important;
     font-weight: bold;
@@ -221,12 +231,62 @@ span.input-clear-button {
   }
 }
 
+/**饿了么UI解决冲突*/
 
 .el-button--primary {
   background-color: @main-color;
   border-color: @main-color;
 }
+
 .el-button--primary:focus,
 .el-button--primary:hover {
   background-color: @main-color;
+}
+
+//解决input图片和文字之间距离冲突
+.el-input--prefix .el-input__inner {
+  padding-left: 30px !important;
+}
+
+//解决input图片和文字之间距离冲突
+.el-input--suffix .el-input__inner {
+  padding-right: 30px !important;
+}
+
+//解决日历控件button宽度冲突
+.el-picker-panel__icon-btn {
+  width: 26px;
+}
+
+.el-select-dropdown__item.selected {
+  color: @main-color;
+}
+
+.el-button--info {
+  color: #aaaaaa;
+  background-color: #dddddd;
+  border-color: #dddddd;
+}
+
+.el-button--primary.is-active,
+.el-button--primary:active {
+  background: @main-focus-color;
+  border-color: @main-focus-color;
+}
+
+.el-button--primary:focus,
+.el-button--primary:hover {
+  border-color: @main-color;
+}
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: @main-color;
+}
+
+/**主题颜色设置*/
+:root {
+  --f7-theme-color: #1cc88a;
+  --f7-theme-color-rgb: 28, 200, 138;
+  --f7-theme-color-shade: #17a471;
+  --f7-theme-color-tint: #2be1a0;
 }

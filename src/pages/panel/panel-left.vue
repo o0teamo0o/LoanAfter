@@ -15,8 +15,8 @@
       >
         <img
           slot="media"
-          class="icon-menu"
-          :src="currentNavigationIndex == index ? item.imgSelectedUrl : item.imgNormalUrl"
+          :class='["icon-menu", currentNavigationIndex == index ? "icon-selected" : "icon-normal"]'
+          :src="item.imgUrl"
         />
       </f7-list-item>
     </f7-list>
@@ -33,44 +33,27 @@ export default {
       menus: [
         {
           title: "工作台",
-          imgSelectedUrl: require("../../assets/icon_task_workbench_selected.png"),
-          imgNormalUrl: require("../../assets/icon_task_workbench_mormal.png"),
+          imgUrl: require("../../assets/icon_task_workbench.png"),
           link: "/"
         },
         {
           title: "资金用途检查",
-          imgSelectedUrl: require("../../assets/icon_task_capital_selected.png"),
-          imgNormalUrl: require("../../assets/icon_task_capital_normal.png"),
+          imgUrl: require("../../assets/icon_task_capital.png"),
           link: "/task-capital/"
         },
         {
           title: "日常维护检查",
-          imgSelectedUrl: require("../../assets/icon_task_maintain_selected.png"),
-          imgNormalUrl: require("../../assets/icon_task_maintain_normal.png"),
+          imgUrl: require("../../assets/icon_task_maintain.png"),
           link: "/daily-task/"
         },
         {
           title: "业务到期检查",
-          imgSelectedUrl: require("../../assets/icon_task_expire_selected.png"),
-          imgNormalUrl: require("../../assets/icon_task_expire_normal.png"),
+          imgUrl: require("../../assets/icon_task_expire.png"),
           link: "/expire-task/"
         },
-        // {
-        //   title: "逾期催收检查",
-        //   imgSelectedUrl: require("../../assets/icon_task_collection_selected.png"),
-        //   imgNormalUrl: require("../../assets/icon_task_collection_normal.png"),
-        //   link: "/overdue-task/"
-        // },
-        // {
-        //   title: "内部监督检查",
-        //   imgSelectedUrl: require("../../assets/icon_task_supervise_selected.png"),
-        //   imgNormalUrl: require("../../assets/icon_task_supervise_normal.png"),
-        //   link: "/supervise-task/"
-        // },
         {
           title: "设置",
-          imgSelectedUrl: require("../../assets/icon_menu_setting_selected.png"),
-          imgNormalUrl: require("../../assets/icon_menu_setting_normal.png"),
+          imgUrl: require("../../assets/icon_menu_setting.png"),
           link: "/setting/"
         }
       ]
@@ -110,5 +93,13 @@ export default {
 <style lang='less'>
 .icon-menu {
   width: 25px;
+}
+
+.icon-selected {
+  opacity: 1;
+}
+
+.icon-normal {
+  opacity: 0.6;
 }
 </style>
