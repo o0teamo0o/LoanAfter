@@ -2,56 +2,75 @@
   <f7-page name="main" id="home-page">
     <f7-block class="ks-grid">
       <f7-row>
-        <f7-col width="50">
-          <f7-card>
-            <div class="flex">
-              <img class="icon-head" src="../../assets/icon_head.png" />
-              <f7-row>
-                <f7-col width="100" class="nickname">早安! XXX</f7-col>
-                <f7-col width="100" class="role">客户经理</f7-col>
-              </f7-row>
+        <f7-col width="33">
+          <f7-card class="card-capital">
+            <div class="inter-layout">
+              <div class="flex">
+                <div class="left-layout">
+                  <div>资金用途待检查任务</div>
+                  <div class="num">0</div>
+                </div>
+                <div class="flex-1"></div>
+                <img
+                  class="task-icon"
+                  src="../../assets/icon_home_capital.png"
+                  alt=""
+                />
+              </div>
             </div>
           </f7-card>
         </f7-col>
-        <f7-col width="50">
-          <f7-card>
-            <f7-row class="card-padding">
-              <f7-col width="100" class="time-mark">今天是:</f7-col>
-              <f7-col width="100" class="week">{{currentDate.currentWeek}}</f7-col>
-              <f7-col width="100" class="date">{{currentDate.currentDate}}</f7-col>
-            </f7-row>
+        <f7-col width="33">
+          <f7-card class="card-daily">
+            <div class="inter-layout">
+              <div class="flex">
+                <div class="left-layout">
+                  <div>日常维护检查任务</div>
+                  <div class="num">0</div>
+                </div>
+                <div class="flex-1"></div>
+                <img
+                  class="task-icon"
+                  src="../../assets/icon_home_daily.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </f7-card>
+        </f7-col>
+        <f7-col width="33">
+          <f7-card class="card-expire">
+            <div class="inter-layout">
+              <div class="flex">
+                <div class="left-layout">
+                  <div>业务到期检查任务</div>
+                  <div class="num">0</div>
+                </div>
+                <div class="flex-1"></div>
+                <img
+                  class="task-icon"
+                  src="../../assets/icon_home_expire.png"
+                  alt=""
+                />
+              </div>
+            </div>
           </f7-card>
         </f7-col>
       </f7-row>
     </f7-block>
-
-    <!-- <f7-card>
-      <f7-card-header>授信后任务快捷菜单</f7-card-header>
-      <f7-card-content>待定</f7-card-content>
-    </f7-card>-->
-    <Popup v-model="isShowInfoDialog">内容</Popup>
   </f7-page>
 </template>
 
 <script>
-import { DateTime } from "../../utils/DataTime";
 import Popup from "vant/lib/popup";
 import "vant/lib/popup/style";
 
 export default {
   data() {
-    return {
-      isShowInfoDialog: false,
-      currentDate: {}
-    };
+    return {};
   },
   beforeCreate() {},
-  created() {
-    let date = new DateTime();
-    this.currentDate.currentDate = date.getDate();
-    this.currentDate.currentTime = date.getTime();
-    this.currentDate.currentWeek = date.getWeek();
-  },
+  created() {},
   beforeMount() {},
   components: { Popup },
   mounted() {
@@ -120,6 +139,109 @@ export default {
     font-size: 16px;
     color: #333;
     margin-top: 5px;
+  }
+}
+
+.card-capital {
+  background-color: #3d7eff;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(61, 126, 255, 0.2) !important;
+
+  .inter-layout {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    margin-left: 4px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .left-layout {
+    color: #3d7eff;
+    font-weight: bold;
+    padding: 10px 5px;
+    font-size: 14px;
+
+    .num {
+      font-size: 18px;
+      color: #333;
+    }
+  }
+
+  .task-icon {
+    width: 30px;
+    height: auto;
+    opacity: 0.7;
+  }
+}
+
+
+.card-daily {
+  background-color: #3fba2f;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(63, 186, 47, 0.2) !important;
+
+  .inter-layout {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    margin-left: 4px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .left-layout {
+    color: #3fba2f;
+    font-weight: bold;
+    padding: 10px 5px;
+    font-size: 14px;
+
+    .num {
+      font-size: 18px;
+      color: #333;
+    }
+  }
+
+  .task-icon {
+    width: 35px;
+    height: auto;
+    opacity: 0.7;
+  }
+}
+
+.card-expire {
+  background-color: #ed6d44;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(237, 109, 68, 0.2) !important;
+
+  .inter-layout {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    margin-left: 4px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .left-layout {
+    color: #ed6d44;
+    font-weight: bold;
+    padding: 10px 5px;
+    font-size: 14px;
+
+    .num {
+      font-size: 18px;
+      color: #333;
+    }
+  }
+
+  .task-icon {
+    width: 30px;
+    height: auto;
+    opacity: 0.7;
   }
 }
 </style>

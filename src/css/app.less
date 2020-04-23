@@ -157,7 +157,7 @@ span.input-clear-button {
 }
 
 .page {
-  background-color: #f8f8f8 !important;
+  background-color: #f5f6fa !important;
 }
 
 .ios .toast.toast-bottom {
@@ -212,9 +212,10 @@ span.input-clear-button {
   }
 
   .selected-item {
-    background-color: #62d4a5;
+    background-color: #2be1a0;
     color: white !important;
-    font-weight: bold;
+    border-right: 3px solid white;
+    transition: 0.2s linear;
 
     .item-content .item-inner:after {
       background-color: transparent;
@@ -228,6 +229,10 @@ span.input-clear-button {
     .item-content .item-inner:after {
       background-color: transparent;
     }
+  }
+
+  .item-title {
+    font-weight: bold;
   }
 }
 

@@ -229,7 +229,7 @@ export default {
           riqi: "2020-08-08",
           state: "待检查",
           status: 1,
-          isMustInput: false,
+          isMustInput: false
         },
         {
           type: 1,
@@ -244,7 +244,7 @@ export default {
           riqi: "2020-08-08",
           state: "待检查",
           status: 1,
-          isMustInput: false,
+          isMustInput: false
         },
         {
           type: 2,
@@ -259,7 +259,7 @@ export default {
           riqi: "2020-08-08",
           state: "待检查",
           status: 1,
-          isMustInput: false,
+          isMustInput: false
         },
         {
           type: 3,
@@ -274,7 +274,7 @@ export default {
           riqi: "2020-08-08",
           state: "待检查",
           status: 1,
-          isMustInput: false,
+          isMustInput: false
         },
         {
           type: 4,
@@ -289,7 +289,7 @@ export default {
           riqi: "2020-08-08",
           state: "待检查",
           status: 1,
-          isMustInput: false,
+          isMustInput: false
         },
         {
           type: 5,
@@ -304,7 +304,7 @@ export default {
           riqi: "2020-08-08",
           state: "待检查",
           status: 1,
-          isMustInput: false,
+          isMustInput: false
         },
         {
           type: 6,
@@ -319,7 +319,7 @@ export default {
           riqi: "2020-08-08",
           state: "待检查",
           status: 1,
-          isMustInput: false,
+          isMustInput: false
         },
         {
           type: 7,
@@ -334,7 +334,7 @@ export default {
           riqi: "2020-08-08",
           state: "待检查",
           status: 1,
-          isMustInput: false,
+          isMustInput: false
         },
         {
           type: 8,
@@ -349,7 +349,7 @@ export default {
           riqi: "2020-08-08",
           state: "待检查",
           status: 1,
-          isMustInput: false,
+          isMustInput: false
         },
         {
           type: 9,
@@ -364,7 +364,7 @@ export default {
           riqi: "2020-08-08",
           state: "待检查",
           status: 1,
-          isMustInput: false,
+          isMustInput: false
         }
       ], //查询结果集
       itemUrl: "/task-navigation/"
@@ -407,8 +407,6 @@ export default {
       queryInfo.checkType = this.checkType;
       queryInfo.taskType = this.taskType;
       console.error(queryInfo);
-
-      
     },
 
     /**
@@ -427,10 +425,10 @@ export default {
     onItemClick(item) {
       this.$store.commit("setCurrentCensorInfo", item);
       this.$f7router.navigate({
-        name: "DailyInformationPage",
+        name: "DailyInformationPage"
       });
       this.$f7.views.left.router.navigate({
-        name: "TaskDailyNavigationPage",
+        name: "TaskDailyNavigationPage"
       });
     },
 

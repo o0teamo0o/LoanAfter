@@ -42,9 +42,7 @@
         />
         <div class="empty" />
         <div class="appbar-right">
-          <el-badge :value="9" :max="99" class="item">
-            <img class="img-news" src="./assets/icon_news.png" />
-          </el-badge>
+          <div class="today-time">{{currentDate.currentDate}} {{currentDate.currentWeek}}</div>
           <img class="img-exit" src="./assets/icon_exit.png" @click="onExit" />
         </div>
       </div>
@@ -74,6 +72,7 @@
 // 引入路由文件
 import routes from "./routes.js";
 import HomePage from "./pages/home/index.vue"; //引入首页
+import { DateTime } from "./utils/DataTime";
 
 export default {
   data() {
@@ -89,8 +88,15 @@ export default {
       },
       menuToggle: true, //左边菜单当前展开状态 true:展开 false:收缩
       menuWidth: 180, //左边菜单默认宽度
-      containerWidth: 0 //容器宽度
+      containerWidth: 0, //容器宽度
+      currentDate: {}
     };
+  },
+  created() {
+    let date = new DateTime();
+    this.currentDate.currentDate = date.getDate();
+    this.currentDate.currentTime = date.getTime();
+    this.currentDate.currentWeek = date.getWeek();
   },
   mounted() {
     this.$f7ready(f7 => {
@@ -157,9 +163,8 @@ export default {
   align-content: center;
   align-items: center;
 
-  .img-news {
-    width: 20px;
-    height: 20px;
+  .today-time {
+    color: #333;
   }
 
   .img-exit {
