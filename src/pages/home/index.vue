@@ -17,12 +17,8 @@
           <f7-card>
             <f7-row class="card-padding">
               <f7-col width="100" class="time-mark">今天是:</f7-col>
-              <f7-col width="100" class="week">{{
-                currentDate.currentWeek
-              }}</f7-col>
-              <f7-col width="100" class="date">{{
-                currentDate.currentDate
-              }}</f7-col>
+              <f7-col width="100" class="week">{{currentDate.currentWeek}}</f7-col>
+              <f7-col width="100" class="date">{{currentDate.currentDate}}</f7-col>
             </f7-row>
           </f7-card>
         </f7-col>

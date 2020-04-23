@@ -389,8 +389,7 @@ export default {
       }
       var newProject = {
         title: "项目管理-" + newProjectNo,
-        imgSelectedUrl: require("../../assets/icon_daily_project_selected.png"),
-        imgNormalUrl: require("../../assets/icon_daily_project_normal.png"),
+        imgUrl: require("../../assets/icon_daily_project.png"),
         link: "/daily-project-currency/"
       };
       //3.再新增一条记录

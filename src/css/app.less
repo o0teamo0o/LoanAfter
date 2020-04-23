@@ -1,7 +1,7 @@
 @appbar-height: 44px; //导航条高度
 @menu-width: 180px;
 @main-color: #1CC88A;
-@main-focus-color: rgb(26, 180, 124);
+@main-focus-color: #17a471;
 
 .appbar-inner {
   background-color: white;
@@ -274,6 +274,34 @@ span.input-clear-button {
   border-color: @main-focus-color;
 }
 
+
+.el-upload--picture-card:hover,
+.el-upload:focus {
+  border-color: @main-focus-color;
+}
+
+.el-date-table td.today span {
+  color: @main-color;
+}
+
+.el-radio__input.is-checked .el-radio__inner {
+  background: @main-focus-color;
+  border-color: @main-focus-color;
+}
+
+.el-radio__input.is-checked+.el-radio__label {
+  color: @main-color;
+}
+
+.el-checkbox__input.is-focus .el-checkbox__inner {
+  border-color: @main-color;
+}
+
+.el-date-table td.current:not(.disabled) span {
+  background-color: @main-color;
+}
+
+.el-textarea__inner:focus,
 .el-button--primary:focus,
 .el-button--primary:hover {
   border-color: @main-color;
@@ -281,6 +309,28 @@ span.input-clear-button {
 
 .el-pagination.is-background .el-pager li:not(.disabled).active {
   background-color: @main-color;
+}
+
+.el-checkbox__input.is-checked+.el-checkbox__label {
+  color: @main-color;
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner,
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  background-color: @main-color;
+  border-color: @main-color;
+}
+
+.el-button--primary.is-disabled,
+.el-button--primary.is-disabled:active,
+.el-button--primary.is-disabled:focus,
+.el-button--primary.is-disabled:hover {
+  background-color: #2be1a0;
+  border-color: #2be1a0;
+}
+
+.el-checkbox__inner:hover {
+  border-color: @main-color;
 }
 
 /**主题颜色设置*/

@@ -407,6 +407,8 @@ export default {
       queryInfo.checkType = this.checkType;
       queryInfo.taskType = this.taskType;
       console.error(queryInfo);
+
+      
     },
 
     /**
