@@ -43,11 +43,12 @@
               <f7-row class="item-layout">
                 <f7-col width="50" class="title">
                   <i class="ignore">*</i>
-                  <span class="hint">检查类型</span>
+                  <span class="hint">客户编号</span>
                   <el-input
                     clearable
-                    disabled
-                    placeholder="资金用途检查"
+                    v-model="customerNo"
+                    :value="customerNo"
+                    placeholder="请输入客户编号"
                   ></el-input>
                 </f7-col>
                 <f7-col width="50" class="title">

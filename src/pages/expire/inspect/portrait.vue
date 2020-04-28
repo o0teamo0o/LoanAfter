@@ -17,7 +17,7 @@
       <div class="production-layout">
         <f7-row class="item-layout">
           <f7-col width="20" class="key">
-            <i class="keynote">*&nbsp;&nbsp;</i>业务到期证明资料:
+            <i class="keynote">*&nbsp;&nbsp;</i>还款来源证明资料:
           </f7-col>
           <f7-col width="80">
             <el-upload

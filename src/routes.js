@@ -34,6 +34,7 @@ import DailyRiskPage from './pages/daily/inspect/risk.vue'; //日常任务-风�
 import DailyInspectPage from './pages/daily/inspect/inspect.vue'; //日常任务-检查结论通用页面
 import DailyStatusPage from './pages/daily/inspect/status.vue'; //日常任务-事业法人-行业地位页面
 import DailyPortraitPage from './pages/daily/inspect/portrait.vue'; //日常任务-影像资料通用页面
+import DailyOtherPage from './pages/daily/inspect/other.vue'; //日常任务-个人消费类贷款-客户其他信息页面
 
 /*** 到期检查页面 ***/
 import ExpireTaskPage from './pages/expire/index.vue';

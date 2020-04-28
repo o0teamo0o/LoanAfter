@@ -16,6 +16,15 @@
 
     <f7-card class="production-layout">
       <f7-row class="item-layout">
+        <f7-col width="25" class="key">
+          <i class="keynote">*&nbsp;&nbsp;</i>是否录入项目管理情况:
+        </f7-col>
+        <f7-col width="25">
+          <el-radio-group v-model="inputManagement">
+            <el-radio label="是">是</el-radio>
+            <el-radio label="否">否</el-radio>
+          </el-radio-group>
+        </f7-col>
         <f7-col width="15" class="key">
           <i class="keynote">*&nbsp;&nbsp;</i>项目名称:
         </f7-col>
@@ -27,15 +36,6 @@
             clearable
             placeholder="请输入项目名称"
           ></el-input>
-        </f7-col>
-        <f7-col width="25" class="key">
-          <i class="keynote">*&nbsp;&nbsp;</i>是否录入项目管理情况:
-        </f7-col>
-        <f7-col width="25">
-          <el-radio-group v-model="inputManagement">
-            <el-radio label="是">是</el-radio>
-            <el-radio label="否">否</el-radio>
-          </el-radio-group>
         </f7-col>
       </f7-row>
     </f7-card>
