@@ -119,6 +119,10 @@
             min-width="120"
           ></el-table-column>
           <el-table-column
+            label="客户类别"
+            min-width="120"
+          ></el-table-column>
+          <el-table-column
             prop="jclx"
             label="日常检查类型"
             min-width="120"
